@@ -1,0 +1,106 @@
+City: "Belgrade"
+Arena: "Pionir"
+Date: "02.02.2016."
+Time: "19:30h"
+
+Crew Chief: 
+	First name: "Luigi"
+	Last name: "LaMonica"
+	Country: "Italy"
+
+Referee: 
+	First name: "Luigi1"
+	Last name: "LaMonica1"
+	Country: "Italy1"
+
+Umpire: 
+	First name: "Luigi2"
+	Last name: "LaMonica2"
+	Country: "Italy2"
+
+Home team:
+	Name: "Crvena Zvezda"
+	Players:
+		Number: 24
+		First name: "Stefan" 
+		Last name: "Jovic"
+		Nationality: "SRB"
+		Position: PG
+		
+		Number: 10
+		First name: "Branko" 
+		Last name: "Lazic"
+		Nationality: "SRB"
+		Position: SG
+		
+		Number: 1
+		First name: "Tarence" 
+		Last name: "Kinsey"
+		Nationality: "USA"
+		Position: SF
+		
+		Number: 30
+		First name: "Quincy" 
+		Last name: "Miller"
+		Nationality: "USA"
+		Position: PF
+		
+		Number:	33
+		First name: "Maik" 
+		Last name: "Zirbes"
+		Nationality: "GER"
+		Position: C
+	
+	Head coach:
+		First name: "Dejan"
+		Last name: "Radonjic"
+		Nationality: "MNT"
+		
+Away team:
+	Name: "Red Star"
+	Players:
+		Number: 24
+		First name: "Stefan" 
+		Last name: "Jovic"
+		Nationality: "SRB"
+		Position: PG
+		
+		Number: 10
+		First name: "Branko" 
+		Last name: "Lazic"
+		Nationality: "SRB"
+		Position: SG
+		
+		Number: 1
+		First name: "Tarence" 
+		Last name: "Kinsey"
+		Nationality: "USA"
+		Position: SF
+		
+		Number: 30
+		First name: "Quincy" 
+		Last name: "Miller"
+		Nationality: "USA"
+		Position: PF
+		
+		Number:	33
+		First name: "Maik" 
+		Last name: "Zirbes"
+		Nationality: "GER"
+		Position: C
+	
+	Head coach:
+		First name: "Dejan"
+		Last name: "Radonjic"
+		Nationality: "MNT"
+
+Quarter 1
+	Start
+		FT Home 3 True
+		FT Away 4 False
+		3P Away 99 True
+	End
+
+Over Time 1
+	Start
+	End

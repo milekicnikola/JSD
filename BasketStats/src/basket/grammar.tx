@@ -1,0 +1,121 @@
+Game:
+	info=GameInfo
+	periods += Period
+;
+
+GameInfo:
+	 'City:' city=STRING
+	 'Arena:' arena=STRING
+	 'Date:' date=STRING
+	 'Time:' time=STRING
+	 Referees=Referees
+	 homeTeam=HomeTeam
+	 awayTeam=AwayTeam
+;
+
+Referees:
+	first=CrewChief second=Referee third=Umpire
+;
+
+CrewChief:
+	'Crew Chief:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Country:' country=STRING
+;
+
+Referee:
+	'Referee:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Country:' country=STRING
+;
+
+Umpire:
+	'Umpire:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Country:' country=STRING
+;
+
+HomeTeam:
+	'Home team:'
+	'Name:' name=STRING
+	'Players:'
+	players+=Player
+	'Head coach:'
+	coach=Coach
+;
+
+AwayTeam:
+	'Away team:'
+	'Name:' name=STRING
+	'Players:'
+	players+=Player
+	'Head coach:'
+	coach=Coach
+;
+
+Player:
+	'Number:' number=INT
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+	'Position:' position=Position
+;
+
+Position:
+	'PG' | 'SG' | 'SF' | 'PF' | 'C'
+;
+
+Coach:
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+;
+
+Period:	
+	periodType=PeriodType
+	'Start'
+	events *= Event
+	'End'
+;
+
+PeriodType:
+	'Quarter 1' | 'Quarter 2' |	'Quarter 3' | 'Quarter 4' | OT=OT
+	
+;
+
+OT:
+	'Over Time' number=INT
+;
+
+Event:
+	FreeThrow | TwoPoints | ThreePoints
+;
+
+Team:
+	'Home' | 'Away'
+;
+
+FreeThrow:
+	'FT'
+	team=Team
+	player=INT
+	made=BOOL
+;
+
+TwoPoints:
+	'2P'
+	team=Team
+	player=INT
+	made=BOOL
+;
+
+ThreePoints:
+	'3P'
+	team=Team
+	player=INT
+	made=BOOL
+;
+	

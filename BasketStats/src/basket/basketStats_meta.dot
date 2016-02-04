@@ -1,0 +1,90 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    edge[dir=black,arrowtail=empty]
+
+
+52162608 -> 52163080[arrowtail=diamond, dir=both, headlabel="periodType "]
+52162608 -> 52164024[arrowtail=diamond, dir=both, headlabel="events 0..*"]
+52162608[ label="{Period|}"]
+
+52164968[ label="{FreeThrow|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+52143072[ label="{Umpire|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+
+52142600[ label="{Referee|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+
+52091712 -> 52092184[arrowtail=diamond, dir=both, headlabel="Referees "]
+52091712 -> 52143544[arrowtail=diamond, dir=both, headlabel="homeTeam "]
+52091712 -> 52144016[arrowtail=diamond, dir=both, headlabel="awayTeam "]
+52091712[ label="{GameInfo|+city:STRING\l+arena:STRING\l+date:STRING\l+time:STRING\l}"]
+
+52163552[ label="{OT|+number:INT\l}"]
+
+52144960[ label="{Position|PG\|SG\|SF\|PF\|C}"]
+
+52165440[ label="{TwoPoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+52092184 -> 52142128[arrowtail=diamond, dir=both, headlabel="first "]
+52092184 -> 52142600[arrowtail=diamond, dir=both, headlabel="second "]
+52092184 -> 52143072[arrowtail=diamond, dir=both, headlabel="third "]
+52092184[ label="{Referees|}"]
+
+52144488[ label="{Player|+number:INT\l+firstName:STRING\l+lastName:STRING\l+nat:STRING\l+position:Position\l}"]
+
+52145432[ label="{Coach|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+52142128[ label="{CrewChief|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+
+52163080 -> 52163552[arrowtail=diamond, dir=both, headlabel="OT "]
+52163080[ label="{PeriodType|}"]
+
+52144016 -> 52144488[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+52144016 -> 52145432[arrowtail=diamond, dir=both, headlabel="coach "]
+52144016[ label="{AwayTeam|+name:STRING\l}"]
+
+52143544 -> 52144488[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+52143544 -> 52145432[arrowtail=diamond, dir=both, headlabel="coach "]
+52143544[ label="{HomeTeam|+name:STRING\l}"]
+
+52164024[ label="{Event|}"]
+52164024 -> 52164968 [dir=back]
+52164024 -> 52165440 [dir=back]
+52164024 -> 52165912 [dir=back]
+
+52164496[ label="{Team|Home\|Away}"]
+
+52091240 -> 52091712[arrowtail=diamond, dir=both, headlabel="info "]
+52091240 -> 52162608[arrowtail=diamond, dir=both, headlabel="periods 1..*"]
+52091240[ label="{Game|}"]
+
+52165912[ label="{ThreePoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+42931168[ label="{STRING|}"]
+
+42931640[ label="{BOOL|}"]
+
+42933056[ label="{NUMBER|}"]
+42933056 -> 42932584 [dir=back]
+42933056 -> 42932112 [dir=back]
+
+42932112[ label="{INT|}"]
+
+42932584[ label="{FLOAT|}"]
+
+42933528[ label="{BASETYPE|}"]
+42933528 -> 42933056 [dir=back]
+42933528 -> 42931640 [dir=back]
+42933528 -> 42930696 [dir=back]
+42933528 -> 42931168 [dir=back]
+
+42930696[ label="{ID|}"]
+
+
+}
