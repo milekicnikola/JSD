@@ -66,7 +66,7 @@ Player:
 ;
 
 Position:
-	'PG' | 'SG' | 'SF' | 'PF' | 'C'
+	'PG' | 'SG' | 'SF' | 'PF' | 'C' | 'G' | 'F'
 ;
 
 Coach:
@@ -89,7 +89,7 @@ PeriodType:
 
 Event:
 	FreeThrow | TwoPoints | ThreePoints | Assist | PersonalFoul | TwoAndOne | ThreeAndOne |
-	Turnover | Steal | Block | OffensiveRebound | DefensiveRebound
+	Turnover | Steal | Block | OffensiveRebound | DefensiveRebound | TehnicalFoulTeam | TehnicalFoulCoach | UnsportsmanlikeFoul
 ;
 
 Team:
@@ -177,4 +177,20 @@ DefensiveRebound:
 	'DREB'
 	team=Team
 	player=INT
-;	
+;
+
+TehnicalFoulTeam:
+	'TFT'
+	team=Team
+;
+
+TehnicalFoulCoach:
+	'TFC'
+	team=Team
+;
+
+UnsportsmanlikeFoul:
+	'UF'
+	team=Team
+	player=INT
+;

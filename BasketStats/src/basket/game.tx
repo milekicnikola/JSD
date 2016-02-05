@@ -22,11 +22,24 @@ Umpire:
 Home team:
 	Name: "Crvena Zvezda"
 	Players:
-		Number: 24
-		First name: "Stefan" 
-		Last name: "Jovic"
+	
+		Number: 1
+		First name: "Tarence" 
+		Last name: "Kinsey"
+		Nationality: "USA"
+		Position: SF
+		
+		Number: 4
+		First name: "Nikola" 
+		Last name: "Rebic"
 		Nationality: "SRB"
 		Position: PG
+		
+		Number: 6
+		First name: "Nemanja" 
+		Last name: "Dangubic"
+		Nationality: "SRB"
+		Position: F
 		
 		Number: 10
 		First name: "Branko" 
@@ -34,11 +47,35 @@ Home team:
 		Nationality: "SRB"
 		Position: SG
 		
-		Number: 1
-		First name: "Tarence" 
-		Last name: "Kinsey"
-		Nationality: "USA"
-		Position: SF
+		Number: 13
+		First name: "Vasilije" 
+		Last name: "Micic"
+		Nationality: "SRB"
+		Position: PG		
+		
+		Number: 15
+		First name: "Marko" 
+		Last name: "Tejic"
+		Nationality: "SRB"
+		Position: PF
+		
+		Number: 19
+		First name: "Marko" 
+		Last name: "Simonovic"
+		Nationality: "SRB"
+		Position: F
+		
+		Number: 23
+		First name: "Marko" 
+		Last name: "Guduric"
+		Nationality: "SRB"
+		Position: SG
+		
+		Number: 24
+		First name: "Stefan" 
+		Last name: "Jovic"
+		Nationality: "SRB"
+		Position: G		
 		
 		Number: 30
 		First name: "Quincy" 
@@ -51,20 +88,38 @@ Home team:
 		Last name: "Zirbes"
 		Nationality: "GER"
 		Position: C
+		
+		Number:	51
+		First name: "Vladimir" 
+		Last name: "Stimac"
+		Nationality: "SRB"
+		Position: C
 	
 	Head coach:
 		First name: "Dejan"
 		Last name: "Radonjic"
-		Nationality: "ME"
+		Nationality: "MNE"
 		
 Away team:
 	Name: "Golden State"
-	Players:
-		Number: 30
-		First name: "Stephen" 
-		Last name: "Curry"
+	Players:		
+		Number: 4
+		First name: "Brandon" 
+		Last name: "Rush"
 		Nationality: "USA"
-		Position: PG
+		Position: SG
+		
+		Number: 5
+		First name: "Marreese" 
+		Last name: "Speights"
+		Nationality: "USA"
+		Position: PF
+		
+		Number: 9
+		First name: "Andre" 
+		Last name: "Igoudala"
+		Nationality: "USA"
+		Position: SF
 		
 		Number: 11
 		First name: "Klay" 
@@ -72,11 +127,23 @@ Away team:
 		Nationality: "USA"
 		Position: SG
 		
-		Number: 40
-		First name: "Harrison" 
-		Last name: "Barnes"
+		Number:	12
+		First name: "Andrew" 
+		Last name: "Bogut"
+		Nationality: "AUS"
+		Position: C
+		
+		Number: 19
+		First name: "Leandro" 
+		Last name: "Barbosa"
+		Nationality: "BRA"
+		Position: SG
+		
+		Number: 21
+		First name: "Ian" 
+		Last name: "Clark"
 		Nationality: "USA"
-		Position: SF
+		Position: G
 		
 		Number: 23
 		First name: "Draymond" 
@@ -84,16 +151,34 @@ Away team:
 		Nationality: "USA"
 		Position: PF
 		
-		Number:	12
-		First name: "Andrew" 
-		Last name: "Bogut"
-		Nationality: "AUS"
+		Number: 30
+		First name: "Stephen" 
+		Last name: "Curry"
+		Nationality: "USA"
+		Position: PG
+		
+		Number: 31
+		First name: "Festus" 
+		Last name: "Ezeli"
+		Nationality: "NGR"
 		Position: C
+		
+		Number: 34
+		First name: "Shaun" 
+		Last name: "Livingston"
+		Nationality: "USA"
+		Position: SG	
+		
+		Number: 40
+		First name: "Harrison" 
+		Last name: "Barnes"
+		Nationality: "USA"
+		Position: SF				
 	
 	Head coach:
 		First name: "Steve"
 		Last name: "Kerr"
-		Nationality: "LB"
+		Nationality: "LIB"
 
 Quarter 1
 	Start
@@ -101,8 +186,11 @@ Quarter 1
 		FT Away 23 False
 		3P Away 11 True
 		PF Away 12 33 0
-		2P+1 Home 1 40
+		TFT Away
+		TFT Home
+		2P+1 Home 1 40		
 		FT Home 1 True
+		BLK Away 31 51
 	End
 
 Quarter 2
@@ -110,23 +198,36 @@ Quarter 2
 		3P+1 Home 30 30
 		FT Home 30 False
 		2P Home 33 True AST 24
-		2P Away 12 False		
+		PF Home 6 21 2
+		2P Away 12 False
+		OREB Away 31		
 	End
 	
 Quarter 3
 	Start
 		OREB Away 30
+		3P Home 4 True
+		UF Away 12
 		DREB Home 10
+		PF Away 31 1 3
+		2P Away 19 False
 	End
 
 Quarter 4
 	Start
 		BLK Home 33 12
+		3P Away 30 False
+		2P Away 12 False
+		PF Home 33 30 0
+		2P Away 40 True
 	End
 	
 Over Time 1
 	Start
+		TFC Home
 		TO Away 30
+		2P+1 Away 30 24
+		FT Away 30 True
 		STL Home 24
-		
+		DREB Home 6		
 	End
