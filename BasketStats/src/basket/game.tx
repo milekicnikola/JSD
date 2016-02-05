@@ -2,6 +2,7 @@ City: "Belgrade"
 Arena: "Pionir"
 Date: "02.02.2016."
 Time: "19:30h"
+Attendance: 20420
 
 Crew Chief: 
 	First name: "Luigi"
@@ -9,14 +10,14 @@ Crew Chief:
 	Country: "Italy"
 
 Referee: 
-	First name: "Luigi1"
-	Last name: "LaMonica1"
-	Country: "Italy1"
+	First name: "Ilija"
+	Last name: "Belosevic"
+	Country: "Serbia"
 
 Umpire: 
-	First name: "Luigi2"
-	Last name: "LaMonica2"
-	Country: "Italy2"
+	First name: "Pierluigi"
+	Last name: "Collina"
+	Country: "Italy"
 
 Home team:
 	Name: "Crvena Zvezda"
@@ -54,53 +55,78 @@ Home team:
 	Head coach:
 		First name: "Dejan"
 		Last name: "Radonjic"
-		Nationality: "MNT"
+		Nationality: "ME"
 		
 Away team:
-	Name: "Red Star"
+	Name: "Golden State"
 	Players:
-		Number: 24
-		First name: "Stefan" 
-		Last name: "Jovic"
-		Nationality: "SRB"
+		Number: 30
+		First name: "Stephen" 
+		Last name: "Curry"
+		Nationality: "USA"
 		Position: PG
 		
-		Number: 10
-		First name: "Branko" 
-		Last name: "Lazic"
-		Nationality: "SRB"
+		Number: 11
+		First name: "Klay" 
+		Last name: "Thompson"
+		Nationality: "USA"
 		Position: SG
 		
-		Number: 1
-		First name: "Tarence" 
-		Last name: "Kinsey"
+		Number: 40
+		First name: "Harrison" 
+		Last name: "Barnes"
 		Nationality: "USA"
 		Position: SF
 		
-		Number: 30
-		First name: "Quincy" 
-		Last name: "Miller"
+		Number: 23
+		First name: "Draymond" 
+		Last name: "Green"
 		Nationality: "USA"
 		Position: PF
 		
-		Number:	33
-		First name: "Maik" 
-		Last name: "Zirbes"
-		Nationality: "GER"
+		Number:	12
+		First name: "Andrew" 
+		Last name: "Bogut"
+		Nationality: "AUS"
 		Position: C
 	
 	Head coach:
-		First name: "Dejan"
-		Last name: "Radonjic"
-		Nationality: "MNT"
+		First name: "Steve"
+		Last name: "Kerr"
+		Nationality: "LB"
 
 Quarter 1
 	Start
-		FT Home 3 True
-		FT Away 4 False
-		3P Away 99 True
+		FT Home 33 True
+		FT Away 23 False
+		3P Away 11 True
+		PF Away 12 33 0
+		2P+1 Home 1 40
+		FT Home 1 True
 	End
 
+Quarter 2
+	Start
+		3P+1 Home 30 30
+		FT Home 30 False
+		2P Home 33 True AST 24
+		2P Away 12 False		
+	End
+	
+Quarter 3
+	Start
+		OREB Away 30
+		DREB Home 10
+	End
+
+Quarter 4
+	Start
+		BLK Home 33 12
+	End
+	
 Over Time 1
 	Start
+		TO Away 30
+		STL Home 24
+		
 	End
