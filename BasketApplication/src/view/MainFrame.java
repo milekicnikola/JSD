@@ -12,6 +12,9 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.DropMode;
+import javax.swing.JTable;
+import javax.swing.JList;
 
 public class MainFrame extends JFrame {
 
@@ -34,7 +37,8 @@ public class MainFrame extends JFrame {
 	private JTextField tfFirstNameUmpire;
 	private JTextField tfLastNameUmpire;
 	private JTextField tfCountryUmpire;
-	private JTextArea taGameInfoCode;
+	private JTextField tfHomeName;
+	private JTextField tfCoachHome;
 
 	
 
@@ -51,8 +55,17 @@ public class MainFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(12, 50, 865, 513);
+		tabbedPane.setBounds(12, 50, 865, 450);
 		contentPane.add(tabbedPane);
+		
+		JPanel panelTools = new JPanel();
+		panelTools.setBounds(12, 0, 876, 55);
+		contentPane.add(panelTools);
+		panelTools.setLayout(null);
+		
+		JButton btnNewGame = new JButton("New game");
+		btnNewGame.setBounds(0, 12, 117, 25);
+		panelTools.add(btnNewGame);
 		
 		
 		JPanel panelGameInfo = new JPanel();
@@ -198,57 +211,44 @@ public class MainFrame extends JFrame {
 		panelGameInfo.add(tfCountryUmpire);
 		
 		
-		
-		 taGameInfoCode = new JTextArea();
-		 taGameInfoCode.setFont(new Font("Courier 10 Pitch", Font.ITALIC, 12));
-		taGameInfoCode.setBounds(433, 20, 415, 338);
-		panelGameInfo.add(taGameInfoCode);
-		
-		JPanel panelTools = new JPanel();
-		panelTools.setBounds(12, 0, 876, 55);
-		contentPane.add(panelTools);
-		panelTools.setLayout(null);
-		
-		JButton btnNewGame = new JButton("New game");
-		btnNewGame.setBounds(0, 12, 117, 25);
-		panelTools.add(btnNewGame);
-		
-		JButton btnTranslate = new JButton("Translate");
-		btnTranslate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				taGameInfoCode.setText(
-						"City: "+tfCity.getText()+"\n"+
-						"Arena: "+tfArena.getText()+"\n"+
-						"Date: "+tfDate.getText()+"\n"+
-						"Time: "+tfTime.getText()+"\n"+
-						"Attendance: "+tfAttendance.getText()+"\n"+
-						"Crew chief:\n\t"+
-						"First name: "+tfFirstNameCrewChief.getText()+"\n\t"+
-						"Last name: "+tfLastNameCrewChief.getText()+"\n\t"+
-						"Country: "+tfCountryCrewChief.getText()+"\n"+
-						"Referee:\n\t"+
-						"First name: "+tfFirstNameReferee.getText()+"\n\t"+
-						"Last name: "+tfLastNameReferee.getText()+"\n\t"+
-						"Country: "+tfCountryReferee.getText()+"\n"+
-						"Umpire:\n\t"+
-						"First name: "+tfFirstNameUmpire.getText()+"\n\t"+
-						"Last name: "+tfLastNameUmpire.getText()+"\n\t"+
-						"Country: "+tfCountryUmpire.getText()+"\n"
-						);
-			}
-		});
-		btnTranslate.setBounds(283, 369, 117, 25);
-		panelGameInfo.add(btnTranslate);
-		
-		
 		JPanel panelHome = new JPanel();
 		tabbedPane.addTab("Home team", null, panelHome, null);
+		panelHome.setLayout(null);
+		
+		JLabel lblNameHome = new JLabel("Name:");
+		lblNameHome.setBounds(12, 20, 70, 15);
+		panelHome.add(lblNameHome);
+		
+		tfHomeName = new JTextField();
+		tfHomeName.setBounds(150, 18, 250, 19);
+		panelHome.add(tfHomeName);
+		tfHomeName.setColumns(10);
+		
+		JList listHome = new JList();
+		listHome.setBounds(150, 48, 250, 200);
+		panelHome.add(listHome);
+		
+		JLabel lblPlayersHome = new JLabel("Players:");
+		lblPlayersHome.setBounds(12, 40, 70, 15);
+		panelHome.add(lblPlayersHome);
+		
+		JButton btnAddPlayer = new JButton("Add player");
+		btnAddPlayer.setBounds(283, 260, 117, 25);
+		panelHome.add(btnAddPlayer);
+		
+		JLabel lblCoachHome = new JLabel("Coach:");
+		lblCoachHome.setBounds(12, 308, 70, 15);
+		panelHome.add(lblCoachHome);
+		
+		tfCoachHome = new JTextField();
+		tfCoachHome.setBounds(150, 306, 250, 19);
+		panelHome.add(tfCoachHome);
+		tfCoachHome.setColumns(10);
+		
+		
 		
 		JPanel panelAway = new JPanel();
 		tabbedPane.addTab("Away team", null, panelAway, null);
-		
-		JPanel panelStats = new JPanel();
-		tabbedPane.addTab("Stats", null, panelStats, null);
 		
 		
 		
