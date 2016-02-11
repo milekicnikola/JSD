@@ -7,7 +7,13 @@ print(sys.version)
 
 ref1 = entities.Person("MIGUEL", "PEREZ", "ESP")
 print(ref1.first_name)
-print(ref1.full_name())
+print(ref1.getFullName())
+
+player1 = entities.Player("KINSEY", "TARENCE", nationality="USA",
+    number=1, position=entities.Position.PG)
+print(player1.getFullName())
+print(player1.getPlayerSignature())
+print(player1.getPlayerSignatureWithPosition())
 
 # Jinja2 Test
 from jinja2 import Template
