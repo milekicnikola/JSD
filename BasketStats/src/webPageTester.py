@@ -35,7 +35,7 @@ print(env.loader.searchpath)
 template = env.get_template('statsTemplate.html');
 output_from_parsed_template = \
     template.render(attendance='1311', \
-    referees=[ref1.getFullName(), ref2.getFullName(), ref3.getFullName()])
+    referees=[ref1.getFullNameWithNationality(), ref2.getFullNameWithNationality(), ref3.getFullNameWithNationality()])
 
 with open('generatedStats.html', 'w') as f:
     f.write(output_from_parsed_template)

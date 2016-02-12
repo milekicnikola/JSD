@@ -19,6 +19,9 @@ class Person:
     def getFullName(self):
         return self.first_name + ' ' + self.last_name
 
+    def getFullNameWithNationality(self):
+        return self.getFullName() + ' (' + self.nationality + ')'
+
 class GameInfo:
 
     def __init__(self, city, arena, date, time, attendance, crew_chief, referee, umpire):
@@ -39,12 +42,45 @@ class Player(Person):
         self.nationality = nationality
         self.number = number
         self.position = position
+        self.time_played = '00:00'
+        self.points = 0
+        self.field_goals_made = 0
+        self.field_goals_attempted = 0
+        self.three_points_made = 0
+        self.three_points_attempted = 0
+        self.free_throws_made = 0
+        self.free_throws_attempted = 0
+        self.rebounds_offensive = 0
+        self.rebounds_deffensive = 0
+        self.assists = 0
+        self.steals = 0
+        self.turnovers = 0
+        self.blocks_in_favor = 0
+        self.blocks_against = 0
+        self.fouls_commited = 0
+        self.fouls_received = 0
+
 
     def getPlayerSignature(self):
         return '#' + str(self.number) + ' ' + self.last_name
 
     def getPlayerSignatureWithPosition(self):
         return self.getPlayerSignature() + ', ' + self.position.value
+
+    def getTotalRebounds(self):
+        return self.rebounds_deffensive + self.rebounds_offensive
+
+    def getFieldGoalsMA(self):
+        return str(self.field_goals_made) + '/' + str(self.field_goals_attempted)
+
+    def getFreeThrowsMA(self):
+        return str(self.free_throws_made) + '/' + str(self.free_throws_attempted)
+
+    def getThreePointsMA(self):
+        return str(self.three_points_made) + '/' + str(self.three_points_attempted)
+
+    def getFullName(self):
+        return self.last_name + ', ' + self.first_name
 
 class Team:
 
