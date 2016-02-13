@@ -19,6 +19,9 @@ class Person:
     def getFullName(self):
         return self.first_name + ' ' + self.last_name
 
+    def getFullNameFormatted(self):
+        return self.last_name + ', ' + self.first_name
+
     def getFullNameWithNationality(self):
         return self.getFullName() + ' (' + self.nationality + ')'
 
@@ -79,8 +82,22 @@ class Player(Person):
     def getThreePointsMA(self):
         return str(self.three_points_made) + '/' + str(self.three_points_attempted)
 
-    def getFullName(self):
-        return self.last_name + ', ' + self.first_name
+    def getMissedFieldGoals(self):
+        return self.field_goals_attempted - self.field_goals_made
+
+    def getMissedFreeThrows(self):
+        return self.free_throws_attempted - self.free_throws_made
+
+    def getMissedThreePoints(self):
+        return self.three_points_attempted - self.three_points_made
+
+    '''(Points + Rebounds + Assists + Steals + Blocks + Fouls Drawn)
+        - (Missed Field Goals + Missed Free Throws + Turnovers + Shots Rejected + Fouls Committed)'''
+    def getPerformanceIndexRating(self):
+        return (self.points + self.getTotalRebounds() + self.assists \
+            + self.steals + self.blocks_in_favor + self.fouls_received) - \
+            (self.getMissedFieldGoals() + self.getMissedFreeThrows() + self.turnovers + \
+            self.blocks_against + self.fouls_commited)
 
 class Team:
 

@@ -62,6 +62,12 @@
         width: 100%;
         text-align: center;
     }
+
+    .centered-text-label {
+        width: 100%;
+        text-align: center;
+    }
+
     </style>
   </head>
   <body>
@@ -87,14 +93,14 @@
                         <th scope="col">4</th>
             		</tr>
                     <tr>
-            			<td>Crvena Zvezda Telekom Belgrade</td>
+            			<td>{{game.home_team.name}}</td>
                         <td>33</td>
                         <td>17</td>
                         <td>17</td>
                         <td>13</td>
             		</tr>
                     <tr>
-            			<td>Lokomotiv Kuban Krasnodar</td>
+            			<td>{{game.away_team.name}}</td>
                         <td>21</td>
                         <td>16</td>
                         <td>17</td>
@@ -114,14 +120,14 @@
                         <th scope="col">4</th>
             		</tr>
                     <tr>
-            			<td>Crvena Zvezda Telekom Belgrade</td>
+            			<td>{{game.home_team.name}}</td>
                         <td>33</td>
                         <td>50</td>
                         <td>67</td>
                         <td>80</td>
             		</tr>
                     <tr>
-            			<td>Lokomotiv Kuban Krasnodar</td>
+            			<td>{{game.away_team.name}}</td>
                         <td>21</td>
                         <td>37</td>
                         <td>54</td>
@@ -133,7 +139,7 @@
       </div>
 
       <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE</label>
+          <label for="#homeTeamTable" class="team-name-label">{{game.home_team.name.upper()}}</label>
           <table class="table table-responsive table-hover" id="homeTeamTable">
               <thead>
                     <tr class="sub-header">
@@ -174,6 +180,28 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for p in game.home_team.players %}
+                    <tr>
+                    	<td>{{p.number}}</td>
+                    	<td>{{p.getFullNameFormatted()}}</td>
+                    	<td>{{p.time_played}}</td>
+                    	<td>{{p.points}}</td>
+                    	<td>{{p.getFieldGoalsMA()}}</td>
+                    	<td>{{p.getThreePointsMA()}}</td>
+                    	<td>{{p.getFreeThrowsMA()}}</td>
+                    	<td>{{p.rebounds_offensive}}</td>
+                    	<td>{{p.rebounds_deffensive}}</td>
+                    	<td>{{p.getTotalRebounds()}}</td>
+                    	<td>{{p.assists}}</td>
+                    	<td>{{p.steals}}</td>
+                    	<td>{{p.turnovers}}</td>
+                    	<td>{{p.blocks_in_favor}}</td>
+                    	<td>{{p.blocks_against}}</td>
+                    	<td>{{p.fouls_commited}}</td>
+                    	<td>{{p.fouls_received}}</td>
+                    	<td>{{p.getPerformanceIndexRating()}}</td>
+                    </tr>
+                    {% endfor %}
                     <tr>
                     	<td>1</td>
                     	<td>KINSEY, TARENCE</td>
@@ -216,10 +244,11 @@
                     </tr>
                 </tbody>
           </table>
+          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.home_team.coach.getFullNameFormatted()}}</span></label>
       </div>
 
       <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">LOKOMOTIV KUBAN KRASNODAR</label>
+          <label for="#homeTeamTable" class="team-name-label">{{game.away_team.name.upper()}}</label>
           <table class="table table-responsive table-hover" id="homeTeamTable">
               <thead>
                     <tr class="sub-header">
@@ -260,48 +289,31 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for p in game.away_team.players %}
                     <tr>
-                    	<td>1</td>
-                    	<td>KINSEY, TARENCE</td>
-                    	<td>28:06</td>
-                    	<td>19</td>
-                    	<td>7/11</td>
-                    	<td>&nbsp;</td>
-                    	<td>5/6</td>
-                    	<td>&nbsp;</td>
-                    	<td>3</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>1</td>
-                    	<td>1</td>
-                    	<td>&nbsp;</td>
-                    	<td>1</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>21</td>
+                    	<td>{{p.number}}</td>
+                    	<td>{{p.getFullNameFormatted()}}</td>
+                    	<td>{{p.time_played}}</td>
+                    	<td>{{p.points}}</td>
+                    	<td>{{p.getFieldGoalsMA()}}</td>
+                    	<td>{{p.getThreePointsMA()}}</td>
+                    	<td>{{p.getFreeThrowsMA()}}</td>
+                    	<td>{{p.rebounds_offensive}}</td>
+                    	<td>{{p.rebounds_deffensive}}</td>
+                    	<td>{{p.getTotalRebounds()}}</td>
+                    	<td>{{p.assists}}</td>
+                    	<td>{{p.steals}}</td>
+                    	<td>{{p.turnovers}}</td>
+                    	<td>{{p.blocks_in_favor}}</td>
+                    	<td>{{p.blocks_against}}</td>
+                    	<td>{{p.fouls_commited}}</td>
+                    	<td>{{p.fouls_received}}</td>
+                    	<td>{{p.getPerformanceIndexRating()}}</td>
                     </tr>
-                    <tr>
-                    	<td>4</td>
-                    	<td>REBIC, NIKOLA</td>
-                    	<td>DNP</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
           </table>
+          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.away_team.coach.getFullNameFormatted()}}</span></label>
       </div>
 
       <div class="row top-buffer">

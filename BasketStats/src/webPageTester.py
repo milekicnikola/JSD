@@ -18,10 +18,15 @@ player2 = entities.Player("REBIC", "NIKOLA", nationality="SRB",
 
 homePlayers = [player1, player2]
 
-homeTeam = entities.Team(name="Crvena zvezda", coach='null', players=homePlayers)
+homeTeam = entities.Team(name="Crvena Zvezda Telekom Belgrade", coach='null', players=homePlayers)
+awayTeam = entities.Team(name="Lokomotiv Kuban Krasnodar", coach='null', players=homePlayers)
+
 gameInfo = entities.GameInfo(city="Belgrade", arena="Pionir", attendance=6479, \
     crew_chief=ref1, referee=ref2, umpire=ref3, date='13-Feb-2016', time='19:45')
-game = entities.Game(game_info=gameInfo, home_team=homeTeam, away_team='null')
+
+game = entities.Game(game_info=gameInfo, home_team=homeTeam, away_team=awayTeam)
+game.home_team.coach = entities.Person(first_name="DEJAN", last_name="RADONJIC", nationality="MNE")
+game.away_team.coach = entities.Person(first_name="GEORGIOS", last_name="BARTZOKAS", nationality="GRE")
 
 # Jinja2 Test
 '''from jinja2 import Template
