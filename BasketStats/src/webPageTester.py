@@ -12,9 +12,16 @@ ref3 = entities.Person("AARE ", "HALLIKO", "EST")
 
 player1 = entities.Player("KINSEY", "TARENCE", nationality="USA",
     number=1, position=entities.Position.PG)
-print(player1.getFullName())
-print(player1.getPlayerSignature())
-print(player1.getPlayerSignatureWithPosition())
+
+player2 = entities.Player("REBIC", "NIKOLA", nationality="SRB",
+    number=4, position=entities.Position.C)
+
+homePlayers = [player1, player2]
+
+homeTeam = entities.Team(name="Crvena zvezda", coach='null', players=homePlayers)
+gameInfo = entities.GameInfo(city="Belgrade", arena="Pionir", attendance=6479, \
+    crew_chief=ref1, referee=ref2, umpire=ref3, date='13-Feb-2016', time='19:45')
+game = entities.Game(game_info=gameInfo, home_team=homeTeam, away_team='null')
 
 # Jinja2 Test
 '''from jinja2 import Template
@@ -33,9 +40,10 @@ print(env.loader.list_templates())
 print(env.loader.searchpath)
 
 template = env.get_template('statsTemplate.html');
-output_from_parsed_template = \
+output_from_parsed_template = template.render(game=game)
+'''output_from_parsed_template = \
     template.render(attendance='1311', \
-    referees=[ref1.getFullNameWithNationality(), ref2.getFullNameWithNationality(), ref3.getFullNameWithNationality()])
+    referees=[ref1.getFullNameWithNationality(), ref2.getFullNameWithNationality(), ref3.getFullNameWithNationality()])'''
 
 with open('generatedStats.html', 'w') as f:
     f.write(output_from_parsed_template)

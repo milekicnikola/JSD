@@ -68,11 +68,11 @@
     <div class="container">
 
       <div class="row top-buffer">
-          <span style="font-weight:bold">Referee:</span> {% for ref in referees %}{{ref}}, {% endfor %}
+          <span style="font-weight:bold">Referee:</span> {{game.game_info.crew_chief.getFullNameWithNationality()}}, {{game.game_info.referee.getFullNameWithNationality()}}, {{game.game_info.umpire.getFullNameWithNationality() }}
       </div>
 
       <div class="row">
-          <span style="font-weight:bold">Attendance:</span> {{ attendance }}
+          <span style="font-weight:bold">Attendance:</span> {{ game.game_info.attendance }}
       </div>
 
       <div class="row top-buffer">
