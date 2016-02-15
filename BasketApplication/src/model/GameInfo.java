@@ -96,6 +96,14 @@ public class GameInfo {
 		this.umpire = umpire;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "GameInfo [city=" + city + ", arena=" + arena + ", date=" + date + ", time=" + time + ", attendance="
+				+ attendance + ", crewChief=" + crewChief + ", referee=" + referee + ", umpire=" + umpire + "]";
+	}
+
 	
 	
 	

@@ -1,13 +1,11 @@
 package model;
 
-enum Position {
-	PG, SG, SF, PF, C, G, F
-}
+
 
 public class Player extends Person {
 
 	private int number;
-	private Position position;
+	private String position;
 
 	public Player() {
 		super();
@@ -16,7 +14,7 @@ public class Player extends Person {
 	
 	
 	
-	public Player(String firstName, String lastName, String nationality, int number, Position position) {
+	public Player(String firstName, String lastName, String nationality, int number, String position) {
 		super(firstName, lastName, nationality);
 		this.number = number;
 		this.position = position;
@@ -33,13 +31,24 @@ public class Player extends Person {
 		this.number = number;
 	}
 
-	public Position getPosition() {
+	public String getPosition() {
 		return position;
 	}
 
-	public void setPosition(Position position) {
+	public void setPosition(String position) {
 		this.position = position;
 	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "[#" + number + ", " + position + ", " + getFirstName()
+				+ " " + getLastName() + ", " + getNationality()+"]";
+	}
+	
+	
 	
 	
 

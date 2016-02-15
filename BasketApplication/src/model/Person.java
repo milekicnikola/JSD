@@ -45,4 +45,11 @@ public class Person {
 		this.nationality = nationality;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", nationality=" + nationality + "]";
+	}
+
 }

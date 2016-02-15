@@ -1,9 +1,11 @@
 package model;
 
+import java.util.Arrays;
+
 public class Team {
 	
 	private String name;
-	private Player[] players=new Player[11];
+	private Player[] players=new Player[12];
 	private Person coach;
 	public Team() {
 		super();
@@ -38,6 +40,16 @@ public class Team {
 		this.coach = coach;
 	}
 	
+	public void addPlayer(int index,Player p){
+		players[index]=p;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Team [name=" + name + ", players=" + Arrays.toString(players) + ", coach=" + coach + "]";
+	}
 	
 	
 	
