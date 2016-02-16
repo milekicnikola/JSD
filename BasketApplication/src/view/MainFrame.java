@@ -330,7 +330,7 @@ public class MainFrame extends JFrame {
 		panelHome.add(tfNationalityPlayer);
 
 		cbNumberPlayer = new JComboBox<Integer>();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 1; i < 100; i++) {
 
 			cbNumberPlayer.addItem(i);
 		}
@@ -451,7 +451,7 @@ public class MainFrame extends JFrame {
 
 		cbNumberPlayerAway = new JComboBox<Integer>();
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 1; i < 100; i++) {
 
 			cbNumberPlayerAway.addItem(i);
 		}

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Period {
 	
-	List<Event> events=new ArrayList<>();
+	private List<Event> events=new ArrayList<>();
 
 	public List<Event> getEvents() {
 		return events;
@@ -18,6 +18,13 @@ public class Period {
 	public Period() {
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Period [events=" + events + "]";
+	}
+
+	
 	
 	
 
