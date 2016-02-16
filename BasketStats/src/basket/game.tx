@@ -185,20 +185,20 @@ Quarter 1
 		FT Home 33 True
 		FT Away 23 False
 		3P Away 11 True
-		PF Away 12 33 0
+		PF Away 12 33
 		TFT Away
 		TFT Home
-		2P+1 Home 1 40		
+		2P Home 1 True 		
 		FT Home 1 True
 		BLK Away 31 51
 	End
 
 Quarter 2
 	Start
-		3P+1 Home 30 30
+		3P Home 30 True
 		FT Home 30 False
 		2P Home 33 True AST 24
-		PF Home 6 21 2
+		PF Home 6 21
 		2P Away 12 False
 		OREB Away 31		
 	End
@@ -209,7 +209,7 @@ Quarter 3
 		3P Home 4 True
 		UF Away 12
 		DREB Home 10
-		PF Away 31 1 3
+		PF Away 31 1
 		2P Away 19 False
 	End
 
@@ -218,15 +218,16 @@ Quarter 4
 		BLK Home 33 12
 		3P Away 30 False
 		2P Away 12 False
-		PF Home 33 30 0
+		PF Home 33 30
 		2P Away 40 True
+		TFP Away 40
 	End
 	
 Over Time 1
 	Start
 		TFC Home
 		TO Away 30
-		2P+1 Away 30 24
+		2P Away 30 True
 		FT Away 30 True
 		STL Home 24
 		DREB Home 6		

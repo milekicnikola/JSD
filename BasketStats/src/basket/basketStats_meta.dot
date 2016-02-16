@@ -10,117 +10,112 @@
     edge[dir=black,arrowtail=empty]
 
 
-57291744[ label="{Event|}"]
-57291744 -> 57292688 [dir=back]
-57291744 -> 57293160 [dir=back]
-57291744 -> 57293632 [dir=back]
-57291744 -> 57309072 [dir=back]
-57291744 -> 57294104 [dir=back]
-57291744 -> 57307184 [dir=back]
-57291744 -> 57307656 [dir=back]
-57291744 -> 57308128 [dir=back]
-57291744 -> 57308600 [dir=back]
-57291744 -> 57309544 [dir=back]
-57291744 -> 57310016 [dir=back]
-57291744 -> 57310488 [dir=back]
-57291744 -> 57327664 [dir=back]
-57291744 -> 57328136 [dir=back]
-57291744 -> 57328608 [dir=back]
+56286016[ label="{Steal|+team:Team\l+player:INT\l}"]
 
-57293632 -> 57309072[arrowtail=diamond, dir=both, headlabel="ast "]
-57293632[ label="{ThreePoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+56283184[ label="{Team|Home\|Away}"]
 
-57292688[ label="{FreeThrow|+team:Team\l+player:INT\l+made:BOOL\l}"]
+56300984[ label="{TehnicalFoulTeam|+team:Team\l}"]
 
-57290800 -> 57291744[arrowtail=diamond, dir=both, headlabel="events 0..*"]
-57290800[ label="{Period|+type:PeriodType\l+number:INT\l}"]
+56285544[ label="{Turnover|+team:Team\l+player:INT\l}"]
 
-57267168[ label="{Umpire|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+56260968 -> 56261912[arrowtail=diamond, dir=both, headlabel="events 0..*"]
+56260968[ label="{Period|+type:PeriodType\l+number:INT\l}"]
 
-57291272[ label="{PeriodType|Quarter\|Over Time}"]
+56285072[ label="{PersonalFoul|+foulTeam:Team\l+playerFoul:INT\l+playerFouled:INT\l}"]
 
-57268584[ label="{Player|+number:INT\l+firstName:STRING\l+lastName:STRING\l+nat:STRING\l+position:Position\l}"]
+56299568[ label="{Block|+team:Team\l+player:INT\l+playerBlocked:INT\l}"]
 
-57292216[ label="{Team|Home\|Away}"]
+56226784 -> 56227256[arrowtail=diamond, dir=both, headlabel="info "]
+56226784 -> 56260968[arrowtail=diamond, dir=both, headlabel="periods 1..*"]
+56226784[ label="{Game|}"]
 
-57268112 -> 57268584[arrowtail=diamond, dir=both, headlabel="players 1..*"]
-57268112 -> 57269528[arrowtail=diamond, dir=both, headlabel="coach "]
-57268112[ label="{AwayTeam|+name:STRING\l}"]
+56260496[ label="{Coach|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
 
-57310016[ label="{OffensiveRebound|+team:Team\l+player:INT\l}"]
+56228200[ label="{CrewChief|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
 
-57309072[ label="{Assist|+player:INT\l}"]
+56284600 -> 56286488[arrowtail=diamond, dir=both, headlabel="ast "]
+56284600[ label="{ThreePoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
 
-57327664[ label="{TehnicalFoulTeam|+team:Team\l}"]
+56301928[ label="{TehnicalFoulPlayer|+team:Team\l+player:INT\l}"]
 
-57269056[ label="{Position|PG\|SG\|SF\|PF\|C\|G\|F}"]
+56284128 -> 56286488[arrowtail=diamond, dir=both, headlabel="ast "]
+56284128[ label="{TwoPoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
 
-57328136[ label="{TehnicalFoulCoach|+team:Team\l}"]
+56283656[ label="{FreeThrow|+team:Team\l+player:INT\l+made:BOOL\l}"]
 
-57308128[ label="{Turnover|+team:Team\l+player:INT\l}"]
+56258608 -> 56259552[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+56258608 -> 56260496[arrowtail=diamond, dir=both, headlabel="coach "]
+56258608[ label="{HomeTeam|+name:STRING\l}"]
 
-57308600[ label="{Steal|+team:Team\l+player:INT\l}"]
+56259080 -> 56259552[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+56259080 -> 56260496[arrowtail=diamond, dir=both, headlabel="coach "]
+56259080[ label="{AwayTeam|+name:STRING\l}"]
 
-57266224[ label="{CrewChief|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+56300040[ label="{OffensiveRebound|+team:Team\l+player:INT\l}"]
 
-57207144 -> 57207616[arrowtail=diamond, dir=both, headlabel="info "]
-57207144 -> 57290800[arrowtail=diamond, dir=both, headlabel="periods 1..*"]
-57207144[ label="{Game|}"]
+56229144[ label="{Umpire|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
 
-57310488[ label="{DefensiveRebound|+team:Team\l+player:INT\l}"]
+56227728 -> 56228200[arrowtail=diamond, dir=both, headlabel="first "]
+56227728 -> 56228672[arrowtail=diamond, dir=both, headlabel="second "]
+56227728 -> 56229144[arrowtail=diamond, dir=both, headlabel="third "]
+56227728[ label="{Referees|}"]
 
-57328608[ label="{UnsportsmanlikeFoul|+team:Team\l+player:INT\l}"]
+56261440[ label="{PeriodType|Quarter\|Over Time}"]
 
-57293160 -> 57309072[arrowtail=diamond, dir=both, headlabel="ast "]
-57293160[ label="{TwoPoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+56227256 -> 56227728[arrowtail=diamond, dir=both, headlabel="Referees "]
+56227256 -> 56258608[arrowtail=diamond, dir=both, headlabel="homeTeam "]
+56227256 -> 56259080[arrowtail=diamond, dir=both, headlabel="awayTeam "]
+56227256[ label="{GameInfo|+city:STRING\l+arena:STRING\l+date:STRING\l+time:STRING\l+att:INT\l}"]
 
-57267640 -> 57268584[arrowtail=diamond, dir=both, headlabel="players 1..*"]
-57267640 -> 57269528[arrowtail=diamond, dir=both, headlabel="coach "]
-57267640[ label="{HomeTeam|+name:STRING\l}"]
+56302400[ label="{UnsportsmanlikeFoul|+team:Team\l+player:INT\l}"]
 
-57307656 -> 57292688[arrowtail=diamond, dir=both, headlabel="freeThrow "]
-57307656[ label="{ThreeAndOne|+team:Team\l+player:INT\l+playerMadeFoul:INT\l}"]
+56286488[ label="{Assist|+player:INT\l}"]
 
-57269528[ label="{Coach|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+56259552[ label="{Player|+number:INT\l+firstName:STRING\l+lastName:STRING\l+nat:STRING\l+position:Position\l}"]
 
-57294104[ label="{PersonalFoul|+foulTeam:Team\l+playerFoul:INT\l+playerFouled:INT\l+freeThrow:INT\l}"]
+56301456[ label="{TehnicalFoulCoach|+team:Team\l}"]
 
-57266696[ label="{Referee|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
+56300512[ label="{DefensiveRebound|+team:Team\l+player:INT\l}"]
 
-57309544[ label="{Block|+team:Team\l+player:INT\l+playerBlocked:INT\l}"]
+56260024[ label="{Position|PG\|SG\|SF\|PF\|C\|G\|F}"]
 
-57208088 -> 57266224[arrowtail=diamond, dir=both, headlabel="first "]
-57208088 -> 57266696[arrowtail=diamond, dir=both, headlabel="second "]
-57208088 -> 57267168[arrowtail=diamond, dir=both, headlabel="third "]
-57208088[ label="{Referees|}"]
+56228672[ label="{Referee|+firstName:STRING\l+lastName:STRING\l+country:STRING\l}"]
 
-57207616 -> 57208088[arrowtail=diamond, dir=both, headlabel="Referees "]
-57207616 -> 57267640[arrowtail=diamond, dir=both, headlabel="homeTeam "]
-57207616 -> 57268112[arrowtail=diamond, dir=both, headlabel="awayTeam "]
-57207616[ label="{GameInfo|+city:STRING\l+arena:STRING\l+date:STRING\l+time:STRING\l+att:INT\l}"]
+56261912[ label="{Event|}"]
+56261912 -> 56283656 [dir=back]
+56261912 -> 56284128 [dir=back]
+56261912 -> 56284600 [dir=back]
+56261912 -> 56286488 [dir=back]
+56261912 -> 56285072 [dir=back]
+56261912 -> 56285544 [dir=back]
+56261912 -> 56286016 [dir=back]
+56261912 -> 56299568 [dir=back]
+56261912 -> 56300040 [dir=back]
+56261912 -> 56300512 [dir=back]
+56261912 -> 56300984 [dir=back]
+56261912 -> 56301456 [dir=back]
+56261912 -> 56301928 [dir=back]
+56261912 -> 56302400 [dir=back]
 
-57307184 -> 57292688[arrowtail=diamond, dir=both, headlabel="freeThrow "]
-57307184[ label="{TwoAndOne|+team:Team\l+player:INT\l+playerMadeFoul:INT\l}"]
+10360720[ label="{INT|}"]
 
-44500880[ label="{INT|}"]
+10359776[ label="{STRING|}"]
 
-44499464[ label="{ID|}"]
+10360248[ label="{BOOL|}"]
 
-44499936[ label="{STRING|}"]
+10359304[ label="{ID|}"]
 
-44501824[ label="{NUMBER|}"]
-44501824 -> 44501352 [dir=back]
-44501824 -> 44500880 [dir=back]
+10362136[ label="{BASETYPE|}"]
+10362136 -> 10361664 [dir=back]
+10362136 -> 10360248 [dir=back]
+10362136 -> 10359304 [dir=back]
+10362136 -> 10359776 [dir=back]
 
-44501352[ label="{FLOAT|}"]
+10361664[ label="{NUMBER|}"]
+10361664 -> 10361192 [dir=back]
+10361664 -> 10360720 [dir=back]
 
-44502296[ label="{BASETYPE|}"]
-44502296 -> 44501824 [dir=back]
-44502296 -> 44500408 [dir=back]
-44502296 -> 44499464 [dir=back]
-44502296 -> 44499936 [dir=back]
-
-44500408[ label="{BOOL|}"]
+10361192[ label="{FLOAT|}"]
 
 
 }

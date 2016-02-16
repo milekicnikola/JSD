@@ -88,8 +88,8 @@ PeriodType:
 ;
 
 Event:
-	FreeThrow | TwoPoints | ThreePoints | Assist | PersonalFoul | TwoAndOne | ThreeAndOne |
-	Turnover | Steal | Block | OffensiveRebound | DefensiveRebound | TehnicalFoulTeam | TehnicalFoulCoach | UnsportsmanlikeFoul
+	FreeThrow | TwoPoints | ThreePoints | Assist | PersonalFoul | Turnover | Steal | Block |
+	OffensiveRebound | DefensiveRebound | TehnicalFoulTeam | TehnicalFoulCoach | TehnicalFoulPlayer | UnsportsmanlikeFoul
 ;
 
 Team:
@@ -123,24 +123,7 @@ PersonalFoul:
 	'PF'
 	foulTeam=Team
 	playerFoul=INT
-	playerFouled=INT
-	freeThrow=INT
-;
-
-TwoAndOne:
-	'2P+1'
-	team=Team
-	player=INT
-	playerMadeFoul=INT
-	freeThrow=FreeThrow
-;
-
-ThreeAndOne:
-	'3P+1'
-	team=Team
-	player=INT
-	playerMadeFoul=INT
-	freeThrow=FreeThrow
+	playerFouled=INT	
 ;
 
 Turnover:
@@ -187,6 +170,12 @@ TehnicalFoulTeam:
 TehnicalFoulCoach:
 	'TFC'
 	team=Team
+;
+
+TehnicalFoulPlayer:
+	'TFP'
+	team=Team
+	player=INT
 ;
 
 UnsportsmanlikeFoul:
