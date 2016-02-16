@@ -1,14 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 
 import model.Event;
 import model.EventType;
@@ -29,6 +28,8 @@ public class Game extends JDialog {
 	private JComboBox cbFouled;
 	private JComboBox cbBlocked;
 	private JComboBox cbPeriod;
+	
+	model.Event event;
 
 	/**
 	 * Create the dialog.
@@ -313,7 +314,7 @@ public class Game extends JDialog {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Event event = new Event();
+				event = new Event();
 
 				if (cbTeam.getSelectedIndex() == 0) {
 					event.setTeam(TeamType.HOME);
@@ -430,7 +431,7 @@ public class Game extends JDialog {
 					break;
 				}
 				
-				System.out.println(event);
+				//System.out.println(event);
 
 			}
 		});
@@ -449,8 +450,56 @@ public class Game extends JDialog {
 						"Attendance: "+model.Game.getInstance().getGameInfo().getAttendance()+"\n"+
 						"\n"+
 						"Crew Chief:\n"+
-						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getFirstName()+"\n"+
-						"\tLast name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getLastName()+"\n";
+						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getFirstName()+"\"\n"+
+						"\tLast name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getLastName()+"\"\n"+
+						"\tNationality: \""+model.Game.getInstance().getGameInfo().getCrewChief().getNationality()+"\"\n"+
+						"\n"+
+						"Referee:\n"+
+						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getReferee().getFirstName()+"\"\n"+
+						"\tLast name: \""+model.Game.getInstance().getGameInfo().getReferee().getLastName()+"\"\n"+
+						"\tNationality: \""+model.Game.getInstance().getGameInfo().getReferee().getNationality()+"\"\n"+
+						"\n"+
+						"Umpire:\n"+
+						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getUmpire().getFirstName()+"\"\n"+
+						"\tLast name: \""+model.Game.getInstance().getGameInfo().getUmpire().getLastName()+"\"\n"+
+						"\tNationality: \""+model.Game.getInstance().getGameInfo().getUmpire().getNationality()+"\"\n"+
+						"\n"+
+						"Home team:\n"+
+						"\tName: \""+model.Game.getInstance().getHome().getName()+"\"\n"+
+						"\tPlayers:"+"\n";
+						
+						for (int i=0;i<12;i++){
+							 	code+="\n\t\tNumber: "+model.Game.getInstance().getHome().getPlayers()[i].getNumber()+"\n"+
+									"\t\tFirst name: \""+model.Game.getInstance().getHome().getPlayers()[i].getFirstName()+"\"\n"+
+									"\t\tLast name: \""+model.Game.getInstance().getHome().getPlayers()[i].getLastName()+"\"\n"+
+									"\t\tNationality: \""+model.Game.getInstance().getHome().getPlayers()[i].getNationality()+"\"\n"+
+									"\t\tPosition: "+model.Game.getInstance().getHome().getPlayers()[i].getPosition()+"\n";
+						}
+						
+						
+						code+="\n\tHead coach:\n"+
+								"\t\tFirst name: \""+model.Game.getInstance().getHome().getCoach().getFirstName()+"\"\n"+
+								"\t\tLast name: \""+model.Game.getInstance().getHome().getCoach().getLastName()+"\"\n"+
+								"\t\tNationality: \""+model.Game.getInstance().getHome().getCoach().getNationality()+"\"\n";
+						
+						
+						code+="\nAway team:\n"+
+								"\tName: \""+model.Game.getInstance().getAway().getName()+"\"\n"+
+								"\tPlayers:"+"\n";
+						for (int i=0;i<12;i++){
+						 	
+							code+="\n\t\tNumber: "+model.Game.getInstance().getAway().getPlayers()[i].getNumber()+"\n"+
+								"\t\tFirst name: \""+model.Game.getInstance().getAway().getPlayers()[i].getFirstName()+"\"\n"+
+								"\t\tLast name: \""+model.Game.getInstance().getAway().getPlayers()[i].getLastName()+"\"\n"+
+								"\t\tNationality: \""+model.Game.getInstance().getAway().getPlayers()[i].getNationality()+"\"\n"+
+								"\t\tPosition: "+model.Game.getInstance().getAway().getPlayers()[i].getPosition()+"\n";
+						}
+						
+						code+="\n\tHead coach:\n"+
+								"\t\tFirst name: \""+model.Game.getInstance().getAway().getCoach().getFirstName()+"\"\n"+
+								"\t\tLast name: \""+model.Game.getInstance().getAway().getCoach().getLastName()+"\"\n"+
+								"\t\tNationality: \""+model.Game.getInstance().getAway().getCoach().getNationality()+"\"\n";
+						
 				
 				System.out.println(code);
 						

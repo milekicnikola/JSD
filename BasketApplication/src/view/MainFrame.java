@@ -527,7 +527,7 @@ public class MainFrame extends JFrame {
 				model.Game.getInstance().setHome(home);
 				model.Game.getInstance().setAway(away);
 				
-				System.out.println(model.Game.getInstance());
+				//System.out.println(model.Game.getInstance());
 				
 				view.Game dialog=new view.Game();
 				dialog.setVisible(true);
