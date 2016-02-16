@@ -22,21 +22,21 @@ CrewChief:
 	'Crew Chief:'
 	'First name:' firstName=STRING
 	'Last name:' lastName=STRING
-	'Country:' country=STRING
+	'Nationality:' nat=STRING
 ;
 
 Referee:
 	'Referee:'
 	'First name:' firstName=STRING
 	'Last name:' lastName=STRING
-	'Country:' country=STRING
+	'Nationality:' nat=STRING
 ;
 
 Umpire:
 	'Umpire:'
 	'First name:' firstName=STRING
 	'Last name:' lastName=STRING
-	'Country:' country=STRING
+	'Nationality:' nat=STRING
 ;
 
 HomeTeam:

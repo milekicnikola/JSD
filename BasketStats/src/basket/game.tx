@@ -7,17 +7,17 @@ Attendance: 20420
 Crew Chief: 
 	First name: "Luigi"
 	Last name: "LaMonica"
-	Country: "Italy"
+	Nationality: "Italy"
 
 Referee: 
 	First name: "Ilija"
 	Last name: "Belosevic"
-	Country: "Serbia"
+	Nationality: "Serbia"
 
 Umpire: 
 	First name: "Pierluigi"
 	Last name: "Collina"
-	Country: "Italy"
+	Nationality: "Italy"
 
 Home team:
 	Name: "Crvena Zvezda"
