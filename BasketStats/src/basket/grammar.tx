@@ -183,3 +183,7 @@ UnsportsmanlikeFoul:
 	team=Team
 	player=INT
 ;
+
+Comment:
+     /\/\/.*$/
+;

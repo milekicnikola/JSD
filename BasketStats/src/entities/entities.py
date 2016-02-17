@@ -1,4 +1,5 @@
 from enum import Enum, unique
+
 @unique
 class Position(Enum):
     PG = 'PG'
@@ -27,16 +28,29 @@ class Person:
 
 class GameInfo:
 
-    def __init__(self, city, arena, date, time, attendance, crew_chief, referee, umpire):
+    def __init__(self, city="", arena="", date="", time="", attendance="", referees=""):
         self.city = city
         self.arena = arena
         self.date = date
         self.time = time
         self.attendance = attendance
-        self.crew_chief = crew_chief
-        self.referee = referee
-        self.umpire = umpire
-
+        self.referees = referees
+        
+class Referee(Person):
+    
+    def __init__(self,first_name="", last_name="", nationality="", kind=""):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.nationality = nationality
+        self.kind = kind
+        
+class Coach(Person):
+    
+    def __init__(self,first_name="", last_name="", nationality=""):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.nationality = nationality
+   
 class Player(Person):
 
     def __init__(self,first_name, last_name, nationality, number, position):
@@ -45,7 +59,6 @@ class Player(Person):
         self.nationality = nationality
         self.number = number
         self.position = position
-        self.time_played = '00:00'
         self.points = 0
         self.field_goals_made = 0
         self.field_goals_attempted = 0
@@ -99,9 +112,16 @@ class Player(Person):
             (self.getMissedFieldGoals() + self.getMissedFreeThrows() + self.turnovers + \
             self.blocks_against + self.fouls_commited)
 
-class Team:
+class HomeTeam:
 
-    def __init__(self, name, coach, players):
+    def __init__(self, name="", coach="", players=""):
+        self.name = name
+        self.coach = coach
+        self.players = players
+
+class AwayTeam:
+
+    def __init__(self, name="", coach="", players=""):
         self.name = name
         self.coach = coach
         self.players = players
@@ -111,4 +131,4 @@ class Game:
     def __init__(self, game_info, home_team, away_team):
         self.game_info = game_info
         self.home_team = home_team
-        self.away_team = away_team
+        self.away_team = away_team    
