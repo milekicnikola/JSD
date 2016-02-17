@@ -143,7 +143,7 @@
                     </div>
                 </div>
 
-                <table class="table table-responsive table-hover top-buffer" style="border-collapse:collapse;">
+                <table id='game-stats-table' class="table table-responsive table-hover top-buffer" style="border-collapse:collapse;">
                     <tbody>
                         <tr>
                             <th><label class="team-name-label">{{game.home_team.name.upper()}}</label></th>
@@ -230,6 +230,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- #game-stats-table -->
 
             </div>
             <!-- .tab-panel #game-info -->
@@ -237,7 +238,7 @@
             <div role='tabpanel' class='container tab-pane fade' id='player-stats'>
                 <div class="row top-buffer">
                     <div class="col-sm-6 col-xs-12">
-                        <table class="table table-responsive" style="border-collapse:collapse;">
+                        <table id='table-by-quarter' class="table table-responsive" style="border-collapse:collapse;">
                             <tbody>
                                 <tr>
                                     <th scope="col">By Quarter</th>
@@ -262,9 +263,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- #table-by-quarter -->
                     </div>
                     <div class="col-sm-6 col-xs-12">
-                        <table class="table table-responsive" style="border-collapse:collapse;">
+                        <table id='table-end-of-quarter' class="table table-responsive" style="border-collapse:collapse;">
                             <tbody>
                                 <tr>
                                     <th scope="col">End of Quarter</th>
@@ -289,12 +291,13 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- #table-end-of-quarter -->
                     </div>
                 </div>
 
                 <div class="row top-buffer">
-                    <label for="#homeTeamTable" class="team-name-label">{{game.home_team.name.upper()}}</label>
-                    <table class="table table-responsive table-hover" id="homeTeamTable">
+                    <label for="#away-team-table" class="team-name-label">{{game.home_team.name.upper()}}</label>
+                    <table class="table table-responsive table-hover" id="away-team-table">
                         <thead>
                             <tr class="sub-header">
                                 <th>&nbsp;</th>
@@ -355,12 +358,13 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    <!-- #home-team-table -->
                     <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.home_team.coach.getFullNameFormatted()}}</span></label>
                 </div>
 
                 <div class="row top-buffer">
-                    <label for="#homeTeamTable" class="team-name-label">{{game.away_team.name.upper()}}</label>
-                    <table class="table table-responsive table-hover" id="homeTeamTable">
+                    <label for="#away-team-table" class="team-name-label">{{game.away_team.name.upper()}}</label>
+                    <table class="table table-responsive table-hover" id="away-team-table">
                         <thead>
                             <tr class="sub-header">
                                 <th>&nbsp;</th>
@@ -421,6 +425,7 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    <!-- #away-team-table -->
                     <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.away_team.coach.getFullNameFormatted()}}</span></label>
                 </div>
 
