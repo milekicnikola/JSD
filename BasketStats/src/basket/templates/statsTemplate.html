@@ -129,6 +129,89 @@
                 <div class="row top-buffer">
                     <span style="font-weight:bold">Referee:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
                 </div>
+
+                <table class="table table-responsive table-hover top-buffer" style="border-collapse:collapse;">
+                    <tbody>
+                        <tr>
+                            <th><label class="team-name-label">{{game.home_team.name.upper()}}</label></th>
+                            <th>&nbsp;</th>
+                            <th><label class="team-name-label">{{game.away_team.name.upper()}}</label></th>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getPoints()}}</td>
+                            <td>Points</td>
+                            <td>{{game.away_team.getPoints()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getTotalRebounds()}}</td>
+                            <td>Rebounds</td>
+                            <td>{{game.away_team.getTotalRebounds()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getOffensiveRebounds()}}</td>
+                            <td>O. Rebounds</td>
+                            <td>{{game.away_team.getOffensiveRebounds()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getDefensiveRebounds()}}</td>
+                            <td>D. Rebounds</td>
+                            <td>{{game.away_team.getDefensiveRebounds()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getAssists()}}</td>
+                            <td>Assists</td>
+                            <td>{{game.away_team.getAssists()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getSteals()}}</td>
+                            <td>Steals</td>
+                            <td>{{game.away_team.getSteals()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getBlocks()}}</td>
+                            <td>Blocks</td>
+                            <td>{{game.away_team.getBlocks()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getTurnovers()}}</td>
+                            <td>Turnovers</td>
+                            <td>{{game.away_team.getTurnovers()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getTurnovers()}}</td>
+                            <td>2PT</td>
+                            <td>{{game.away_team.getTurnovers()}}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="sg-clmn">35.7 %</td>
+                            <td class="sg-clmn sg-bld sg-fxd">3PT</td>
+                            <td class="sg-clmn">33.4 %</td>
+                        </tr>
+
+                        <tr>
+                            <td class="sg-clmn">73.0 %</td>
+                            <td class="sg-clmn sg-bld sg-fxd">FT</td>
+                            <td class="sg-clmn">74.5 %</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getPlayersPerformanceIndexRating()}}</td>
+                            <td>Index</td>
+                            <td>{{game.away_team.getPlayersPerformanceIndexRating()}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
             <!-- .tab-panel #game-info -->
 
@@ -235,7 +318,7 @@
                                 <td>{{p.number}}</td>
                                 <td>{{p.getFullNameFormatted()}}</td>
                                 <td>{{p.points}}</td>
-                                <td>{{p.getFieldGoalsMA()}}</td>
+                                <td>{{p.getTwoPointsMA()}}</td>
                                 <td>{{p.getThreePointsMA()}}</td>
                                 <td>{{p.getFreeThrowsMA()}}</td>
                                 <td>{{p.rebounds_offensive}}</td>
@@ -300,9 +383,8 @@
                             <tr>
                                 <td>{{p.number}}</td>
                                 <td>{{p.getFullNameFormatted()}}</td>
-                                <td>{{p.time_played}}</td>
                                 <td>{{p.points}}</td>
-                                <td>{{p.getFieldGoalsMA()}}</td>
+                                <td>{{p.getTwoPointsMA()}}</td>
                                 <td>{{p.getThreePointsMA()}}</td>
                                 <td>{{p.getFreeThrowsMA()}}</td>
                                 <td>{{p.rebounds_offensive}}</td>

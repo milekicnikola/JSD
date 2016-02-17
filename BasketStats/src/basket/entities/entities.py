@@ -60,8 +60,8 @@ class Player(Person):
         self.number = number
         self.position = position
         self.points = 0
-        self.field_goals_made = 0
-        self.field_goals_attempted = 0
+        self.two_points_made = 0
+        self.two_points_attempted = 0
         self.three_points_made = 0
         self.three_points_attempted = 0
         self.free_throws_made = 0
@@ -86,8 +86,17 @@ class Player(Person):
     def getTotalRebounds(self):
         return self.rebounds_deffensive + self.rebounds_offensive
 
+    def getFieldGoalsMade(self):
+        return self.two_points_made + self.three_points_made
+
+    def getFieldGoalsAttempted(self):
+        return self.two_points_attempted + self.three_points_attempted
+
     def getFieldGoalsMA(self):
-        return str(self.field_goals_made) + '/' + str(self.field_goals_attempted)
+        return str(self.getFieldGoalsMade()) + '/' + str(self.getFieldGoalsAttempted())
+
+    def getTwoPointsMA(self):
+        return str(self.two_points_made) + '/' + str(self.two_points_attempted)
 
     def getFreeThrowsMA(self):
         return str(self.free_throws_made) + '/' + str(self.free_throws_attempted)
@@ -96,7 +105,10 @@ class Player(Person):
         return str(self.three_points_made) + '/' + str(self.three_points_attempted)
 
     def getMissedFieldGoals(self):
-        return self.field_goals_attempted - self.field_goals_made
+        return self.getFieldGoalsAttempted() - self.getFieldGoalsMade()
+
+    def getMissedTwoPoints(self):
+        return self.two_points_attempted - self.two_points_made
 
     def getMissedFreeThrows(self):
         return self.free_throws_attempted - self.free_throws_made
@@ -122,7 +134,7 @@ class Team:
     def getPoints(self):
         points = 0
         for p in self.players:
-            total_points += p.points
+            points += p.points
         return points
 
     def getTotalRebounds(self):
@@ -154,6 +166,24 @@ class Team:
         for p in self.players:
             steals += p.steals
         return steals
+
+    def getBlocks(self):
+        blocks = 0
+        for p in self.players:
+            blocks += p.blocks_in_favor
+        return blocks
+
+    def getTurnovers(self):
+        turnovers = 0
+        for p in self.players:
+            turnovers += p.turnovers
+        return turnovers
+
+    def getPlayersPerformanceIndexRating(self):
+        index = 0
+        for p in self.players:
+            index += p.getPerformanceIndexRating()
+        return index
 
 class Game:
 

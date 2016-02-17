@@ -16,8 +16,8 @@ player1 = entities.Player("KINSEY", "TARENCE", nationality="USA",
 player1.points = 23
 player1.rebounds_offensive = 1
 player1.rebounds_deffensive = 3
-player1.field_goals_made = 10
-player1.field_goals_attempted = 17
+player1.two_points_made = 10
+player1.two_points_attempted = 17
 player1.three_points_made = 2
 player1.three_points_attempted = 3
 player1.free_throws_made = 1
@@ -34,14 +34,14 @@ player2 = entities.Player("REBIC", "NIKOLA", nationality="SRB",
 player2.points = 11
 player2.rebounds_offensive = 4
 player2.rebounds_deffensive = 11
-player2.field_goals_made = 3
-player2.field_goals_attempted = 5
+player2.two_points_made = 3
+player2.two_points_attempted = 5
 player2.three_points_made = 1
 player2.three_points_attempted = 5
 player2.free_throws_made = 4
 player2.free_throws_attempted = 4
 player2.assists = 1
-player2.steals = 4
+player2.steals = 5
 player2.turnovers = 3
 player2.blocks_in_favor = 5
 
