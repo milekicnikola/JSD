@@ -107,7 +107,7 @@ public class EditorFrame extends JFrame{
 		// when given a suggestion
 		txtpnEditor.getInputMap().put(KeyStroke.getKeyStroke("TAB"), COMMIT_ACTION);
 		txtpnEditor.getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());
-		txtpnEditor.addKeyListener(new MyKeyListener(txtpnEditor));
+		//txtpnEditor.addKeyListener(new MyKeyListener(txtpnEditor));
 		
 		JScrollPane scrollPane = new JScrollPane(txtpnEditor);
 		TextLineNumber tln = new TextLineNumber(txtpnEditor); 
