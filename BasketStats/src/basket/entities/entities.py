@@ -119,6 +119,42 @@ class Team:
         self.coach = coach
         self.players = players
 
+    def getPoints(self):
+        points = 0
+        for p in self.players:
+            total_points += p.points
+        return points
+
+    def getTotalRebounds(self):
+        rebounds = 0
+        for p in self.players:
+            rebounds += p.getTotalRebounds()
+        return rebounds
+
+    def getOffensiveRebounds(self):
+        rebounds = 0
+        for p in self.players:
+            rebounds += p.rebounds_offensive
+        return rebounds
+
+    def getDefensiveRebounds(self):
+        rebounds = 0
+        for p in self.players:
+            rebounds += p.rebounds_deffensive
+        return rebounds
+
+    def getAssists(self):
+        assists = 0
+        for p in self.players:
+            assists += p.assists
+        return assists
+
+    def getSteals(self):
+        steals = 0
+        for p in self.players:
+            steals += p.steals
+        return steals
+
 class Game:
 
     def __init__(self, game_info, home_team, away_team):

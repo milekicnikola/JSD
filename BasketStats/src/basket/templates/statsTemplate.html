@@ -149,7 +149,6 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
                         <th colspan="3" style="">Rebounds</th>
                         <th></th>
                         <th></th>
@@ -161,7 +160,6 @@
                     <tr>
                         <th>#</th>
                         <th>Player</th>
-                        <th>Min</th>
                         <th>Pts</th>
                         <th>2FG</th>
                         <th>3FG</th>
@@ -184,7 +182,6 @@
                     <tr>
                     	<td>{{p.number}}</td>
                     	<td>{{p.getFullNameFormatted()}}</td>
-                    	<td>{{p.time_played}}</td>
                     	<td>{{p.points}}</td>
                     	<td>{{p.getFieldGoalsMA()}}</td>
                     	<td>{{p.getThreePointsMA()}}</td>
@@ -202,46 +199,6 @@
                     	<td>{{p.getPerformanceIndexRating()}}</td>
                     </tr>
                     {% endfor %}
-                    <tr>
-                    	<td>1</td>
-                    	<td>KINSEY, TARENCE</td>
-                    	<td>28:06</td>
-                    	<td>19</td>
-                    	<td>7/11</td>
-                    	<td>&nbsp;</td>
-                    	<td>5/6</td>
-                    	<td>&nbsp;</td>
-                    	<td>3</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>1</td>
-                    	<td>1</td>
-                    	<td>&nbsp;</td>
-                    	<td>1</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>21</td>
-                    </tr>
-                    <tr>
-                    	<td>4</td>
-                    	<td>REBIC, NIKOLA</td>
-                    	<td>DNP</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    </tr>
                 </tbody>
           </table>
           <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.home_team.coach.getFullNameFormatted()}}</span></label>
@@ -258,7 +215,6 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
                         <th colspan="3" style="">Rebounds</th>
                         <th></th>
                         <th></th>
@@ -270,7 +226,6 @@
                     <tr>
                         <th>#</th>
                         <th>Player</th>
-                        <th>Min</th>
                         <th>Pts</th>
                         <th>2FG</th>
                         <th>3FG</th>
@@ -318,7 +273,6 @@
 
       <div class="row top-buffer">
           <div class="LegendContainer">
-            <span class="ColumnTitle">Min:</span> Minutes played;
             <span class="ColumnTitle">Pts:</span> Points;
             <span class="ColumnTitle">2FG M-A:</span> 2-point Field Goals (Made-Attempted);
             <span class="ColumnTitle">3FG M-A:</span> 3-point Field Goals (Made-Attempted);
