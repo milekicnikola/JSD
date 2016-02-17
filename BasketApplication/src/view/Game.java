@@ -317,9 +317,9 @@ public class Game extends JDialog {
 				event = new Event();
 
 				if (cbTeam.getSelectedIndex() == 0) {
-					event.setTeam(TeamType.HOME);
+					event.setTeam(TeamType.Home);
 				} else {
-					event.setTeam(TeamType.AWAY);
+					event.setTeam(TeamType.Away);
 				}
 
 				Player player = new Player();
@@ -500,8 +500,181 @@ public class Game extends JDialog {
 								"\t\tLast name: \""+model.Game.getInstance().getAway().getCoach().getLastName()+"\"\n"+
 								"\t\tNationality: \""+model.Game.getInstance().getAway().getCoach().getNationality()+"\"\n";
 						
+						code+="\nQuarter 1\n"+
+								"\tStart\n";
+						
+						for (Event event : model.Game.getInstance().getPeriod1().getEvents()) {
+							if (event.getKeyword()==EventType.FT){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
+										" "+event.isMade()+"\n";
+							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
+								String keyword="";
+								if (event.getKeyword()==EventType.P2){
+									keyword="2P";
+								}else{
+									keyword="3P";
+								}
+								
+								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
+								if (event.isMade() && event.getAsist()!=0){
+									code+=" AST "+event.getAsist();
+								}
+								code+="\n";
+							}else if (event.getKeyword()==EventType.PF){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getFouled()+"\n";
+							}else if (event.getKeyword()==EventType.BLK){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getBlocked()+"\n";
+							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
+							}else{
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+							}
+						}
+						code+="\tEnd";
+						
+						code+="\nQuarter 2\n"+
+								"\tStart\n";
+						
+						for (Event event : model.Game.getInstance().getPeriod2().getEvents()) {
+							if (event.getKeyword()==EventType.FT){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
+										" "+event.isMade()+"\n";
+							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
+								String keyword="";
+								if (event.getKeyword()==EventType.P2){
+									keyword="2P";
+								}else{
+									keyword="3P";
+								}
+								
+								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
+								if (event.isMade() && event.getAsist()!=0){
+									code+=" AST "+event.getAsist();
+								}
+								code+="\n";
+							}else if (event.getKeyword()==EventType.PF){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getFouled()+"\n";
+							}else if (event.getKeyword()==EventType.BLK){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getBlocked()+"\n";
+							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
+							}else{
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+							}
+						}
+						code+="\tEnd";
+						
+						code+="\nQuarter 3\n"+
+								"\tStart\n";
+						
+						for (Event event : model.Game.getInstance().getPeriod3().getEvents()) {
+							if (event.getKeyword()==EventType.FT){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
+										" "+event.isMade()+"\n";
+							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
+								String keyword="";
+								if (event.getKeyword()==EventType.P2){
+									keyword="2P";
+								}else{
+									keyword="3P";
+								}
+								
+								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
+								if (event.isMade() && event.getAsist()!=0){
+									code+=" AST "+event.getAsist();
+								}
+								code+="\n";
+							}else if (event.getKeyword()==EventType.PF){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getFouled()+"\n";
+							}else if (event.getKeyword()==EventType.BLK){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getBlocked()+"\n";
+							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
+							}else{
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+							}
+						}
+						code+="\tEnd";
+						
+						code+="\nQuarter 4\n"+
+								"\tStart\n";
+						
+						for (Event event : model.Game.getInstance().getPeriod4().getEvents()) {
+							if (event.getKeyword()==EventType.FT){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
+										" "+event.isMade()+"\n";
+							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
+								String keyword="";
+								if (event.getKeyword()==EventType.P2){
+									keyword="2P";
+								}else{
+									keyword="3P";
+								}
+								
+								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
+								if (event.isMade() && event.getAsist()!=0){
+									code+=" AST "+event.getAsist();
+								}
+								code+="\n";
+							}else if (event.getKeyword()==EventType.PF){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getFouled()+"\n";
+							}else if (event.getKeyword()==EventType.BLK){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getBlocked()+"\n";
+							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
+							}else{
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+							}
+						}
+						code+="\tEnd";
+						
+						code+="\nOver time\n"+
+								"\tStart\n";
+						
+						for (Event event : model.Game.getInstance().getOverTime().getEvents()) {
+							if (event.getKeyword()==EventType.FT){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
+										" "+event.isMade()+"\n";
+							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
+								String keyword="";
+								if (event.getKeyword()==EventType.P2){
+									keyword="2P";
+								}else{
+									keyword="3P";
+								}
+								
+								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
+								if (event.isMade() && event.getAsist()!=0){
+									code+=" AST "+event.getAsist();
+								}
+								code+="\n";
+							}else if (event.getKeyword()==EventType.PF){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getFouled()+"\n";
+							}else if (event.getKeyword()==EventType.BLK){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
+										event.getPlayer()+" "+event.getBlocked()+"\n";
+							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
+							}else{
+								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+							}
+						}
+						code+="\tEnd";
+						
+						
 				
 				System.out.println(code);
+				Code dialog = new Code(code);
+				
 						
 			}
 		});
