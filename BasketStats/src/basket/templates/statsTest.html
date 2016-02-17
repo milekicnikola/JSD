@@ -74,11 +74,11 @@
     <div class="container">
 
       <div class="row top-buffer">
-          <span style="font-weight:bold">Referee:</span> {{game.game_info.crew_chief.getFullNameWithNationality()}}, {{game.game_info.referee.getFullNameWithNationality()}}, {{game.game_info.umpire.getFullNameWithNationality() }}
+          <span style="font-weight:bold">Referee:</span> {{model.info.referees[0].getFullNameWithNationality()}}, {{model.info.referees[1].getFullNameWithNationality()}}, {{model.info.referees[2].getFullNameWithNationality() }}
       </div>
 
       <div class="row">
-          <span style="font-weight:bold">Attendance:</span> {{ game.game_info.attendance }}
+          <span style="font-weight:bold">Attendance:</span> {{ model.info.attendance }}
       </div>
 
       <div class="row top-buffer">
@@ -93,14 +93,14 @@
                         <th scope="col">4</th>
             		</tr>
                     <tr>
-            			<td>{{game.home_team.name}}</td>
+            			<td>{{model.homeTeam.name}}</td>
                         <td>33</td>
                         <td>17</td>
                         <td>17</td>
                         <td>13</td>
             		</tr>
                     <tr>
-            			<td>{{game.away_team.name}}</td>
+            			<td>{{model.awayTeam.name}}</td>
                         <td>21</td>
                         <td>16</td>
                         <td>17</td>
@@ -120,14 +120,14 @@
                         <th scope="col">4</th>
             		</tr>
                     <tr>
-            			<td>{{game.home_team.name}}</td>
+            			<td>{{model.homeTeam.name}}</td>
                         <td>33</td>
                         <td>50</td>
                         <td>67</td>
                         <td>80</td>
             		</tr>
                     <tr>
-            			<td>{{game.away_team.name}}</td>
+            			<td>{{model.awayTeam.name}}</td>
                         <td>21</td>
                         <td>37</td>
                         <td>54</td>
@@ -139,7 +139,7 @@
       </div>
 
       <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">{{game.home_team.name.upper()}}</label>
+          <label for="#homeTeamTable" class="team-name-label">{{model.homeTeam.name.upper()}}</label>
           <table class="table table-responsive table-hover" id="homeTeamTable">
               <thead>
                     <tr class="sub-header">
@@ -180,7 +180,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in game.home_team.players %}
+                    {% for p in model.homeTeam.players %}
                     <tr>
                     	<td>{{p.number}}</td>
                     	<td>{{p.getFullNameFormatted()}}</td>
@@ -201,54 +201,14 @@
                     	<td>{{p.fouls_received}}</td>
                     	<td>{{p.getPerformanceIndexRating()}}</td>
                     </tr>
-                    {% endfor %}
-                    <tr>
-                    	<td>1</td>
-                    	<td>KINSEY, TARENCE</td>
-                    	<td>28:06</td>
-                    	<td>19</td>
-                    	<td>7/11</td>
-                    	<td>&nbsp;</td>
-                    	<td>5/6</td>
-                    	<td>&nbsp;</td>
-                    	<td>3</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>1</td>
-                    	<td>1</td>
-                    	<td>&nbsp;</td>
-                    	<td>1</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>21</td>
-                    </tr>
-                    <tr>
-                    	<td>4</td>
-                    	<td>REBIC, NIKOLA</td>
-                    	<td>DNP</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    	<td>-</td>
-                    </tr>
+                    {% endfor %}                                 
                 </tbody>
           </table>
-          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.home_team.coach.getFullNameFormatted()}}</span></label>
+          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{model.homeTeam.coach.getFullNameFormatted()}}</span></label>
       </div>
 
       <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">{{game.away_team.name.upper()}}</label>
+          <label for="#homeTeamTable" class="team-name-label">{{model.awayTeam.name.upper()}}</label>
           <table class="table table-responsive table-hover" id="homeTeamTable">
               <thead>
                     <tr class="sub-header">
@@ -289,7 +249,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in game.away_team.players %}
+                    {% for p in model.awayTeam.players %}
                     <tr>
                     	<td>{{p.number}}</td>
                     	<td>{{p.getFullNameFormatted()}}</td>
@@ -313,7 +273,7 @@
                     {% endfor %}
                 </tbody>
           </table>
-          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{game.away_team.coach.getFullNameFormatted()}}</span></label>
+          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> {{model.awayTeam.coach.getFullNameFormatted()}}</span></label>
       </div>
 
       <div class="row top-buffer">

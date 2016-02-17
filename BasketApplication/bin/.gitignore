@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /application
 /editor
 /model
 /view
 /resources
 /reserved_words.txt
+=======
+/model/
+/view/
+/application/
+>>>>>>> 279486f0861f2a413b22fcdfd334986544df23e3

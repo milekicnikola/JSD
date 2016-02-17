@@ -330,7 +330,7 @@ public class MainFrame extends JFrame {
 		panelHome.add(tfNationalityPlayer);
 
 		cbNumberPlayer = new JComboBox<Integer>();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 1; i < 100; i++) {
 
 			cbNumberPlayer.addItem(i);
 		}
@@ -451,7 +451,7 @@ public class MainFrame extends JFrame {
 
 		cbNumberPlayerAway = new JComboBox<Integer>();
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 1; i < 100; i++) {
 
 			cbNumberPlayerAway.addItem(i);
 		}
@@ -527,7 +527,7 @@ public class MainFrame extends JFrame {
 				model.Game.getInstance().setHome(home);
 				model.Game.getInstance().setAway(away);
 				
-				System.out.println(model.Game.getInstance());
+				//System.out.println(model.Game.getInstance());
 				
 				view.Game dialog=new view.Game();
 				dialog.setVisible(true);
