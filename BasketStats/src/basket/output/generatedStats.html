@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,321 +19,352 @@
     <![endif]-->
 
     <style media="screen">
-      @media(min-width: 992px){
-        .container{
-        width:920px;
-        }
-      }
-
-      @media(max-width: 991px){
-        .container{
-        width:100% !important;
-        }
-      }
-
-      .bold-label{
-        font-weight: bold;
-      }
-
-      label{
-        //font-weight: bold !important;
-        font-size:15px;
-        margin: 5px 0px 5px 0px;
-      }
-
-      .hide{
-        display: none;
-      }
-
-      .top-buffer {
-          margin-top: 20px;
-      }
-
-     .LegendContainer .ColumnTitle {
-        font-weight: bold;
-     }
-
-        .table td, .table th {
-           text-align: center;
+        @media(min-width: 992px) {
+            .container {
+                width: 920px;
+            }
         }
 
-    .team-name-label {
-        background: #777;
-        color: #fff;
-        width: 100%;
-        text-align: center;
-    }
+        @media(max-width: 991px) {
+            .container {
+                width: 100% !important;
+            }
+        }
 
-    .centered-text-label {
-        width: 100%;
-        text-align: center;
-    }
+        .bold-label {
+            font-weight: bold;
+        }
 
+        label {
+            //font-weight: bold !important;
+            font-size: 15px;
+            margin: 5px 0px 5px 0px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .top-buffer {
+            margin-top: 20px;
+        }
+
+        .LegendContainer .ColumnTitle {
+            font-weight: bold;
+        }
+
+        .table td,
+        .table th {
+            text-align: center;
+        }
+
+        .team-name-label {
+            background: #777;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+
+        .centered-text-label {
+            width: 100%;
+            text-align: center;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
 
-      <div class="row top-buffer">
-          <span style="font-weight:bold">Referee:</span> MIGUEL PEREZ (ESP), TOLGA  SAHIN (ITA), AARE  HALLIKO (EST)
-      </div>
+        <!-- Nav tabs - http://getbootstrap.com/javascript/#tabs-->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a id='tab-game-info' href="#game-info" aria-controls="game-info" role="tab" data-toggle="tab">Game Info</a></li>
+            <li role="presentation"><a id='tab-player-stats' href="#player-stats" aria-controls="player-stats" role="tab" data-toggle="tab" class='my-tab'>Player Stats</a></li>
+        </ul>
 
-      <div class="row">
-          <span style="font-weight:bold">Attendance:</span> 6479
-      </div>
+        <div class='tab-content'>
 
-      <div class="row top-buffer">
-        <div class="col-sm-6 col-xs-12">
-            <table class="table table-responsive" style="border-collapse:collapse;">
-        		<tbody>
-                    <tr>
-            			<th scope="col">By Quarter</th>
-                        <th scope="col">1</th>
-                        <th scope="col">2</th>
-                        <th scope="col">3</th>
-                        <th scope="col">4</th>
-            		</tr>
-                    <tr>
-            			<td>Crvena Zvezda Telekom Belgrade</td>
-                        <td>33</td>
-                        <td>17</td>
-                        <td>17</td>
-                        <td>13</td>
-            		</tr>
-                    <tr>
-            			<td>Lokomotiv Kuban Krasnodar</td>
-                        <td>21</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>12</td>
-            		</tr>
-            	</tbody>
-            </table>
+            <div role='tabpanel' class='tab-pane fade in active' id='game-info'>
+                <div class="row top-buffer">
+                    <span style="font-weight:bold">Referee:</span> MIGUEL PEREZ (ESP), TOLGA  SAHIN (ITA), AARE  HALLIKO (EST)
+                </div>
+
+                <div class="row">
+                    <span style="font-weight:bold">Attendance:</span> 6479
+                </div>
+            </div>
+            <!-- .tab-panel #game-info -->
+
+            <div role='tabpanel' class='tab-pane fade' id='player-stats'>
+                <div class="row top-buffer">
+                    <div class="col-sm-6 col-xs-12">
+                        <table class="table table-responsive" style="border-collapse:collapse;">
+                            <tbody>
+                                <tr>
+                                    <th scope="col">By Quarter</th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                </tr>
+                                <tr>
+                                    <td>Crvena Zvezda Telekom Belgrade</td>
+                                    <td>33</td>
+                                    <td>17</td>
+                                    <td>17</td>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>Lokomotiv Kuban Krasnodar</td>
+                                    <td>21</td>
+                                    <td>16</td>
+                                    <td>17</td>
+                                    <td>12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <table class="table table-responsive" style="border-collapse:collapse;">
+                            <tbody>
+                                <tr>
+                                    <th scope="col">End of Quarter</th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                </tr>
+                                <tr>
+                                    <td>Crvena Zvezda Telekom Belgrade</td>
+                                    <td>33</td>
+                                    <td>50</td>
+                                    <td>67</td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Lokomotiv Kuban Krasnodar</td>
+                                    <td>21</td>
+                                    <td>37</td>
+                                    <td>54</td>
+                                    <td>66</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row top-buffer">
+                    <label for="#homeTeamTable" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE</label>
+                    <table class="table table-responsive table-hover" id="homeTeamTable">
+                        <thead>
+                            <tr class="sub-header">
+                                <th>&nbsp;</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="3" style="">Rebounds</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="2">Blocks</th>
+                                <th colspan="2">Fouls</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Player</th>
+                                <th>Pts</th>
+                                <th>2FG</th>
+                                <th>3FG</th>
+                                <th>FT</th>
+                                <th>O</th>
+                                <th>D</th>
+                                <th>T</th>
+                                <th>As</th>
+                                <th>St</th>
+                                <th>To</th>
+                                <th>Fv</th>
+                                <th>Ag</th>
+                                <th>Cm</th>
+                                <th>Rv</th>
+                                <th>PIR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>TARENCE, KINSEY</td>
+                                <td>23</td>
+                                <td>10/17</td>
+                                <td>2/3</td>
+                                <td>1/3</td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>25</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>4</td>
+                                <td>NIKOLA, REBIC</td>
+                                <td>11</td>
+                                <td>3/5</td>
+                                <td>1/5</td>
+                                <td>4/4</td>
+                                <td>4</td>
+                                <td>11</td>
+                                <td>15</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>31</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> RADONJIC, DEJAN</span></label>
+                </div>
+
+                <div class="row top-buffer">
+                    <label for="#homeTeamTable" class="team-name-label">LOKOMOTIV KUBAN KRASNODAR</label>
+                    <table class="table table-responsive table-hover" id="homeTeamTable">
+                        <thead>
+                            <tr class="sub-header">
+                                <th>&nbsp;</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="3" style="">Rebounds</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="2">Blocks</th>
+                                <th colspan="2">Fouls</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Player</th>
+                                <th>Pts</th>
+                                <th>2FG</th>
+                                <th>3FG</th>
+                                <th>FT</th>
+                                <th>O</th>
+                                <th>D</th>
+                                <th>T</th>
+                                <th>As</th>
+                                <th>St</th>
+                                <th>To</th>
+                                <th>Fv</th>
+                                <th>Ag</th>
+                                <th>Cm</th>
+                                <th>Rv</th>
+                                <th>PIR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>TARENCE, KINSEY</td>
+                                <td></td>
+                                <td>23</td>
+                                <td>10/17</td>
+                                <td>2/3</td>
+                                <td>1/3</td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>25</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>4</td>
+                                <td>NIKOLA, REBIC</td>
+                                <td></td>
+                                <td>11</td>
+                                <td>3/5</td>
+                                <td>1/5</td>
+                                <td>4/4</td>
+                                <td>4</td>
+                                <td>11</td>
+                                <td>15</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>31</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> BARTZOKAS, GEORGIOS</span></label>
+                </div>
+
+                <div class="row top-buffer">
+                    <div class="LegendContainer">
+                        <span class="ColumnTitle">Pts:</span> Points;
+                        <span class="ColumnTitle">2FG M-A:</span> 2-point Field Goals (Made-Attempted);
+                        <span class="ColumnTitle">3FG M-A:</span> 3-point Field Goals (Made-Attempted);
+                        <span class="ColumnTitle">FT M-A:</span> Free Throws (Made-Attempted);
+                        <span class="ColumnTitle">Rebounds:</span> O (Offensive), D (Defensive), T (Total);
+                        <span class="ColumnTitle">As:</span> Assists;
+                        <span class="ColumnTitle">St:</span> Steals;
+                        <span class="ColumnTitle">To:</span> Turnovers;
+                        <span class="ColumnTitle">Blocks:</span> (Fv: In Favor / Ag: Against);
+                        <span class="ColumnTitle">Fouls:</span> Cm (Commited), Rv (Received);
+                        <span class="ColumnTitle">PIR:</span> Performance Index Rating
+                    </div>
+                </div>
+            </div>
+            <!-- .tab-panel #player-stats -->
         </div>
-        <div class="col-sm-6 col-xs-12">
-            <table class="table table-responsive" style="border-collapse:collapse;">
-        		<tbody>
-                    <tr>
-            			<th scope="col">End of Quarter</th>
-                        <th scope="col">1</th>
-                        <th scope="col">2</th>
-                        <th scope="col">3</th>
-                        <th scope="col">4</th>
-            		</tr>
-                    <tr>
-            			<td>Crvena Zvezda Telekom Belgrade</td>
-                        <td>33</td>
-                        <td>50</td>
-                        <td>67</td>
-                        <td>80</td>
-            		</tr>
-                    <tr>
-            			<td>Lokomotiv Kuban Krasnodar</td>
-                        <td>21</td>
-                        <td>37</td>
-                        <td>54</td>
-                        <td>66</td>
-            		</tr>
-            	</tbody>
-            </table>
-        </div>
-      </div>
-
-      <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE</label>
-          <table class="table table-responsive table-hover" id="homeTeamTable">
-              <thead>
-                    <tr class="sub-header">
-                        <th>&nbsp;</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="3" style="">Rebounds</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="2">Blocks</th>
-                        <th colspan="2">Fouls</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>#</th>
-                        <th>Player</th>
-                        <th>Pts</th>
-                        <th>2FG</th>
-                        <th>3FG</th>
-                        <th>FT</th>
-                        <th>O</th>
-                        <th>D</th>
-                        <th>T</th>
-                        <th>As</th>
-                        <th>St</th>
-                        <th>To</th>
-                        <th>Fv</th>
-                        <th>Ag</th>
-                        <th>Cm</th>
-                        <th>Rv</th>
-                        <th>PIR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                    	<td>1</td>
-                    	<td>TARENCE, KINSEY</td>
-                    	<td>23</td>
-                    	<td>10/17</td>
-                    	<td>2/3</td>
-                    	<td>1/3</td>
-                    	<td>1</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>3</td>
-                    	<td>3</td>
-                    	<td>1</td>
-                    	<td>2</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>25</td>
-                    </tr>
-                    
-                    <tr>
-                    	<td>4</td>
-                    	<td>NIKOLA, REBIC</td>
-                    	<td>11</td>
-                    	<td>3/5</td>
-                    	<td>1/5</td>
-                    	<td>4/4</td>
-                    	<td>4</td>
-                    	<td>11</td>
-                    	<td>15</td>
-                    	<td>1</td>
-                    	<td>4</td>
-                    	<td>3</td>
-                    	<td>5</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>31</td>
-                    </tr>
-                    
-                </tbody>
-          </table>
-          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> RADONJIC, DEJAN</span></label>
-      </div>
-
-      <div class="row top-buffer">
-          <label for="#homeTeamTable" class="team-name-label">LOKOMOTIV KUBAN KRASNODAR</label>
-          <table class="table table-responsive table-hover" id="homeTeamTable">
-              <thead>
-                    <tr class="sub-header">
-                        <th>&nbsp;</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="3" style="">Rebounds</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="2">Blocks</th>
-                        <th colspan="2">Fouls</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>#</th>
-                        <th>Player</th>
-                        <th>Pts</th>
-                        <th>2FG</th>
-                        <th>3FG</th>
-                        <th>FT</th>
-                        <th>O</th>
-                        <th>D</th>
-                        <th>T</th>
-                        <th>As</th>
-                        <th>St</th>
-                        <th>To</th>
-                        <th>Fv</th>
-                        <th>Ag</th>
-                        <th>Cm</th>
-                        <th>Rv</th>
-                        <th>PIR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                    	<td>1</td>
-                    	<td>TARENCE, KINSEY</td>
-                    	<td></td>
-                    	<td>23</td>
-                    	<td>10/17</td>
-                    	<td>2/3</td>
-                    	<td>1/3</td>
-                    	<td>1</td>
-                    	<td>3</td>
-                    	<td>4</td>
-                    	<td>3</td>
-                    	<td>3</td>
-                    	<td>1</td>
-                    	<td>2</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>25</td>
-                    </tr>
-                    
-                    <tr>
-                    	<td>4</td>
-                    	<td>NIKOLA, REBIC</td>
-                    	<td></td>
-                    	<td>11</td>
-                    	<td>3/5</td>
-                    	<td>1/5</td>
-                    	<td>4/4</td>
-                    	<td>4</td>
-                    	<td>11</td>
-                    	<td>15</td>
-                    	<td>1</td>
-                    	<td>4</td>
-                    	<td>3</td>
-                    	<td>5</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>0</td>
-                    	<td>31</td>
-                    </tr>
-                    
-                </tbody>
-          </table>
-          <label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;"> BARTZOKAS, GEORGIOS</span></label>
-      </div>
-
-      <div class="row top-buffer">
-          <div class="LegendContainer">
-            <span class="ColumnTitle">Pts:</span> Points;
-            <span class="ColumnTitle">2FG M-A:</span> 2-point Field Goals (Made-Attempted);
-            <span class="ColumnTitle">3FG M-A:</span> 3-point Field Goals (Made-Attempted);
-            <span class="ColumnTitle">FT M-A:</span> Free Throws (Made-Attempted);
-            <span class="ColumnTitle">Rebounds:</span> O (Offensive), D (Defensive), T (Total);
-            <span class="ColumnTitle">As:</span> Assists;
-            <span class="ColumnTitle">St:</span> Steals;
-            <span class="ColumnTitle">To:</span> Turnovers;
-            <span class="ColumnTitle">Blocks:</span> (Fv: In Favor / Ag: Against);
-            <span class="ColumnTitle">Fouls:</span> Cm (Commited), Rv (Received);
-            <span class="ColumnTitle">PIR:</span> Performance Index Rating
-        </div>
-      </div>
-
+        <!-- .tab-content -->
 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function() {
+
+            //activate tabs
+            $('#tab-game-info, #tab-player-stats').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });
+
+        });
+    </script>
+</body>
+
 </html>
