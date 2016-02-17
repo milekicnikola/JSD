@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 
 public class Autocomplete implements DocumentListener {
 

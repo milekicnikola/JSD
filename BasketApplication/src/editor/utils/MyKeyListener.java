@@ -95,13 +95,9 @@ public class MyKeyListener implements KeyListener{
 	        int counter=0;
 	        
 	        if(text.length()>2)
-	        	for(int i=0; i<text.length(); i++){
-	        		//System.out.println("Char: " + text.charAt(i));
-	        	
+	        	for(int i=0; i<text.length(); i++){	
 	        		if(i>0){
 	        		String a="" +text.charAt(i-1)+""+text.charAt(i);
-	        		
-	        		//System.out.println("Jebo mamu: "+a);
 		        		if((a.equals(System.getProperty("line.separator")))){
 		        			counter=counter+1;
 		        			
@@ -109,16 +105,9 @@ public class MyKeyListener implements KeyListener{
 	        		}
 	        	}
 	        while (start > 0) {
-	        	
-	        	//System.out.println("Char: " + text.charAt(start));
-	        	
-	        	
-	        	
-	        	
 	            if (!Character.isWhitespace(text.charAt(start)))      	        	
 	            {
 	                start--;
-	               // System.out.println("znak - " + text.charAt(start));
 	            }         
 	            else {
 	                start++;
@@ -128,12 +117,9 @@ public class MyKeyListener implements KeyListener{
 	            
 	        }
 	        
-	        System.out.println("1Counter:" + counter + " : " + start);
+	        
 	       position = position + counter;
-	        /*if(counter>2)
-	        	start = start+counter;
-	        */
-	        System.out.println("2Counter:" + counter + " : " + start);
+	               
 	        if (start > position) {
 	            return;
 	        }

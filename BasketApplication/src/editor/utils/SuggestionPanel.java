@@ -2,6 +2,7 @@ package editor.utils;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -11,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JList;
@@ -36,16 +38,19 @@ public class SuggestionPanel {
     public SuggestionPanel suggestion;
 	public JTextPane txtpnEditor;
 	public int newLines;
+	public List<String> dataList;
 
     public SuggestionPanel(JTextPane txtpnEditor, int position, String subWord, Point location, int newLines) {
         this.insertionPosition = position;
         this.subWord = subWord;
         popupMenu = new JPopupMenu();
+        
         popupMenu.removeAll();
         popupMenu.setOpaque(false);
         popupMenu.setBorder(null);
         popupMenu.add(list = createSuggestionList(position, subWord), BorderLayout.CENTER);
-        popupMenu.show(txtpnEditor, location.x, txtpnEditor.getBaseline(0, 0) + location.y+20);
+        if(dataList!=null && dataList.size()>0)
+        	popupMenu.show(txtpnEditor, location.x, txtpnEditor.getBaseline(0, 0) + location.y+20);
         this.txtpnEditor=txtpnEditor;
         this.newLines=newLines;
     }
@@ -71,8 +76,7 @@ public class SuggestionPanel {
 
 			//Read File Line By Line
 			while ((strLine = br.readLine()) != null)   {
-			  // Print the content on the console
-			  //System.out.println (strLine);
+			  
 			  if(!strLine.isEmpty() && strLine!="")
 				  reservedWords.add(strLine);
 			}
@@ -87,15 +91,17 @@ public class SuggestionPanel {
 			e.printStackTrace();
 		}
     	
-    	//reservedWords.get(0).contains(s)
-    	
+    	    	
         Object[] data = new Object[10];
+        dataList = new ArrayList<String>();
         int counter=0;
         for(String s: reservedWords){
         	String reserved = s;
+        	if(counter==10) break;
         	if(reserved.toLowerCase().contains(subWord.toLowerCase())){
+        		dataList.add(s);
         		data[counter]=s;
-        		System.out.println(s);
+        		
         		counter++;
         	}
         }
@@ -105,14 +111,17 @@ public class SuggestionPanel {
             data[i] = subWord + i+"test";
         }*/
         JList list = new JList(data);
-        list.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+        list.setBackground(Color.BLACK);
+        list.setForeground(Color.WHITE);
+        list.setFont(new Font("Consolas", Font.BOLD, 12));
+        list.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
             	//autocomplete after step
-            	System.out.println(e);
+            	
                 if (e.getClickCount() == 2) {
                     insertSelection();
                 }
@@ -126,20 +135,14 @@ public class SuggestionPanel {
         if (list.getSelectedValue() != null) {
             try {
                 final String selectedSuggestion = ((String) list.getSelectedValue());//.substring(subWord.length());
-               /* cyanPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.cyan);
-                redPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.red);*/
-                System.out.println((String) list.getSelectedValue());
-                /*txtpnEditor.getHighlighter().addHighlight(0, 3, DefaultHighlighter.DefaultPainter);
-                txtpnEditor.getHighlighter().addHighlight(8, 14, cyanPainter);*/
-                //txtpnEditor.getText().substring(insertionPosition-subWord.length(), insertionPosition);
+                
                 insertionPosition = insertionPosition-newLines;
-                System.out.println(insertionPosition);
+                
                 int offset = insertionPosition-subWord.length();
                 int pos = subWord.length();
-                
                 txtpnEditor.getDocument().remove(offset, pos);
                 txtpnEditor.getDocument().insertString(insertionPosition-subWord.length(), selectedSuggestion, null);
-                
+
                 return true;
             } catch (BadLocationException e1) {
                 e1.printStackTrace();
