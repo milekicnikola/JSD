@@ -86,6 +86,17 @@
             width: 100%;
             text-align: center;
         }
+
+        .nav-tabs > li, .nav-pills > li {
+            float:none;
+            display:inline-block;
+            *display:inline; /* ie7 fix */
+             zoom:1; /* hasLayout ie7 trigger */
+        }
+
+        .nav-tabs, .nav-pills {
+            text-align:center;
+        }
     </style>
 
     <script type="text/javascript">
@@ -114,20 +125,22 @@
         <div class='tab-content top-buffer'>
 
             <div role='tabpanel' class='container tab-pane fade in active' id='game-info'>
-                <div class="row">
-                    <span style="font-weight:bold">City:</span> {{ game.game_info.city }}
-                </div>
+                <div class="row" style="text-align: center;">
+                    <div class="row">
+                        <span style="font-weight:bold">City:</span> {{ game.game_info.city }}
+                    </div>
 
-                <div class="row">
-                    <span style="font-weight:bold">Arena:</span> {{ game.game_info.arena }}
-                </div>
+                    <div class="row">
+                        <span style="font-weight:bold">Arena:</span> {{ game.game_info.arena }}
+                    </div>
 
-                <div class="row">
-                    <span style="font-weight:bold">Date:</span> {{ game.game_info.date }}, {{ game.game_info.time }}
-                </div>
+                    <div class="row">
+                        <span style="font-weight:bold">Date:</span> {{ game.game_info.date }}, {{ game.game_info.time }}
+                    </div>
 
-                <div class="row top-buffer">
-                    <span style="font-weight:bold">Referee:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
+                    <div class="row top-buffer">
+                        <span style="font-weight:bold">Referee:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
+                    </div>
                 </div>
 
                 <table class="table table-responsive table-hover top-buffer" style="border-collapse:collapse;">
@@ -187,21 +200,27 @@
                         </tr>
 
                         <tr>
-                            <td>{{game.home_team.getTurnovers()}}</td>
+                            <td>{{game.home_team.getFieldGoalsPercentage()}}% ({{game.home_team.getFieldGoalsMA()}})</td>
+                            <td>FG</td>
+                            <td>{{game.away_team.getFieldGoalsPercentage()}}% ({{game.away_team.getFieldGoalsMA()}})</td>
+                        </tr>
+
+                        <tr>
+                            <td>{{game.home_team.getTwoPointsPercentage()}}% ({{game.home_team.getTwoPointsMA()}})</td>
                             <td>2PT</td>
-                            <td>{{game.away_team.getTurnovers()}}</td>
+                            <td>{{game.away_team.getTwoPointsPercentage()}}% ({{game.away_team.getTwoPointsMA()}})</td>
                         </tr>
 
                         <tr>
-                            <td class="sg-clmn">35.7 %</td>
-                            <td class="sg-clmn sg-bld sg-fxd">3PT</td>
-                            <td class="sg-clmn">33.4 %</td>
+                            <td>{{game.home_team.getThreePointsPercentage()}}% ({{game.home_team.getThreePointsMA()}})</td>
+                            <td>3PT</td>
+                            <td>{{game.away_team.getThreePointsPercentage()}}% ({{game.away_team.getThreePointsMA()}})</td>
                         </tr>
 
                         <tr>
-                            <td class="sg-clmn">73.0 %</td>
-                            <td class="sg-clmn sg-bld sg-fxd">FT</td>
-                            <td class="sg-clmn">74.5 %</td>
+                            <td>{{game.home_team.getFreeThrowsPercentage()}}% ({{game.home_team.getFreeThrowsMA()}})</td>
+                            <td>FT</td>
+                            <td>{{game.away_team.getFreeThrowsPercentage()}}% ({{game.away_team.getFreeThrowsMA()}})</td>
                         </tr>
 
                         <tr>
