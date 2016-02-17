@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,12 +25,24 @@
 
     <style media="screen">
         @media(min-width: 992px) {
+            .main-container {
+                width: 920px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
             .container {
                 width: 920px;
             }
         }
 
         @media(max-width: 991px) {
+            .main-container {
+                width: 100% !important;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
             .container {
                 width: 100% !important;
             }
@@ -70,10 +87,23 @@
             text-align: center;
         }
     </style>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            //activate tabs
+            $('#tab-game-info, #tab-player-stats').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });
+
+        });
+    </script>
 </head>
 
 <body>
-    <div class="container">
+    <div class='main-container'>
 
         <!-- Nav tabs - http://getbootstrap.com/javascript/#tabs-->
         <ul class="nav nav-tabs" role="tablist">
@@ -81,20 +111,28 @@
             <li role="presentation"><a id='tab-player-stats' href="#player-stats" aria-controls="player-stats" role="tab" data-toggle="tab" class='my-tab'>Player Stats</a></li>
         </ul>
 
-        <div class='tab-content'>
+        <div class='tab-content top-buffer'>
 
-            <div role='tabpanel' class='tab-pane fade in active' id='game-info'>
-                <div class="row top-buffer">
-                    <span style="font-weight:bold">Referee:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
+            <div role='tabpanel' class='container tab-pane fade in active' id='game-info'>
+                <div class="row">
+                    <span style="font-weight:bold">City:</span> {{ game.game_info.city }}
                 </div>
 
                 <div class="row">
-                    <span style="font-weight:bold">Attendance:</span> {{ game.game_info.attendance }}
+                    <span style="font-weight:bold">Arena:</span> {{ game.game_info.arena }}
+                </div>
+
+                <div class="row">
+                    <span style="font-weight:bold">Date:</span> {{ game.game_info.date }}, {{ game.game_info.time }}
+                </div>
+
+                <div class="row top-buffer">
+                    <span style="font-weight:bold">Referee:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
                 </div>
             </div>
             <!-- .tab-panel #game-info -->
 
-            <div role='tabpanel' class='tab-pane fade' id='player-stats'>
+            <div role='tabpanel' class='container tab-pane fade' id='player-stats'>
                 <div class="row top-buffer">
                     <div class="col-sm-6 col-xs-12">
                         <table class="table table-responsive" style="border-collapse:collapse;">
@@ -304,26 +342,7 @@
             <!-- .tab-panel #player-stats -->
         </div>
         <!-- .tab-content -->
-
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-
-
-        $(document).ready(function() {
-
-            //activate tabs
-            $('#tab-game-info, #tab-player-stats').click(function (e) {
-                e.preventDefault()
-                $(this).tab('show')
-            });
-
-        });
-    </script>
 </body>
 
 </html>
