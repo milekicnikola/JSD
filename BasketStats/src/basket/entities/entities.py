@@ -116,6 +116,18 @@ class Player(Person):
     def getMissedThreePoints(self):
         return self.three_points_attempted - self.three_points_made
 
+    def getFieldGoalsPercentage(self):
+        return round(self.getFieldGoalsMade() / self.getFieldGoalsAttempted() * 100, 1)
+
+    def getTwoPointsPercentage(self):
+        return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+
+    def getThreePointsPercentage(self):
+        return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+
+    def getFreeThrowsPercentage(self):
+        return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+
     '''(Points + Rebounds + Assists + Steals + Blocks + Fouls Drawn)
         - (Missed Field Goals + Missed Free Throws + Turnovers + Shots Rejected + Fouls Committed)'''
     def getPerformanceIndexRating(self):
