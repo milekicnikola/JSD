@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -145,7 +146,8 @@ public class EditorFrame extends JFrame{
  
             public void actionPerformed(ActionEvent e)
             {
-                SaveAs();
+                //Execute when button is pressed
+                System.out.println("You clicked the button");
             }
         }); 
 		getContentPane().add(btnSave, "cell 1 5,alignx right");
@@ -168,20 +170,10 @@ public class EditorFrame extends JFrame{
 	      File fileName = new File(SaveAs.getSelectedFile() + ".txt");
 	      BufferedWriter outFile = null;
 	      try {
-	      /*   outFile = new BufferedWriter(new FileWriter(fileName));
-	        
+	         outFile = new BufferedWriter(new FileWriter(fileName));
+
 	         txtpnEditor.write(outFile);   // *** here: ***
-*/
-	    	  StringReader stringReader = new StringReader(txtpnEditor.getText());
-              BufferedReader bufferedReader = new BufferedReader(stringReader);
-              FileWriter fileWriter = new FileWriter(fileName);
-              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-              for(String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
-                  bufferedWriter.write(line);
-                  bufferedWriter.newLine();
-              }
-              bufferedReader.close();
-              bufferedWriter.close();
+
 	      } catch (IOException ex) {
 	         ex.printStackTrace();
 	      } finally {
