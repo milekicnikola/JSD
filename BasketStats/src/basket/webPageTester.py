@@ -21,8 +21,9 @@ homePlayers = [player1, player2]
 homeTeam = entities.Team(name="Crvena Zvezda Telekom Belgrade", coach='null', players=homePlayers)
 awayTeam = entities.Team(name="Lokomotiv Kuban Krasnodar", coach='null', players=homePlayers)
 
+refs = [ref1, ref2, ref3]
 gameInfo = entities.GameInfo(city="Belgrade", arena="Pionir", attendance=6479, \
-    crew_chief=ref1, referee=ref2, umpire=ref3, date='13-Feb-2016', time='19:45')
+    referees=refs, date='13-Feb-2016', time='19:45')
 
 game = entities.Game(game_info=gameInfo, home_team=homeTeam, away_team=awayTeam)
 game.home_team.coach = entities.Person(first_name="DEJAN", last_name="RADONJIC", nationality="MNE")
@@ -50,5 +51,5 @@ output_from_parsed_template = template.render(game=game)
     template.render(attendance='1311', \
     referees=[ref1.getFullNameWithNationality(), ref2.getFullNameWithNationality(), ref3.getFullNameWithNationality()])'''
 
-with open('generatedStats.html', 'w') as f:
+with open('output/generatedStats.html', 'w') as f:
     f.write(output_from_parsed_template)

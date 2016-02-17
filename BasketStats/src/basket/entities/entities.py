@@ -35,22 +35,22 @@ class GameInfo:
         self.time = time
         self.attendance = attendance
         self.referees = referees
-        
+
 class Referee(Person):
-    
+
     def __init__(self,first_name="", last_name="", nationality="", kind=""):
         self.first_name = first_name
         self.last_name = last_name
         self.nationality = nationality
         self.kind = kind
-        
-class Coach(Person):
-    
+
+'''class Coach(Person):
+
     def __init__(self,first_name="", last_name="", nationality=""):
         self.first_name = first_name
         self.last_name = last_name
-        self.nationality = nationality
-   
+        self.nationality = nationality'''
+
 class Player(Person):
 
     def __init__(self,first_name, last_name, nationality, number, position):
@@ -112,14 +112,7 @@ class Player(Person):
             (self.getMissedFieldGoals() + self.getMissedFreeThrows() + self.turnovers + \
             self.blocks_against + self.fouls_commited)
 
-class HomeTeam:
-
-    def __init__(self, name="", coach="", players=""):
-        self.name = name
-        self.coach = coach
-        self.players = players
-
-class AwayTeam:
+class Team:
 
     def __init__(self, name="", coach="", players=""):
         self.name = name
@@ -131,4 +124,4 @@ class Game:
     def __init__(self, game_info, home_team, away_team):
         self.game_info = game_info
         self.home_team = home_team
-        self.away_team = away_team    
+        self.away_team = away_team
