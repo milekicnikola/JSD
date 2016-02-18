@@ -9,15 +9,13 @@ import pydot
 from textx.export import metamodel_export, model_export
 from textx.metamodel import metamodel_from_file
 
-from entities.entities import HomeTeam, Player, AwayTeam, GameInfo, Referee, \
-    Coach
-
+from basket.entities.entities import GameInfo, Referee, Player, Coach, Team
 
 class Basket(object):
     
-    info = GameInfo()
-    homeTeam = HomeTeam()
-    awayTeam = AwayTeam()
+    game_info = GameInfo()
+    home_team = Team()
+    away_team = Team()
     
     def __init__(self):
         pass
@@ -26,11 +24,11 @@ class Basket(object):
         
         '''Game Info'''
         
-        self.info.city = model.info.city
-        self.info.arena = model.info.arena
-        self.info.date = model.info.date
-        self.info.time = model.info.time
-        self.info.attendance = model.info.att
+        self.game_info.city = model.info.city
+        self.game_info.arena = model.info.arena
+        self.game_info.date = model.info.date
+        self.game_info.time = model.info.time
+        self.game_info.attendance = model.info.att
         
         '''Referees'''
         
@@ -40,7 +38,7 @@ class Basket(object):
         referees.append(Referee(model.info.Referees.second.firstName, model.info.Referees.second.lastName, model.info.Referees.second.nat, "Referee"))
         referees.append(Referee(model.info.Referees.third.firstName, model.info.Referees.third.lastName, model.info.Referees.third.nat, "Umpire"))
         
-        self.info.referees = referees     
+        self.game_info.referees = referees     
         
         '''Teams - Home and Away'''
         
@@ -51,17 +49,17 @@ class Basket(object):
             p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)                     
             homePlayers.append(p)
                          
-        self.homeTeam.name = model.info.homeTeam.name
-        self.homeTeam.coach = Coach(model.info.homeTeam.coach.firstName, model.info.homeTeam.coach.lastName, model.info.homeTeam.coach.nat)
-        self.homeTeam.players = homePlayers
+        self.home_team.name = model.info.homeTeam.name
+        self.home_team.coach = Coach(model.info.homeTeam.coach.firstName, model.info.homeTeam.coach.lastName, model.info.homeTeam.coach.nat)
+        self.home_team.players = homePlayers
         
         for n in model.info.awayTeam.players:
             p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)                     
             awayPlayers.append(p)
                     
-        self.awayTeam.name = model.info.awayTeam.name
-        self.awayTeam.coach = Coach(model.info.awayTeam.coach.firstName, model.info.awayTeam.coach.lastName, model.info.awayTeam.coach.nat)
-        self.awayTeam.players = awayPlayers     
+        self.away_team.name = model.info.awayTeam.name
+        self.away_team.coach = Coach(model.info.awayTeam.coach.firstName, model.info.awayTeam.coach.lastName, model.info.awayTeam.coach.nat)
+        self.away_team.players = awayPlayers     
        
         
         #=======================================================================
@@ -84,11 +82,6 @@ if __name__ == '__main__':
     graph = pydot.graph_from_dot_file('basketStats_meta.dot')
     graph.write_png('basketStats_meta.png')
 
-    #===========================================================================
-    # object_processors = {'MoveCommand' : move_command_processor}
-    # forma_mm.register_obj_processors(object_processors)
-    #===========================================================================
-
     basket_model = basket_metamodel.model_from_file('game.tx')
     model_export(basket_model, 'basketStats_model.dot')
     graph = pydot.graph_from_dot_file('basketStats_model.dot')
@@ -98,11 +91,9 @@ if __name__ == '__main__':
     basket.interpret(basket_model)
 
     env = Environment(trim_blocks=True, lstrip_blocks=True, loader=PackageLoader("basket", "templates"))
-    #===========================================================================
-    # env.filters['componentType'] = componentType
-    #===========================================================================
-    template = env.get_template("statsTest.html")
-    t = template.render(model=basket)
+  
+    template = env.get_template("statsTemplate.html")
+    t = template.render(game=basket)
     print(t)
     with open("output/stats.html", "w") as f:
         f.write(t)

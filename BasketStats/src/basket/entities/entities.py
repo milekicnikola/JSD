@@ -44,12 +44,12 @@ class Referee(Person):
         self.nationality = nationality
         self.kind = kind
 
-'''class Coach(Person):
+class Coach(Person):
 
     def __init__(self,first_name="", last_name="", nationality=""):
         self.first_name = first_name
         self.last_name = last_name
-        self.nationality = nationality'''
+        self.nationality = nationality
 
 class Player(Person):
 
@@ -117,16 +117,26 @@ class Player(Person):
         return self.three_points_attempted - self.three_points_made
 
     def getFieldGoalsPercentage(self):
-        return round(self.getFieldGoalsMade() / self.getFieldGoalsAttempted() * 100, 1)
+        if self.getFieldGoalsAttempted() != 0 :
+            return round(self.getFieldGoalsMade() / self.getFieldGoalsAttempted() * 100, 1)
+        else:
+            return 0
 
     def getTwoPointsPercentage(self):
-        return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+        if self.getTwoPointsAttempted() != 0:
+            return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+        else:
+            return 0
 
     def getThreePointsPercentage(self):
-        return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+        if self.getThreePointsAttempted() != 0:
+            return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+        return 0
 
     def getFreeThrowsPercentage(self):
-        return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+        if self.getFreeThrowsAttempted() != 0:
+            return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+        return 0
 
     '''(Points + Rebounds + Assists + Steals + Blocks + Fouls Drawn)
         - (Missed Field Goals + Missed Free Throws + Turnovers + Shots Rejected + Fouls Committed)'''
@@ -258,16 +268,28 @@ class Team:
         return str(self.getFreeThrowsMade()) + '/' + str(self.getFreeThrowsAttempted())
 
     def getFieldGoalsPercentage(self):
-        return round(self.getFieldGoalsMade() / self.getFieldGoalsAttempted() * 100, 1)
+        if self.getFieldGoalsAttempted() != 0:
+            return round(self.getFieldGoalsMade() / self.getFieldGoalsAttempted() * 100, 1)
+        else:
+            return 0
 
     def getTwoPointsPercentage(self):
-        return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+        if self.getTwoPointsAttempted() != 0:
+            return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+        else:
+            return 0
 
     def getThreePointsPercentage(self):
-        return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+        if self.getThreePointsAttempted() != 0:
+            return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+        else:
+            return 0
 
     def getFreeThrowsPercentage(self):
-        return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+        if self.getFreeThrowsAttempted() != 0:
+            return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+        else:
+            return 0
 
 class Game:
 
