@@ -1,7 +1,11 @@
 
 
-import os, sys
-from entities import entities
+import sys
+
+from jinja2 import Environment, FileSystemLoader
+
+from basket.entities import entities
+
 
 print(sys.version)
 
@@ -54,9 +58,9 @@ refs = [ref1, ref2, ref3]
 gameInfo = entities.GameInfo(city="Belgrade", arena="Pionir", attendance=6479, \
     referees=refs, date='13-Feb-2016', time='19:45')
 
-game = entities.Game(game_info=gameInfo, home_team=homeTeam, away_team=awayTeam)
-game.home_team.coach = entities.Person(first_name="DEJAN", last_name="RADONJIC", nationality="MNE")
-game.away_team.coach = entities.Person(first_name="GEORGIOS", last_name="BARTZOKAS", nationality="GRE")
+
+entities.home_team.coach = entities.Person(first_name="DEJAN", last_name="RADONJIC", nationality="MNE")
+entities.away_team.coach = entities.Person(first_name="GEORGIOS", last_name="BARTZOKAS", nationality="GRE")
 
 # Jinja2 Test
 '''from jinja2 import Template
@@ -68,14 +72,13 @@ print(t.render())'''
 print('\n\n')
 
 #Real Jinja2 magic
-from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('templates'))
 
 print(env.loader.list_templates())
 print(env.loader.searchpath)
 
 template = env.get_template('statsTemplate.html');
-output_from_parsed_template = template.render(game=game)
+output_from_parsed_template = template.render(game=entities)
 '''output_from_parsed_template = \
     template.render(attendance='1311', \
     referees=[ref1.getFullNameWithNationality(), ref2.getFullNameWithNationality(), ref3.getFullNameWithNationality()])'''

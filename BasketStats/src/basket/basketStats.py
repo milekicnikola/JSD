@@ -203,15 +203,15 @@ class Basket(object):
 
 if __name__ == '__main__':
 
-    basket_metamodel = metamodel_from_file('grammar.tx', debug=False)
-    metamodel_export(basket_metamodel, 'basketStats_meta.dot')
-    graph = pydot.graph_from_dot_file('basketStats_meta.dot')
-    graph.write_png('basketStats_meta.png')
+    basket_metamodel = metamodel_from_file('textX/grammar.tx', debug=False)
+    metamodel_export(basket_metamodel, 'output/basketStats_meta.dot')
+    graph = pydot.graph_from_dot_file('output/basketStats_meta.dot')
+    graph.write_png('output/basketStats_meta.png')
 
-    basket_model = basket_metamodel.model_from_file('game.tx')
-    model_export(basket_model, 'basketStats_model.dot')
-    graph = pydot.graph_from_dot_file('basketStats_model.dot')
-    graph.write_png('basketStats_model.png')
+    basket_model = basket_metamodel.model_from_file('textX/game.tx')
+    model_export(basket_model, 'output/basketStats_model.dot')
+    graph = pydot.graph_from_dot_file('output/basketStats_model.dot')
+    graph.write_png('output/basketStats_model.png')
 
     basket = Basket()
     basket.interpret(basket_model)

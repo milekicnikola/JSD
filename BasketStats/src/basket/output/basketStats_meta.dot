@@ -1,0 +1,123 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    edge[dir=black,arrowtail=empty]
+
+
+56981392 -> 56982336[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+56981392 -> 56999984[arrowtail=diamond, dir=both, headlabel="coach "]
+56981392[ label="{HomeTeam|+name:STRING\l}"]
+
+56980920[ label="{Umpire|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57000928[ label="{PeriodType|Quarter\|Over Time}"]
+
+57040944[ label="{TehnicalFoulCoach|+team:Team\l}"]
+
+57025976[ label="{Assist|+player:INT\l}"]
+
+56917272 -> 56979504[arrowtail=diamond, dir=both, headlabel="Referees "]
+56917272 -> 56981392[arrowtail=diamond, dir=both, headlabel="homeTeam "]
+56917272 -> 56981864[arrowtail=diamond, dir=both, headlabel="awayTeam "]
+56917272[ label="{GameInfo|+city:STRING\l+arena:STRING\l+date:STRING\l+time:STRING\l+att:INT\l}"]
+
+57027392[ label="{DefensiveRebound|+team:Team\l+player:INT\l}"]
+
+57041888[ label="{UnsportsmanlikeFoul|+team:Team\l+player:INT\l}"]
+
+56999984[ label="{Coach|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57026448[ label="{Block|+team:Team\l+player:INT\l+playerBlocked:INT\l}"]
+
+57027864[ label="{TehnicalFoulTeam|+team:Team\l}"]
+
+57025032[ label="{Turnover|+team:Team\l+player:INT\l}"]
+
+57001872[ label="{Team|Home\|Away}"]
+
+56980448[ label="{Referee|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57002816 -> 57025976[arrowtail=diamond, dir=both, headlabel="ast "]
+57002816[ label="{TwoPoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+57000456 -> 57001400[arrowtail=diamond, dir=both, headlabel="events 0..*"]
+57000456[ label="{Period|+type:PeriodType\l+number:INT\l}"]
+
+56982336[ label="{Player|+number:INT\l+firstName:STRING\l+lastName:STRING\l+nat:STRING\l+position:Position\l}"]
+
+56979504 -> 56979976[arrowtail=diamond, dir=both, headlabel="first "]
+56979504 -> 56980448[arrowtail=diamond, dir=both, headlabel="second "]
+56979504 -> 56980920[arrowtail=diamond, dir=both, headlabel="third "]
+56979504[ label="{Referees|}"]
+
+57002344[ label="{FreeThrow|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+56981864 -> 56982336[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+56981864 -> 56999984[arrowtail=diamond, dir=both, headlabel="coach "]
+56981864[ label="{AwayTeam|+name:STRING\l}"]
+
+56979976[ label="{CrewChief|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57025504[ label="{Steal|+team:Team\l+player:INT\l}"]
+
+57003288 -> 57025976[arrowtail=diamond, dir=both, headlabel="ast "]
+57003288[ label="{ThreePoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+56982808[ label="{Position|PG\|SG\|SF\|PF\|C\|G\|F}"]
+
+57026920[ label="{OffensiveRebound|+team:Team\l+player:INT\l}"]
+
+56916800 -> 56917272[arrowtail=diamond, dir=both, headlabel="info "]
+56916800 -> 57000456[arrowtail=diamond, dir=both, headlabel="periods 1..*"]
+56916800[ label="{Game|}"]
+
+57041416[ label="{TehnicalFoulPlayer|+team:Team\l+player:INT\l}"]
+
+57024560[ label="{PersonalFoul|+foulTeam:Team\l+playerFoul:INT\l+playerFouled:INT\l}"]
+
+57042360[ label="{Comment|\/\/.*$}"]
+
+57001400[ label="{Event|}"]
+57001400 -> 57002344 [dir=back]
+57001400 -> 57002816 [dir=back]
+57001400 -> 57003288 [dir=back]
+57001400 -> 57025976 [dir=back]
+57001400 -> 57024560 [dir=back]
+57001400 -> 57025032 [dir=back]
+57001400 -> 57025504 [dir=back]
+57001400 -> 57026448 [dir=back]
+57001400 -> 57026920 [dir=back]
+57001400 -> 57027392 [dir=back]
+57001400 -> 57027864 [dir=back]
+57001400 -> 57040944 [dir=back]
+57001400 -> 57041416 [dir=back]
+57001400 -> 57041888 [dir=back]
+
+46883336[ label="{BASETYPE|}"]
+46883336 -> 46882864 [dir=back]
+46883336 -> 46872936 [dir=back]
+46883336 -> 46871992 [dir=back]
+46883336 -> 46872464 [dir=back]
+
+46871992[ label="{ID|}"]
+
+46873408[ label="{INT|}"]
+
+46882864[ label="{NUMBER|}"]
+46882864 -> 46873880 [dir=back]
+46882864 -> 46873408 [dir=back]
+
+46872936[ label="{BOOL|}"]
+
+46872464[ label="{STRING|}"]
+
+46873880[ label="{FLOAT|}"]
+
+
+}
