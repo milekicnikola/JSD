@@ -673,6 +673,8 @@ public class Game extends JDialog {
 						
 				
 				System.out.println(code);
+				
+				
 				Code dialog = new Code(code);
 				
 						
