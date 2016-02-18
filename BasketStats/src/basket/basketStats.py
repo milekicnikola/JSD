@@ -11,6 +11,7 @@ from textx.metamodel import metamodel_from_file
 
 from basket.entities.entities import GameInfo, Referee, Player, Coach, Team
 
+
 class Basket(object):
     
     game_info = GameInfo()
@@ -59,21 +60,146 @@ class Basket(object):
                     
         self.away_team.name = model.info.awayTeam.name
         self.away_team.coach = Coach(model.info.awayTeam.coach.firstName, model.info.awayTeam.coach.lastName, model.info.awayTeam.coach.nat)
-        self.away_team.players = awayPlayers     
-       
+        self.away_team.players = awayPlayers
         
-        #=======================================================================
-        # print(model.info.arena)
-        # entities.Team = model.info.homeTeam
-        # entities.Player = model.info.homeTeam.players[0]
-        # entities.Team.players = model.info.homeTeam.players
-        #=======================================================================
-        #=======================================================================
-        # print(entities.HomeTeam.players[0].firstName)                
-        #=======================================================================
+        '''Events'''       
+        
+        for p in model.periods:
+            for e in p.events:
+                if e.__class__.__name__ == "FreeThrow":
+                    self.freeThrow(e.team, e.player, e.made)                   
+                elif e.__class__.__name__ == "TwoPoints":
+                    self.twoPoints(e.team, e.player, e.made)
+                    if e.ast != None:
+                        self.assist(e.team, e.ast.player)                                      
+                elif e.__class__.__name__ == "ThreePoints":
+                    self.threePoints(e.team, e.player, e.made)
+                    if e.ast != None:
+                        self.assist(e.team, e.ast.player)             
+                elif e.__class__.__name__ == "PersonalFoul":
+                    self.personalFoul(e.foulTeam, e.playerFoul, e.playerFouled)                   
+                elif e.__class__.__name__ == "Turnover":
+                    self.event(e.team, e.player, e.__class__.__name__)                   
+                elif e.__class__.__name__ == "Steal":
+                    self.event(e.team, e.player, e.__class__.__name__)                                  
+                elif e.__class__.__name__ == "OffensiveRebound":
+                    self.event(e.team, e.player, e.__class__.__name__)                   
+                elif e.__class__.__name__ == "DefensiveRebound":
+                    self.event(e.team, e.player, e.__class__.__name__)                                  
+                elif e.__class__.__name__ == "TehnicalFoulPlayer":
+                    self.event(e.team, e.player, e.__class__.__name__)                   
+                elif e.__class__.__name__ == "UnsportsmanlikeFoul":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "Block":
+                    self.block(e.team, e.player, e.playerBlocked)                  
+                elif e.__class__.__name__ == "TehnicalFoulTeam":
+                    self.tehnicalFoul(e.team)                   
+                elif e.__class__.__name__ == "TehnicalFoulCoach":
+                    self.tehnicalFoul(e.team)
                             
     def __str__(self):
         pass
+    
+    def freeThrow(self, team, player, made):
+        if team == "Home":
+            players = self.home_team.players
+        else:
+            players = self.away_team.players
+        for p in players:
+            if p.number == player:
+                p.free_throws_attempted += 1
+                if made:
+                    p.free_throws_made += 1  
+    
+    def twoPoints(self, team, player, made):
+        if team == "Home":
+            players = self.home_team.players
+        else:
+            players = self.away_team.players
+        for p in players:
+            if p.number == player:
+                p.two_points_attempted += 1
+                if made:
+                    p.two_points_made += 1
+    
+    def threePoints(self, team, player, made):
+        if team == "Home":
+            players = self.home_team.players
+        else:
+            players = self.away_team.players
+        for p in players:
+            if p.number == player:
+                p.three_points_attempted += 1
+                if made:
+                    p.three_points_made += 1
+    
+    def assist(self, team, player):
+        if team == "Home":
+            players = self.home_team.players
+        else:
+            players = self.away_team.players
+        for p in players:
+            if p.number == player:
+                p.assists += 1
+    
+    def personalFoul(self, team, playerFoul, playerFouled):       
+        if team == "Home":
+            for p in self.home_team.players:
+                if p.number == playerFoul:
+                    p.fouls_commited += 1
+            for p in self.away_team.players:
+                if p.number == playerFouled:
+                    p.fouls_received += 1
+        else:
+            for p in self.away_team.players:
+                if p.number == playerFoul:
+                    p.fouls_commited += 1
+            for p in self.home_team.players:
+                if p.number == playerFouled:
+                    p.fouls_received += 1       
+    
+    def event(self, team, player, event):
+        if team == "Home":
+            players = self.home_team.players
+        else:
+            players = self.away_team.players
+        
+        for p in players:
+            if p.number == player:
+                if event == "Turnover":
+                    p.turnovers += 1
+                elif event == "Steal":
+                    p.steals += 1
+                elif event == "OffensiveRebound":
+                    p.rebounds_offensive += 1
+                elif event == "DefensiveRebound":
+                    p.rebounds_deffensive += 1
+                elif event == "TehnicalFoulPlayer":
+                    p.fouls_commited += 1
+                elif event == "UnsportsmanlikeFoul":
+                    p.fouls_commited += 1   
+    
+    def block(self, team, player, playerBlocked):
+        if team == "Home":
+            for p in self.home_team.players:
+                if p.number == player:
+                    p.blocks_in_favor += 1
+            for p in self.away_team.players:
+                if p.number == playerBlocked:
+                    p.blocks_against += 1
+        else:
+            for p in self.away_team.players:
+                if p.number == player:
+                    p.blocks_in_favor += 1
+            for p in self.home_team.players:
+                if p.number == playerBlocked:
+                    p.blocks_against += 1           
+    
+    def tehnicalFoul(self, team):
+        if team == "Home":
+            self.home_team.tehnicals += 1
+        else:
+            self.away_team.tehnicals += 1   
 
 if __name__ == '__main__':
 

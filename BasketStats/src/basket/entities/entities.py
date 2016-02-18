@@ -38,7 +38,7 @@ class GameInfo:
 
 class Referee(Person):
 
-    def __init__(self,first_name="", last_name="", nationality="", kind=""):
+    def __init__(self, first_name="", last_name="", nationality="", kind=""):
         self.first_name = first_name
         self.last_name = last_name
         self.nationality = nationality
@@ -46,14 +46,14 @@ class Referee(Person):
 
 class Coach(Person):
 
-    def __init__(self,first_name="", last_name="", nationality=""):
+    def __init__(self, first_name="", last_name="", nationality=""):
         self.first_name = first_name
         self.last_name = last_name
         self.nationality = nationality
 
 class Player(Person):
 
-    def __init__(self,first_name, last_name, nationality, number, position):
+    def __init__(self, first_name, last_name, nationality, number, position):
         self.first_name = first_name
         self.last_name = last_name
         self.nationality = nationality
@@ -74,14 +74,16 @@ class Player(Person):
         self.blocks_in_favor = 0
         self.blocks_against = 0
         self.fouls_commited = 0
-        self.fouls_received = 0
-
+        self.fouls_received = 0     
 
     def getPlayerSignature(self):
         return '#' + str(self.number) + ' ' + self.last_name
 
     def getPlayerSignatureWithPosition(self):
         return self.getPlayerSignature() + ', ' + self.position.value
+    
+    def getPoints(self):
+        return self.free_throws_made + 2 * self.two_points_made + 3 * self.three_points_made
 
     def getTotalRebounds(self):
         return self.rebounds_deffensive + self.rebounds_offensive
@@ -141,7 +143,7 @@ class Player(Person):
     '''(Points + Rebounds + Assists + Steals + Blocks + Fouls Drawn)
         - (Missed Field Goals + Missed Free Throws + Turnovers + Shots Rejected + Fouls Committed)'''
     def getPerformanceIndexRating(self):
-        return (self.points + self.getTotalRebounds() + self.assists \
+        return (self.getPoints() + self.getTotalRebounds() + self.assists \
             + self.steals + self.blocks_in_favor + self.fouls_received) - \
             (self.getMissedFieldGoals() + self.getMissedFreeThrows() + self.turnovers + \
             self.blocks_against + self.fouls_commited)
@@ -152,12 +154,19 @@ class Team:
         self.name = name
         self.coach = coach
         self.players = players
+        self.tehnicals = 0
 
     def getPoints(self):
         points = 0
         for p in self.players:
-            points += p.points
+            points += p.getPoints()
         return points
+    
+    def getFouls(self):
+        fouls = self.tehnicals
+        for p in self.players:
+            fouls += p.getFouls()
+        return fouls
 
     def getTotalRebounds(self):
         rebounds = 0
@@ -290,10 +299,3 @@ class Team:
             return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
         else:
             return 0
-
-class Game:
-
-    def __init__(self, game_info, home_team, away_team):
-        self.game_info = game_info
-        self.home_team = home_team
-        self.away_team = away_team
