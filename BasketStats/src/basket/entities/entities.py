@@ -35,6 +35,7 @@ class GameInfo:
         self.time = time
         self.attendance = attendance
         self.referees = referees
+        self.overtime = False
 
 class Referee(Person):
 
@@ -155,6 +156,20 @@ class Team:
         self.coach = coach
         self.players = players
         self.tehnicals = 0
+        self.firstQuarterPoints = 0;
+        self.secondQuarterPoints = 0;        
+        self.thirdQuarterPoints = 0;        
+        self.fourthQuarterPoints = 0;
+        self.overtimePoints = 0;
+        
+    def getPointsAfterSecond(self):
+        return self.firstQuarterPoints + self.secondQuarterPoints
+    
+    def getPointsAfterThird(self):
+        return self.getPointsAfterSecond() + self.thirdQuarterPoints
+    
+    def getPointsAfterFourth(self):
+        return self.getPointsAfterThird() + self.fourthQuarterPoints      
 
     def getPoints(self):
         points = 0

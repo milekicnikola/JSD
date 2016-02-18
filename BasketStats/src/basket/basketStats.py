@@ -96,7 +96,24 @@ class Basket(object):
                     self.tehnicalFoul(e.team)                   
                 elif e.__class__.__name__ == "TehnicalFoulCoach":
                     self.tehnicalFoul(e.team)
-                            
+            if p.type == "Quarter":
+                if p.number == 1:
+                    self.home_team.firstQuarterPoints = self.home_team.getPoints()
+                    self.away_team.firstQuarterPoints = self.away_team.getPoints()
+                if p.number == 2:
+                    self.home_team.secondQuarterPoints = self.home_team.getPoints() - self.home_team.firstQuarterPoints
+                    self.away_team.secondQuarterPoints = self.away_team.getPoints() - self.away_team.firstQuarterPoints
+                if p.number == 3:
+                    self.home_team.thirdQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterSecond()
+                    self.away_team.thirdQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterSecond()
+                if p.number == 4:
+                    self.home_team.fourthQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterThird()                 
+                    self.away_team.fourthQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterThird()
+            if p.type == "Over Time":
+                self.game_info.overtime = True
+                self.home_team.overtimePoints = self.home_team.getPoints() - self.home_team.getPointsAfterFourth()
+                self.away_team.overtimePoints = self.away_team.getPoints() - self.away_team.getPointsAfterFourth()
+                                
     def __str__(self):
         pass
     

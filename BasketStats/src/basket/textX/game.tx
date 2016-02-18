@@ -224,7 +224,18 @@ Quarter 4
 		TFP Away 40
 	End
 	
+	
 Over Time 1
+	Start
+		TFC Home
+		TO Away 30
+		2P Away 30 True
+		FT Away 30 True
+		STL Home 24
+		DREB Home 6		
+	End
+	
+Over Time 2
 	Start
 		TFC Home
 		TO Away 30
