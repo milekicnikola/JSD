@@ -314,3 +314,12 @@ class Team:
             return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
         else:
             return 0
+        
+class Event():
+    
+    def __init__(self, action, homePoints, awayPoints, team, player):
+        self.action = action
+        self.homePoints = homePoints
+        self.awayPoints = awayPoints
+        self.team = team
+        self.player = player
