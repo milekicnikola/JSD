@@ -14,58 +14,59 @@ from basket.entities.entities import GameInfo, Referee, Player, Coach, Team, \
 
 
 class Basket(object):
-    
+
     game_info = GameInfo()
     home_team = Team()
     away_team = Team()
     events = []
-    
+
+
     def __init__(self):
         pass
-        
+
     def interpret(self, model):
-        
+
         '''Game Info'''
-        
+
         self.game_info.city = model.info.city
         self.game_info.arena = model.info.arena
         self.game_info.date = model.info.date
         self.game_info.time = model.info.time
         self.game_info.attendance = model.info.att
-        
+
         '''Referees'''
-        
+
         referees = []
-        
+
         referees.append(Referee(model.info.Referees.first.firstName, model.info.Referees.first.lastName, model.info.Referees.first.nat, "CrewChief"))
         referees.append(Referee(model.info.Referees.second.firstName, model.info.Referees.second.lastName, model.info.Referees.second.nat, "Referee"))
         referees.append(Referee(model.info.Referees.third.firstName, model.info.Referees.third.lastName, model.info.Referees.third.nat, "Umpire"))
-        
-        self.game_info.referees = referees     
-        
+
+        self.game_info.referees = referees
+
         '''Teams - Home and Away'''
-        
+
         homePlayers = []
-        awayPlayers = []                       
-        
+        awayPlayers = []
+
         for n in model.info.homeTeam.players:
-            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)                     
+            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)
             homePlayers.append(p)
-                         
+
         self.home_team.name = model.info.homeTeam.name
         self.home_team.coach = Coach(model.info.homeTeam.coach.firstName, model.info.homeTeam.coach.lastName, model.info.homeTeam.coach.nat)
         self.home_team.players = homePlayers
-        
+
         for n in model.info.awayTeam.players:
-            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)                     
+            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)
             awayPlayers.append(p)
-                    
+
         self.away_team.name = model.info.awayTeam.name
         self.away_team.coach = Coach(model.info.awayTeam.coach.firstName, model.info.awayTeam.coach.lastName, model.info.awayTeam.coach.nat)
         self.away_team.players = awayPlayers
-        
-        '''Events'''       
-        
+
+        '''Events'''
+
         for p in model.periods:
             if p.type == "Quarter" and p.number == 1:
                 self.events.append(Event("Start of the game", 0, 0, "", ""))
@@ -74,37 +75,37 @@ class Basket(object):
                 actionStart = p.type + " " + p.number.__str__()
                 actionEnd = p.type + " " + (p.number-1).__str__()
                 self.events.append(Event("End of " + actionEnd, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
-                self.events.append(Event("Start of " + actionStart, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))               
-                
+                self.events.append(Event("Start of " + actionStart, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
+
             for e in p.events:
                 if e.__class__.__name__ == "FreeThrow":
-                    self.freeThrow(e.team, e.player, e.made)                   
+                    self.freeThrow(e.team, e.player, e.made)
                 elif e.__class__.__name__ == "TwoPoints":
                     self.twoPoints(e.team, e.player, e.made)
                     if e.ast != None:
-                        self.assist(e.team, e.ast.player)                                      
+                        self.assist(e.team, e.ast.player)
                 elif e.__class__.__name__ == "ThreePoints":
                     self.threePoints(e.team, e.player, e.made)
                     if e.ast != None:
-                        self.assist(e.team, e.ast.player)             
+                        self.assist(e.team, e.ast.player)
                 elif e.__class__.__name__ == "PersonalFoul":
-                    self.personalFoul(e.foulTeam, e.playerFoul, e.playerFouled)                   
+                    self.personalFoul(e.foulTeam, e.playerFoul, e.playerFouled)
                 elif e.__class__.__name__ == "Turnover":
-                    self.event(e.team, e.player, e.__class__.__name__)                   
+                    self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "Steal":
-                    self.event(e.team, e.player, e.__class__.__name__)                                  
+                    self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "OffensiveRebound":
-                    self.event(e.team, e.player, e.__class__.__name__)                   
+                    self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "DefensiveRebound":
-                    self.event(e.team, e.player, e.__class__.__name__)                                  
+                    self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "TehnicalFoulPlayer":
-                    self.event(e.team, e.player, e.__class__.__name__)                   
+                    self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "UnsportsmanlikeFoul":
                     self.event(e.team, e.player, e.__class__.__name__)
                 elif e.__class__.__name__ == "Block":
-                    self.block(e.team, e.player, e.playerBlocked)                  
+                    self.block(e.team, e.player, e.playerBlocked)
                 elif e.__class__.__name__ == "TehnicalFoulTeam":
-                    self.tehnicalFoul(e.team, "Team")                   
+                    self.tehnicalFoul(e.team, "Team")
                 elif e.__class__.__name__ == "TehnicalFoulCoach":
                     self.tehnicalFoul(e.team, "Coach")
             if p.type == "Quarter":
@@ -118,21 +119,21 @@ class Basket(object):
                     self.home_team.thirdQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterSecond()
                     self.away_team.thirdQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterSecond()
                 if p.number == 4:
-                    self.home_team.fourthQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterThird()                 
+                    self.home_team.fourthQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterThird()
                     self.away_team.fourthQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterThird()
             if p.type == "Over Time":
                 self.game_info.overtime = True
                 self.home_team.overtimePoints = self.home_team.getPoints() - self.home_team.getPointsAfterFourth()
                 self.away_team.overtimePoints = self.away_team.getPoints() - self.away_team.getPointsAfterFourth()
-        
+
         self.events.append(Event("End of " + actionStart, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
         self.events.append(Event("End of game ", self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
-    
+
     def __str__(self):
         pass
-    
+
     def freeThrow(self, team, player, made):
-        
+
         if team == "Home":
             players = self.home_team.players
             eventTeam = self.home_team.name
@@ -147,11 +148,11 @@ class Basket(object):
                 if made:
                     p.free_throws_made += 1
                     action = "Free Throw Made"
-        
-        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer)) 
-    
+
+        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
     def twoPoints(self, team, player, made):
-        if team == "Home":           
+        if team == "Home":
             players = self.home_team.players
             eventTeam = self.home_team.name
         else:
@@ -165,9 +166,9 @@ class Basket(object):
                 if made:
                     p.two_points_made += 1
                     action = "Two Points Made"
-        
+
         self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
-    
+
     def threePoints(self, team, player, made):
         if team == "Home":
             players = self.home_team.players
@@ -183,9 +184,9 @@ class Basket(object):
                 if made:
                     p.three_points_made += 1
                     action = "Three Points Made"
-        
+
         self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
-    
+
     def assist(self, team, player):
         if team == "Home":
             players = self.home_team.players
@@ -197,10 +198,10 @@ class Basket(object):
             if p.number == player:
                 eventPlayer = p.getFullName()
                 p.assists += 1
-        
+
         self.events.append(Event("Assist", self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
-    
-    def personalFoul(self, team, playerFoul, playerFouled):       
+
+    def personalFoul(self, team, playerFoul, playerFouled):
         if team == "Home":
             foulTeam = self.home_team.name
             fouledTeam = self.away_team.name
@@ -223,10 +224,10 @@ class Basket(object):
                 if p.number == playerFouled:
                     fouledPlayer = p.getFullName()
                     p.fouls_received += 1
-                    
+
         self.events.append(Event("Personal Foul", self.home_team.getPoints(), self.away_team.getPoints(), foulTeam, foulPlayer))
-        self.events.append(Event("Foul Drawn", self.home_team.getPoints(), self.away_team.getPoints(), fouledTeam, fouledPlayer))    
-    
+        self.events.append(Event("Foul Drawn", self.home_team.getPoints(), self.away_team.getPoints(), fouledTeam, fouledPlayer))
+
     def event(self, team, player, event):
         if team == "Home":
             players = self.home_team.players
@@ -234,7 +235,7 @@ class Basket(object):
         else:
             players = self.away_team.players
             eventTeam = self.away_team.name
-        
+
         for p in players:
             if p.number == player:
                 eventPlayer = p.getFullName()
@@ -256,9 +257,9 @@ class Basket(object):
                 elif event == "UnsportsmanlikeFoul":
                     p.fouls_commited += 1
                     action = "Unsportsmanlike Foul"
-                    
+
         self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
-    
+
     def block(self, team, player, playerBlocked):
         if team == "Home":
             blockTeam = self.home_team.name
@@ -282,10 +283,10 @@ class Basket(object):
                 if p.number == playerBlocked:
                     blockedPlayer = p.getFullName()
                     p.blocks_against += 1
-                    
+
         self.events.append(Event("Block", self.home_team.getPoints(), self.away_team.getPoints(), blockTeam, blockPlayer))
-        self.events.append(Event("Shot Rejected", self.home_team.getPoints(), self.away_team.getPoints(), blockedTeam, blockedPlayer))       
-    
+        self.events.append(Event("Shot Rejected", self.home_team.getPoints(), self.away_team.getPoints(), blockedTeam, blockedPlayer))
+
     def tehnicalFoul(self, team, who):
         action = "Tehnical Foul"
         if team == "Home":
@@ -296,11 +297,14 @@ class Basket(object):
             self.away_team.tehnicals += 1
             eventTeam = self.away_team.name
             coach = self.away_team.coach.getFullName()
-            
+
         if who == "Team":
             self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, ""))
         else :
             self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, coach))
+
+    def getGameObject(self):
+        return Game(game_info=self.game_info, home_team=self.home_team, away_team=self.away_team, events=self.events)
 
 if __name__ == '__main__':
 
@@ -318,9 +322,9 @@ if __name__ == '__main__':
     basket.interpret(basket_model)
 
     env = Environment(trim_blocks=True, lstrip_blocks=True, loader=PackageLoader("basket", "templates"))
-  
+
     template = env.get_template("statsTemplate.html")
-    t = template.render(game=basket)
+    t = template.render(game=basket.getGameObject())
     print(t)
     with open("output/stats.html", "w") as f:
         f.write(t)

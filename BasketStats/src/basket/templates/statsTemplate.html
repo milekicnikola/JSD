@@ -2,115 +2,117 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basketball Stats</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Basketball Stats</title>
 
-<!-- Bootstrap -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<style media="screen">
-@media ( min-width : 992px) {
-	.main-container {
-		width: 920px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.container {
-		width: 920px;
-	}
-}
+	<style media="screen">
+		@media ( min-width: 992px) {
+			.main-container {
+				width: 920px;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			.container {
+				width: 920px;
+			}
+		}
 
-@media ( max-width : 991px) {
-	.main-container {
-		width: 100% !important;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.container {
-		width: 100% !important;
-	}
-}
+		@media ( max-width: 991px) {
+			.main-container {
+				width: 100% !important;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			.container {
+				width: 100% !important;
+			}
+		}
 
-.bold-label {
-	font-weight: bold;
-}
+		.bold-label {
+			font-weight: bold;
+		}
 
-label { //
-	font-weight: bold !important;
-	font-size: 15px;
-	margin: 5px 0px 5px 0px;
-}
+		label {
+			//
+			font-weight: bold !important;
+			font-size: 15px;
+			margin: 5px 0px 5px 0px;
+		}
 
-.hide {
-	display: none;
-}
+		.hide {
+			display: none;
+		}
 
-.top-buffer {
-	margin-top: 20px;
-}
+		.top-buffer {
+			margin-top: 20px;
+		}
 
-.LegendContainer .ColumnTitle {
-	font-weight: bold;
-}
+		.LegendContainer .ColumnTitle {
+			font-weight: bold;
+		}
 
-.table td,.table th {
-	text-align: center;
-}
+		.table td,
+		.table th {
+			text-align: center;
+		}
 
-.team-name-label {
-	background: #777;
-	color: #fff;
-	width: 100%;
-	text-align: center;
-}
+		.team-name-label {
+			background: #777;
+			color: #fff;
+			width: 100%;
+			text-align: center;
+		}
 
-.centered-text-label {
-	width: 100%;
-	text-align: center;
-}
+		.centered-text-label {
+			width: 100%;
+			text-align: center;
+		}
 
-.nav-tabs>li,.nav-pills>li {
-	float: none;
-	display: inline-block;
-	*display: inline; /* ie7 fix */
-	zoom: 1; /* hasLayout ie7 trigger */
-}
+		.nav-tabs>li,
+		.nav-pills>li {
+			float: none;
+			display: inline-block;
+			*display: inline;
+			/* ie7 fix */
+			zoom: 1;
+			/* hasLayout ie7 trigger */
+		}
 
-.nav-tabs,.nav-pills {
-	text-align: center;
-}
-</style>
+		.nav-tabs,
+		.nav-pills {
+			text-align: center;
+		}
+	</style>
 
-<script type="text/javascript">
-	$(document).ready(function() {
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-		//activate tabs
-		$('#tab-game-info, #tab-player-stats').click(function(e) {
-			e.preventDefault()
-			$(this).tab('show')
+			//activate tabs
+			$('#tab-game-info, #tab-player-stats').click(function(e) {
+				e.preventDefault()
+				$(this).tab('show')
+			});
+
 		});
-
-	});
-</script>
+	</script>
 </head>
 
 <body>
@@ -118,50 +120,122 @@ label { //
 
 		<!-- Nav tabs - http://getbootstrap.com/javascript/#tabs-->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a id='tab-game-info'
-				href="#game-info" aria-controls="game-info" role="tab"
-				data-toggle="tab">Game Info</a></li>
-			<li role="presentation"><a id='tab-player-stats'
-				href="#player-stats" aria-controls="player-stats" role="tab"
-				data-toggle="tab" class='my-tab'>Player Stats</a></li>
+			<li role="presentation" class="active"><a id='tab-game-info' href="#game-info" aria-controls="game-info" role="tab" data-toggle="tab">Game Info</a></li>
+			<li role="presentation"><a id='tab-player-stats' href="#player-stats" aria-controls="player-stats" role="tab" data-toggle="tab" class='my-tab'>Player Stats</a></li>
 		</ul>
 
 		<div class='tab-content top-buffer'>
 
-			<div role='tabpanel' class='container tab-pane fade in active'
-				id='game-info'>
+			<div role='tabpanel' class='container tab-pane fade in active' id='game-info'>
 				<div class="row" style="text-align: center;">
 					<div class="row">
-						<span style="font-weight: bold">City:</span> {{
-						game.game_info.city }}
+						<span style="font-weight: bold">City:</span> {{ game.game_info.city }}
 					</div>
 
 					<div class="row">
-						<span style="font-weight: bold">Arena:</span> {{
-						game.game_info.arena }}
+						<span style="font-weight: bold">Arena:</span> {{ game.game_info.arena }}
 					</div>
 
 					<div class="row">
-						<span style="font-weight: bold">Date:</span> {{
-						game.game_info.date }}, {{ game.game_info.time }}
+						<span style="font-weight: bold">Date:</span> {{ game.game_info.date }}, {{ game.game_info.time }}
 					</div>
 
 					<div class="row top-buffer">
-						<span style="font-weight: bold">Referee:</span>
-						{{game.game_info.referees[0].getFullNameWithNationality()}},
-						{{game.game_info.referees[1].getFullNameWithNationality()}},
-						{{game.game_info.referees[2].getFullNameWithNationality() }}
+						<span style="font-weight: bold">Referees:</span> {{game.game_info.referees[0].getFullNameWithNationality()}}, {{game.game_info.referees[1].getFullNameWithNationality()}}, {{game.game_info.referees[2].getFullNameWithNationality() }}
 					</div>
 				</div>
 
-				<table id='game-stats-table'
-					class="table table-responsive table-hover top-buffer"
-					style="border-collapse: collapse;">
+				<div class="row top-buffer"  style="text-align: center;margin-top: 50px;">
+					<span style="font-weight: bold; font-size: large;">Team Stats
+				</div>
+
+				<div class="row top-buffer">
+					<div class="col-sm-6 col-xs-12">
+						<table id='table-by-quarter' class="table table-responsive" style="border-collapse: collapse;">
+							<tbody>
+								<tr>
+									<th scope="col">By Quarter</th>
+									<th scope="col">1</th>
+									<th scope="col">2</th>
+									<th scope="col">3</th>
+									<th scope="col">4</th>
+									{% if game.game_info.overtime %}
+									<th scope="col">OT</th>
+									{% endif %}
+								</tr>
+								<tr>
+									<td>{{game.home_team.name}}</td>
+									<td>{{ game.home_team.firstQuarterPoints }}</td>
+									<td>{{ game.home_team.secondQuarterPoints }}</td>
+									<td>{{ game.home_team.thirdQuarterPoints }}</td>
+									<td>{{ game.home_team.fourthQuarterPoints }}</td>
+									{% if game.game_info.overtime %}
+									<td>{{ game.home_team.overtimePoints }}</td>
+									{% endif %}
+								</tr>
+								<tr>
+									<td>{{game.away_team.name}}</td>
+									<td>{{ game.away_team.firstQuarterPoints }}</td>
+									<td>{{ game.away_team.secondQuarterPoints }}</td>
+									<td>{{ game.away_team.thirdQuarterPoints }}</td>
+									<td>{{ game.away_team.fourthQuarterPoints }}</td>
+									{% if game.game_info.overtime %}
+									<td>{{ game.away_team.overtimePoints }}</td>
+									{% endif %}
+								</tr>
+							</tbody>
+						</table>
+						<!-- #table-by-quarter -->
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<table id='table-end-of-quarter' class="table table-responsive" style="border-collapse: collapse;">
+							<tbody>
+								<tr>
+									<th scope="col">End of Quarter</th>
+									<th scope="col">1</th>
+									<th scope="col">2</th>
+									<th scope="col">3</th>
+									<th scope="col">4</th>
+									{% if game.game_info.overtime %}
+									<th scope="col">OT</th>
+									{% endif %}
+								</tr>
+								<tr>
+									<td>{{game.home_team.name}}</td>
+									<td>{{ game.home_team.firstQuarterPoints }}</td>
+									<td>{{ game.home_team.getPointsAfterSecond() }}</td>
+									<td>{{ game.home_team.getPointsAfterThird() }}</td>
+									<td>{{ game.home_team.getPointsAfterFourth() }}</td>
+									{% if game.game_info.overtime %}
+									<td>{{ game.home_team.getPoints() }}</td>
+									{% endif %}
+								</tr>
+								<tr>
+									<td>{{game.away_team.name}}</td>
+									<td>{{ game.away_team.firstQuarterPoints }}</td>
+									<td>{{ game.away_team.getPointsAfterSecond() }}</td>
+									<td>{{ game.away_team.getPointsAfterThird() }}</td>
+									<td>{{ game.away_team.getPointsAfterFourth() }}</td>
+									{% if game.game_info.overtime %}
+									<td>{{ game.away_team.getPoints() }}</td>
+									{% endif %}
+								</tr>
+							</tbody>
+						</table>
+						<!-- #table-end-of-quarter -->
+					</div>
+				</div>
+
+				<table id='game-stats-table' class="table table-responsive table-hover top-buffer" style="border-collapse: collapse;">
 					<tbody>
 						<tr>
-							<th><label class="team-name-label">{{game.home_team.name.upper()}}</label></th>
+							<th>
+								<label class="team-name-label">{{game.home_team.name.upper()}}</label>
+							</th>
 							<th>&nbsp;</th>
-							<th><label class="team-name-label">{{game.away_team.name.upper()}}</label></th>
+							<th>
+								<label class="team-name-label">{{game.away_team.name.upper()}}</label>
+							</th>
 						</tr>
 
 						<tr>
@@ -213,35 +287,41 @@ label { //
 						</tr>
 
 						<tr>
-							<td>{{game.home_team.getFieldGoalsPercentage()}}%
-								({{game.home_team.getFieldGoalsMA()}})</td>
+							<td>{{game.home_team.getFouls()}}</td>
+							<td>Fouls</td>
+							<td>{{game.away_team.getFouls()}}</td>
+						</tr>
+
+						<tr>
+							<td>{{game.home_team.getFieldGoalsPercentage()}}% ({{game.home_team.getFieldGoalsMA()}})
+							</td>
 							<td>FG</td>
-							<td>{{game.away_team.getFieldGoalsPercentage()}}%
-								({{game.away_team.getFieldGoalsMA()}})</td>
+							<td>{{game.away_team.getFieldGoalsPercentage()}}% ({{game.away_team.getFieldGoalsMA()}})
+							</td>
 						</tr>
 
 						<tr>
-							<td>{{game.home_team.getTwoPointsPercentage()}}%
-								({{game.home_team.getTwoPointsMA()}})</td>
+							<td>{{game.home_team.getTwoPointsPercentage()}}% ({{game.home_team.getTwoPointsMA()}})
+							</td>
 							<td>2PT</td>
-							<td>{{game.away_team.getTwoPointsPercentage()}}%
-								({{game.away_team.getTwoPointsMA()}})</td>
+							<td>{{game.away_team.getTwoPointsPercentage()}}% ({{game.away_team.getTwoPointsMA()}})
+							</td>
 						</tr>
 
 						<tr>
-							<td>{{game.home_team.getThreePointsPercentage()}}%
-								({{game.home_team.getThreePointsMA()}})</td>
+							<td>{{game.home_team.getThreePointsPercentage()}}% ({{game.home_team.getThreePointsMA()}})
+							</td>
 							<td>3PT</td>
-							<td>{{game.away_team.getThreePointsPercentage()}}%
-								({{game.away_team.getThreePointsMA()}})</td>
+							<td>{{game.away_team.getThreePointsPercentage()}}% ({{game.away_team.getThreePointsMA()}})
+							</td>
 						</tr>
 
 						<tr>
-							<td>{{game.home_team.getFreeThrowsPercentage()}}%
-								({{game.home_team.getFreeThrowsMA()}})</td>
+							<td>{{game.home_team.getFreeThrowsPercentage()}}% ({{game.home_team.getFreeThrowsMA()}})
+							</td>
 							<td>FT</td>
-							<td>{{game.away_team.getFreeThrowsPercentage()}}%
-								({{game.away_team.getFreeThrowsMA()}})</td>
+							<td>{{game.away_team.getFreeThrowsPercentage()}}% ({{game.away_team.getFreeThrowsMA()}})
+							</td>
 						</tr>
 
 						<tr>
@@ -256,91 +336,11 @@ label { //
 			</div>
 			<!-- .tab-panel #game-info -->
 
-			<div role='tabpanel' class='container tab-pane fade'
-				id='player-stats'>
-				<div class="row top-buffer">
-					<div class="col-sm-6 col-xs-12">
-						<table id='table-by-quarter' class="table table-responsive"
-							style="border-collapse: collapse;">
-							<tbody>
-								<tr>
-									<th scope="col">By Quarter</th>
-									<th scope="col">1</th>
-									<th scope="col">2</th>
-									<th scope="col">3</th>
-									<th scope="col">4</th>
-									{% if game.game_info.overtime %}
-									<th scope="col">OT</th>
-									{% endif %}
-								</tr>								
-								<tr>
-									<td>{{game.home_team.name}}</td>
-									<td>{{ game.home_team.firstQuarterPoints }}</td>
-									<td>{{ game.home_team.secondQuarterPoints }}</td>
-									<td>{{ game.home_team.thirdQuarterPoints }}</td>
-									<td>{{ game.home_team.fourthQuarterPoints }}</td>
-									{% if game.game_info.overtime %}
-									<td>{{ game.home_team.overtimePoints }}</td>
-									{% endif %}
-								</tr>
-								<tr>
-									<td>{{game.away_team.name}}</td>
-									<td>{{ game.away_team.firstQuarterPoints }}</td>
-									<td>{{ game.away_team.secondQuarterPoints }}</td>
-									<td>{{ game.away_team.thirdQuarterPoints }}</td>
-									<td>{{ game.away_team.fourthQuarterPoints }}</td>
-									{% if game.game_info.overtime %}
-									<td>{{ game.away_team.overtimePoints }}</td>
-									{% endif %}
-								</tr>
-							</tbody>
-						</table>
-						<!-- #table-by-quarter -->
-					</div>
-					<div class="col-sm-6 col-xs-12">
-						<table id='table-end-of-quarter' class="table table-responsive"
-							style="border-collapse: collapse;">
-							<tbody>
-								<tr>
-									<th scope="col">End of Quarter</th>
-									<th scope="col">1</th>
-									<th scope="col">2</th>
-									<th scope="col">3</th>
-									<th scope="col">4</th>
-									{% if game.game_info.overtime %}
-									<th scope="col">OT</th>
-									{% endif %}
-								</tr>
-								<tr>
-									<td>{{game.home_team.name}}</td>
-									<td>{{ game.home_team.firstQuarterPoints }}</td>
-									<td>{{ game.home_team.getPointsAfterSecond() }}</td>
-									<td>{{ game.home_team.getPointsAfterThird() }}</td>
-									<td>{{ game.home_team.getPointsAfterFourth() }}</td>
-									{% if game.game_info.overtime %}
-									<td>{{ game.home_team.getPoints() }}</td>
-									{% endif %}
-								</tr>
-								<tr>
-									<td>{{game.away_team.name}}</td>
-									<td>{{ game.away_team.firstQuarterPoints }}</td>
-									<td>{{ game.away_team.getPointsAfterSecond() }}</td>
-									<td>{{ game.away_team.getPointsAfterThird() }}</td>
-									<td>{{ game.away_team.getPointsAfterFourth() }}</td>
-									{% if game.game_info.overtime %}
-									<td>{{ game.away_team.getPoints() }}</td>
-									{% endif %}
-								</tr>
-							</tbody>
-						</table>
-						<!-- #table-end-of-quarter -->
-					</div>
-				</div>
+			<div role='tabpanel' class='container tab-pane fade' id='player-stats'>
 
 				<div class="row top-buffer">
 					<label for="#away-team-table" class="team-name-label">{{game.home_team.name.upper()}}</label>
-					<table class="table table-responsive table-hover"
-						id="away-team-table">
+					<table class="table table-responsive table-hover" id="away-team-table">
 						<thead>
 							<tr class="sub-header">
 								<th>&nbsp;</th>
@@ -402,16 +402,13 @@ label { //
 						</tbody>
 					</table>
 					<!-- #home-team-table -->
-					<label class="centered-text-label"><span
-						class="ColumnTitle">Head coach:</span><span
-						style="font-weight: normal !important;">
+					<label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;">
 							{{game.home_team.coach.getFullNameFormatted()}}</span></label>
 				</div>
 
 				<div class="row top-buffer">
 					<label for="#away-team-table" class="team-name-label">{{game.away_team.name.upper()}}</label>
-					<table class="table table-responsive table-hover"
-						id="away-team-table">
+					<table class="table table-responsive table-hover" id="away-team-table">
 						<thead>
 							<tr class="sub-header">
 								<th>&nbsp;</th>
@@ -473,28 +470,17 @@ label { //
 						</tbody>
 					</table>
 					<!-- #away-team-table -->
-					<label class="centered-text-label"><span
-						class="ColumnTitle">Head coach:</span><span
-						style="font-weight: normal !important;">
+					<label class="centered-text-label"><span class="ColumnTitle">Head coach:</span><span style="font-weight: normal !important;">
 							{{game.away_team.coach.getFullNameFormatted()}}</span></label>
 				</div>
 
 				<div class="row top-buffer">
 					<div class="LegendContainer">
-						<span class="ColumnTitle">Pts:</span> Points; <span
-							class="ColumnTitle">2FG M-A:</span> 2-point Field Goals
-						(Made-Attempted); <span class="ColumnTitle">3FG M-A:</span>
-						3-point Field Goals (Made-Attempted); <span class="ColumnTitle">FT
-							M-A:</span> Free Throws (Made-Attempted); <span class="ColumnTitle">Rebounds:</span>
-						O (Offensive), D (Defensive), T (Total); <span class="ColumnTitle">As:</span>
-						Assists; <span class="ColumnTitle">St:</span> Steals; <span
-							class="ColumnTitle">To:</span> Turnovers; <span
-							class="ColumnTitle">Blocks:</span> (Fv: In Favor / Ag: Against);
-						<span class="ColumnTitle">Fouls:</span> Cm (Commited), Rv
-						(Received); <span class="ColumnTitle">PIR:</span> Performance
-						Index Rating
+						<span class="ColumnTitle">Pts:</span> Points; <span class="ColumnTitle">2FG M-A:</span> 2-point Field Goals (Made-Attempted); <span class="ColumnTitle">3FG M-A:</span> 3-point Field Goals (Made-Attempted); <span class="ColumnTitle">FT
+							M-A:</span> Free Throws (Made-Attempted); <span class="ColumnTitle">Rebounds:</span> O (Offensive), D (Defensive), T (Total); <span class="ColumnTitle">As:</span> Assists; <span class="ColumnTitle">St:</span> Steals; <span class="ColumnTitle">To:</span>						Turnovers; <span class="ColumnTitle">Blocks:</span> (Fv: In Favor / Ag: Against);
+						<span class="ColumnTitle">Fouls:</span> Cm (Commited), Rv (Received); <span class="ColumnTitle">PIR:</span> Performance Index Rating
 					</div>
-					
+
 				</div>
 			</div>
 			<!-- .tab-panel #player-stats -->

@@ -1,2 +1,2 @@
-python basketStats.py
+python webPageTester.py
 pause

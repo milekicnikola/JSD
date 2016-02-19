@@ -26,6 +26,13 @@ class Person:
     def getFullNameWithNationality(self):
         return self.getFullName() + ' (' + self.nationality + ')'
 
+class Game(object):
+    def __init__(self, game_info, home_team, away_team, events):
+        self.game_info = game_info
+        self.home_team = home_team
+        self.away_team = away_team
+        self.events = events
+
 class GameInfo:
 
     def __init__(self, city="", arena="", date="", time="", attendance="", referees=""):
@@ -75,14 +82,14 @@ class Player(Person):
         self.blocks_in_favor = 0
         self.blocks_against = 0
         self.fouls_commited = 0
-        self.fouls_received = 0     
+        self.fouls_received = 0
 
     def getPlayerSignature(self):
         return '#' + str(self.number) + ' ' + self.last_name
 
     def getPlayerSignatureWithPosition(self):
         return self.getPlayerSignature() + ', ' + self.position.value
-    
+
     def getPoints(self):
         return self.free_throws_made + 2 * self.two_points_made + 3 * self.three_points_made
 
@@ -157,30 +164,30 @@ class Team:
         self.players = players
         self.tehnicals = 0
         self.firstQuarterPoints = 0;
-        self.secondQuarterPoints = 0;        
-        self.thirdQuarterPoints = 0;        
+        self.secondQuarterPoints = 0;
+        self.thirdQuarterPoints = 0;
         self.fourthQuarterPoints = 0;
         self.overtimePoints = 0;
-        
+
     def getPointsAfterSecond(self):
         return self.firstQuarterPoints + self.secondQuarterPoints
-    
+
     def getPointsAfterThird(self):
         return self.getPointsAfterSecond() + self.thirdQuarterPoints
-    
+
     def getPointsAfterFourth(self):
-        return self.getPointsAfterThird() + self.fourthQuarterPoints      
+        return self.getPointsAfterThird() + self.fourthQuarterPoints
 
     def getPoints(self):
         points = 0
         for p in self.players:
             points += p.getPoints()
         return points
-    
+
     def getFouls(self):
         fouls = self.tehnicals
         for p in self.players:
-            fouls += p.getFouls()
+            fouls += p.fouls_commited
         return fouls
 
     def getTotalRebounds(self):
@@ -314,9 +321,9 @@ class Team:
             return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
         else:
             return 0
-        
+
 class Event():
-    
+
     def __init__(self, action, homePoints, awayPoints, team, player):
         self.action = action
         self.homePoints = homePoints
