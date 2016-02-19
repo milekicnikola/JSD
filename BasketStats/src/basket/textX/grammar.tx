@@ -1,0 +1,189 @@
+Game:
+	info=GameInfo
+	periods += Period
+;
+
+GameInfo:
+	 'City:' city=STRING
+	 'Arena:' arena=STRING
+	 'Date:' date=STRING
+	 'Time:' time=STRING
+	 'Attendance:' att=INT
+	 Referees=Referees
+	 homeTeam=HomeTeam
+	 awayTeam=AwayTeam
+;
+
+Referees:
+	first=CrewChief second=Referee third=Umpire
+;
+
+CrewChief:
+	'Crew Chief:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+;
+
+Referee:
+	'Referee:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+;
+
+Umpire:
+	'Umpire:'
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+;
+
+HomeTeam:
+	'Home team:'
+	'Name:' name=STRING
+	'Players:'
+	players+=Player
+	'Head coach:'
+	coach=Coach
+;
+
+AwayTeam:
+	'Away team:'
+	'Name:' name=STRING
+	'Players:'
+	players+=Player
+	'Head coach:'
+	coach=Coach
+;
+
+Player:
+	'Number:' number=INT
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+	'Position:' position=Position
+;
+
+Position:
+	'PG' | 'SG' | 'SF' | 'PF' | 'C' | 'G' | 'F'
+;
+
+Coach:
+	'First name:' firstName=STRING
+	'Last name:' lastName=STRING
+	'Nationality:' nat=STRING
+;
+
+Period:	
+	type=PeriodType number=INT
+	'Start'
+	events *= Event
+	'End'
+;
+
+PeriodType:
+	'Quarter' | 'Over Time'
+	
+;
+
+Event:
+	FreeThrow | TwoPoints | ThreePoints | Assist | PersonalFoul | Turnover | Steal | Block |
+	OffensiveRebound | DefensiveRebound | TehnicalFoulTeam | TehnicalFoulCoach | TehnicalFoulPlayer | UnsportsmanlikeFoul
+;
+
+Team:
+	'Home' | 'Away'
+;
+
+FreeThrow:
+	'FT'
+	team=Team
+	player=INT
+	made=BOOL
+;
+
+TwoPoints:
+	'2P'
+	team=Team
+	player=INT
+	made=BOOL
+	ast=Assist?
+;
+
+ThreePoints:
+	'3P'
+	team=Team
+	player=INT
+	made=BOOL
+	ast=Assist?
+;
+
+PersonalFoul:
+	'PF'
+	foulTeam=Team
+	playerFoul=INT
+	playerFouled=INT	
+;
+
+Turnover:
+	'TO'
+	team=Team
+	player=INT
+;
+
+Steal:
+	'STL'
+	team=Team
+	player=INT
+;
+
+Assist:
+	'AST'
+	player=INT
+;
+
+Block:
+	'BLK'
+	team=Team
+	player=INT
+	playerBlocked=INT
+;
+
+OffensiveRebound:
+	'OREB'
+	team=Team
+	player=INT
+;
+
+DefensiveRebound:
+	'DREB'
+	team=Team
+	player=INT
+;
+
+TehnicalFoulTeam:
+	'TFT'
+	team=Team
+;
+
+TehnicalFoulCoach:
+	'TFC'
+	team=Team
+;
+
+TehnicalFoulPlayer:
+	'TFP'
+	team=Team
+	player=INT
+;
+
+UnsportsmanlikeFoul:
+	'UF'
+	team=Team
+	player=INT
+;
+
+Comment:
+     /\/\/.*$/
+;

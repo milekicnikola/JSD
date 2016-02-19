@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basketball Stats</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style media="screen">
+@media ( min-width : 992px) {
+	.main-container {
+		width: 920px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.container {
+		width: 920px;
+	}
+}
+
+@media ( max-width : 991px) {
+	.main-container {
+		width: 100% !important;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.container {
+		width: 100% !important;
+	}
+}
+
+.bold-label {
+	font-weight: bold;
+}
+
+label { //
+	font-weight: bold !important;
+	font-size: 15px;
+	margin: 5px 0px 5px 0px;
+}
+
+.hide {
+	display: none;
+}
+
+.top-buffer {
+	margin-top: 20px;
+}
+
+.LegendContainer .ColumnTitle {
+	font-weight: bold;
+}
+
+.table td,.table th {
+	text-align: center;
+}
+
+.team-name-label {
+	background: #777;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
+
+.centered-text-label {
+	width: 100%;
+	text-align: center;
+}
+
+.nav-tabs>li,.nav-pills>li {
+	float: none;
+	display: inline-block;
+	*display: inline; /* ie7 fix */
+	zoom: 1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs,.nav-pills {
+	text-align: center;
+}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		//activate tabs
+		$('#tab-game-info, #tab-player-stats').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+		});
+
+	});
+</script>
+</head>
+
+<body>
+	<div class='main-container'>
+
+		<!-- Nav tabs - http://getbootstrap.com/javascript/#tabs-->
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a id='tab-game-info'
+				href="#game-info" aria-controls="game-info" role="tab"
+				data-toggle="tab">Game Info</a></li>
+			<li role="presentation"><a id='tab-player-stats'
+				href="#player-stats" aria-controls="player-stats" role="tab"
+				data-toggle="tab" class='my-tab'>Player Stats</a></li>
+		</ul>
+
+		<div class='tab-content top-buffer'>
+
+			<div role='tabpanel' class='container tab-pane fade in active'
+				id='game-info'>
+				<div class="row" style="text-align: center;">
+					<div class="row">
+						<span style="font-weight: bold">City:</span> Belgrade
+					</div>
+
+					<div class="row">
+						<span style="font-weight: bold">Arena:</span> Pionir
+					</div>
+
+					<div class="row">
+						<span style="font-weight: bold">Date:</span> 02.02.2016., 19:30h
+					</div>
+
+					<div class="row top-buffer">
+						<span style="font-weight: bold">Referee:</span>
+						Luigi LaMonica (Italy),
+						Ilija Belosevic (Serbia),
+						Pierluigi Collina (Italy)
+					</div>
+				</div>
+
+				<table id='game-stats-table'
+					class="table table-responsive table-hover top-buffer"
+					style="border-collapse: collapse;">
+					<tbody>
+						<tr>
+							<th><label class="team-name-label">CRVENA ZVEZDA</label></th>
+							<th>&nbsp;</th>
+							<th><label class="team-name-label">GOLDEN STATE</label></th>
+						</tr>
+
+						<tr>
+							<td>12</td>
+							<td>Points</td>
+							<td>11</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td>Rebounds</td>
+							<td>2</td>
+						</tr>
+
+						<tr>
+							<td>0</td>
+							<td>O. Rebounds</td>
+							<td>2</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td>D. Rebounds</td>
+							<td>0</td>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>Assists</td>
+							<td>0</td>
+						</tr>
+
+						<tr>
+							<td>2</td>
+							<td>Steals</td>
+							<td>0</td>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>Blocks</td>
+							<td>2</td>
+						</tr>
+
+						<tr>
+							<td>0</td>
+							<td>Turnovers</td>
+							<td>2</td>
+						</tr>
+
+						<tr>
+							<td>100.0%
+								(4/4)</td>
+							<td>FG</td>
+							<td>50.0%
+								(4/8)</td>
+						</tr>
+
+						<tr>
+							<td>100.0%
+								(2/2)</td>
+							<td>2PT</td>
+							<td>50.0%
+								(3/6)</td>
+						</tr>
+
+						<tr>
+							<td>100.0%
+								(2/2)</td>
+							<td>3PT</td>
+							<td>50.0%
+								(1/2)</td>
+						</tr>
+
+						<tr>
+							<td>66.7%
+								(2/3)</td>
+							<td>FT</td>
+							<td>66.7%
+								(2/3)</td>
+						</tr>
+
+						<tr>
+							<td>16</td>
+							<td>Index</td>
+							<td>5</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- #game-stats-table -->
+
+			</div>
+			<!-- .tab-panel #game-info -->
+
+			<div role='tabpanel' class='container tab-pane fade'
+				id='player-stats'>
+				<div class="row top-buffer">
+					<div class="col-sm-6 col-xs-12">
+						<table id='table-by-quarter' class="table table-responsive"
+							style="border-collapse: collapse;">
+							<tbody>
+								<tr>
+									<th scope="col">By Quarter</th>
+									<th scope="col">1</th>
+									<th scope="col">2</th>
+									<th scope="col">3</th>
+									<th scope="col">4</th>
+									<th scope="col">OT</th>
+								</tr>								
+								<tr>
+									<td>Crvena Zvezda</td>
+									<td>4</td>
+									<td>5</td>
+									<td>3</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td>Golden State</td>
+									<td>3</td>
+									<td>0</td>
+									<td>0</td>
+									<td>2</td>
+									<td>6</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- #table-by-quarter -->
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<table id='table-end-of-quarter' class="table table-responsive"
+							style="border-collapse: collapse;">
+							<tbody>
+								<tr>
+									<th scope="col">End of Quarter</th>
+									<th scope="col">1</th>
+									<th scope="col">2</th>
+									<th scope="col">3</th>
+									<th scope="col">4</th>
+									<th scope="col">OT</th>
+								</tr>
+								<tr>
+									<td>Crvena Zvezda</td>
+									<td>4</td>
+									<td>9</td>
+									<td>12</td>
+									<td>12</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>Golden State</td>
+									<td>3</td>
+									<td>3</td>
+									<td>3</td>
+									<td>5</td>
+									<td>11</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- #table-end-of-quarter -->
+					</div>
+				</div>
+
+				<div class="row top-buffer">
+					<label for="#away-team-table" class="team-name-label">CRVENA ZVEZDA</label>
+					<table class="table table-responsive table-hover"
+						id="away-team-table">
+						<thead>
+							<tr class="sub-header">
+								<th>&nbsp;</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th colspan="3" style="">Rebounds</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th colspan="2">Blocks</th>
+								<th colspan="2">Fouls</th>
+								<th></th>
+							</tr>
+							<tr>
+								<th>#</th>
+								<th>Player</th>
+								<th>Pts</th>
+								<th>2FG</th>
+								<th>3FG</th>
+								<th>FT</th>
+								<th>O</th>
+								<th>D</th>
+								<th>T</th>
+								<th>As</th>
+								<th>St</th>
+								<th>To</th>
+								<th>Fv</th>
+								<th>Ag</th>
+								<th>Cm</th>
+								<th>Rv</th>
+								<th>PIR</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Kinsey, Tarence</td>
+								<td>3</td>
+								<td>1/1</td>
+								<td>0/0</td>
+								<td>1/1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Rebic, Nikola</td>
+								<td>3</td>
+								<td>0/0</td>
+								<td>1/1</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Dangubic, Nemanja</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Lazic, Branko</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>Micic, Vasilije</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>Tejic, Marko</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>19</td>
+								<td>Simonovic, Marko</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>23</td>
+								<td>Guduric, Marko</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>24</td>
+								<td>Jovic, Stefan</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>30</td>
+								<td>Miller, Quincy</td>
+								<td>3</td>
+								<td>0/0</td>
+								<td>1/1</td>
+								<td>0/1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>33</td>
+								<td>Zirbes, Maik</td>
+								<td>3</td>
+								<td>1/1</td>
+								<td>0/0</td>
+								<td>1/1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>51</td>
+								<td>Stimac, Vladimir</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td>-2</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- #home-team-table -->
+					<label class="centered-text-label"><span
+						class="ColumnTitle">Head coach:</span><span
+						style="font-weight: normal !important;">
+							Radonjic, Dejan</span></label>
+				</div>
+
+				<div class="row top-buffer">
+					<label for="#away-team-table" class="team-name-label">GOLDEN STATE</label>
+					<table class="table table-responsive table-hover"
+						id="away-team-table">
+						<thead>
+							<tr class="sub-header">
+								<th>&nbsp;</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th colspan="3" style="">Rebounds</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th colspan="2">Blocks</th>
+								<th colspan="2">Fouls</th>
+								<th></th>
+							</tr>
+							<tr>
+								<th>#</th>
+								<th>Player</th>
+								<th>Pts</th>
+								<th>2FG</th>
+								<th>3FG</th>
+								<th>FT</th>
+								<th>O</th>
+								<th>D</th>
+								<th>T</th>
+								<th>As</th>
+								<th>St</th>
+								<th>To</th>
+								<th>Fv</th>
+								<th>Ag</th>
+								<th>Cm</th>
+								<th>Rv</th>
+								<th>PIR</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>4</td>
+								<td>Rush, Brandon</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Speights, Marreese</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Igoudala, Andre</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Thompson, Klay</td>
+								<td>3</td>
+								<td>0/0</td>
+								<td>1/1</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Bogut, Andrew</td>
+								<td>0</td>
+								<td>0/2</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>2</td>
+								<td>0</td>
+								<td>-5</td>
+							</tr>
+							<tr>
+								<td>19</td>
+								<td>Barbosa, Leandro</td>
+								<td>0</td>
+								<td>0/1</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>21</td>
+								<td>Clark, Ian</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>23</td>
+								<td>Green, Draymond</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>30</td>
+								<td>Curry, Stephen</td>
+								<td>6</td>
+								<td>2/2</td>
+								<td>0/1</td>
+								<td>2/2</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>5</td>
+							</tr>
+							<tr>
+								<td>31</td>
+								<td>Ezeli, Festus</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>2</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>34</td>
+								<td>Livingston, Shaun</td>
+								<td>0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>40</td>
+								<td>Barnes, Harrison</td>
+								<td>2</td>
+								<td>1/1</td>
+								<td>0/0</td>
+								<td>0/0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- #away-team-table -->
+					<label class="centered-text-label"><span
+						class="ColumnTitle">Head coach:</span><span
+						style="font-weight: normal !important;">
+							Kerr, Steve</span></label>
+				</div>
+
+				<div class="row top-buffer">
+					<div class="LegendContainer">
+						<span class="ColumnTitle">Pts:</span> Points; <span
+							class="ColumnTitle">2FG M-A:</span> 2-point Field Goals
+						(Made-Attempted); <span class="ColumnTitle">3FG M-A:</span>
+						3-point Field Goals (Made-Attempted); <span class="ColumnTitle">FT
+							M-A:</span> Free Throws (Made-Attempted); <span class="ColumnTitle">Rebounds:</span>
+						O (Offensive), D (Defensive), T (Total); <span class="ColumnTitle">As:</span>
+						Assists; <span class="ColumnTitle">St:</span> Steals; <span
+							class="ColumnTitle">To:</span> Turnovers; <span
+							class="ColumnTitle">Blocks:</span> (Fv: In Favor / Ag: Against);
+						<span class="ColumnTitle">Fouls:</span> Cm (Commited), Rv
+						(Received); <span class="ColumnTitle">PIR:</span> Performance
+						Index Rating
+					</div>
+					
+				</div>
+			</div>
+			<!-- .tab-panel #player-stats -->
+		</div>
+		<!-- .tab-content -->
+	</div>
+
+</body>
+
+
+
+</html>

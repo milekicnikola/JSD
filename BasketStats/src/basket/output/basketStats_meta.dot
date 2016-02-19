@@ -1,0 +1,123 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    edge[dir=black,arrowtail=empty]
+
+
+57692208 -> 57692680[arrowtail=diamond, dir=both, headlabel="Referees "]
+57692208 -> 57694568[arrowtail=diamond, dir=both, headlabel="homeTeam "]
+57692208 -> 57695040[arrowtail=diamond, dir=both, headlabel="awayTeam "]
+57692208[ label="{GameInfo|+city:STRING\l+arena:STRING\l+date:STRING\l+time:STRING\l+att:INT\l}"]
+
+57724976[ label="{Position|PG\|SG\|SF\|PF\|C\|G\|F}"]
+
+57727808[ label="{FreeThrow|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+57749552 -> 57751440[arrowtail=diamond, dir=both, headlabel="ast "]
+57749552[ label="{ThreePoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+57692680 -> 57693152[arrowtail=diamond, dir=both, headlabel="first "]
+57692680 -> 57693624[arrowtail=diamond, dir=both, headlabel="second "]
+57692680 -> 57694096[arrowtail=diamond, dir=both, headlabel="third "]
+57692680[ label="{Referees|}"]
+
+57752384[ label="{OffensiveRebound|+team:Team\l+player:INT\l}"]
+
+57750968[ label="{Steal|+team:Team\l+player:INT\l}"]
+
+57694568 -> 57695512[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+57694568 -> 57725448[arrowtail=diamond, dir=both, headlabel="coach "]
+57694568[ label="{HomeTeam|+name:STRING\l}"]
+
+57767824[ label="{Comment|\/\/.*$}"]
+
+57750496[ label="{Turnover|+team:Team\l+player:INT\l}"]
+
+57725448[ label="{Coach|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57751912[ label="{Block|+team:Team\l+player:INT\l+playerBlocked:INT\l}"]
+
+57765936[ label="{TehnicalFoulTeam|+team:Team\l}"]
+
+57766408[ label="{TehnicalFoulCoach|+team:Team\l}"]
+
+57766880[ label="{TehnicalFoulPlayer|+team:Team\l+player:INT\l}"]
+
+57752856[ label="{DefensiveRebound|+team:Team\l+player:INT\l}"]
+
+57695040 -> 57695512[arrowtail=diamond, dir=both, headlabel="players 1..*"]
+57695040 -> 57725448[arrowtail=diamond, dir=both, headlabel="coach "]
+57695040[ label="{AwayTeam|+name:STRING\l}"]
+
+57727336[ label="{Team|Home\|Away}"]
+
+57767352[ label="{UnsportsmanlikeFoul|+team:Team\l+player:INT\l}"]
+
+57751440[ label="{Assist|+player:INT\l}"]
+
+57695512[ label="{Player|+number:INT\l+firstName:STRING\l+lastName:STRING\l+nat:STRING\l+position:Position\l}"]
+
+57726392[ label="{PeriodType|Quarter\|Over Time}"]
+
+57750024[ label="{PersonalFoul|+foulTeam:Team\l+playerFoul:INT\l+playerFouled:INT\l}"]
+
+57725920 -> 57726864[arrowtail=diamond, dir=both, headlabel="events 0..*"]
+57725920[ label="{Period|+type:PeriodType\l+number:INT\l}"]
+
+57728280 -> 57751440[arrowtail=diamond, dir=both, headlabel="ast "]
+57728280[ label="{TwoPoints|+team:Team\l+player:INT\l+made:BOOL\l}"]
+
+57693624[ label="{Referee|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57693152[ label="{CrewChief|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57694096[ label="{Umpire|+firstName:STRING\l+lastName:STRING\l+nat:STRING\l}"]
+
+57726864[ label="{Event|}"]
+57726864 -> 57727808 [dir=back]
+57726864 -> 57728280 [dir=back]
+57726864 -> 57749552 [dir=back]
+57726864 -> 57751440 [dir=back]
+57726864 -> 57750024 [dir=back]
+57726864 -> 57750496 [dir=back]
+57726864 -> 57750968 [dir=back]
+57726864 -> 57751912 [dir=back]
+57726864 -> 57752384 [dir=back]
+57726864 -> 57752856 [dir=back]
+57726864 -> 57765936 [dir=back]
+57726864 -> 57766408 [dir=back]
+57726864 -> 57766880 [dir=back]
+57726864 -> 57767352 [dir=back]
+
+57638168 -> 57692208[arrowtail=diamond, dir=both, headlabel="info "]
+57638168 -> 57725920[arrowtail=diamond, dir=both, headlabel="periods 1..*"]
+57638168[ label="{Game|}"]
+
+47604704[ label="{BASETYPE|}"]
+47604704 -> 47604232 [dir=back]
+47604704 -> 47594304 [dir=back]
+47604704 -> 47593360 [dir=back]
+47604704 -> 47593832 [dir=back]
+
+47593360[ label="{ID|}"]
+
+47603760[ label="{FLOAT|}"]
+
+47593832[ label="{STRING|}"]
+
+47594304[ label="{BOOL|}"]
+
+47604232[ label="{NUMBER|}"]
+47604232 -> 47603760 [dir=back]
+47604232 -> 47594776 [dir=back]
+
+47594776[ label="{INT|}"]
+
+
+}
