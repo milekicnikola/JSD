@@ -1,246 +1,212 @@
-City: "Belgrade"
-Arena: "Pionir"
-Date: "02.02.2016."
-Time: "19:30h"
-Attendance: 20420
+City: 
+Arena: 
+Date: 
+Time: 
+Attendance: 
 
 Crew Chief: 
-	First name: "Luigi"
-	Last name: "LaMonica"
-	Nationality: "Italy"
+	First name: 
+	Last name: 
+	Nationality: 
 
 Referee: 
-	First name: "Ilija"
-	Last name: "Belosevic"
-	Nationality: "Serbia"
+	First name: 
+	Last name: 
+	Nationality: 
 
 Umpire: 
-	First name: "Pierluigi"
-	Last name: "Collina"
-	Nationality: "Italy"
+	First name: 
+	Last name: 
+	Nationality: 
 
 Home team:
-	Name: "Crvena Zvezda"
+	Name: 
 	Players:
 	
-		Number: 1
-		First name: "Tarence" 
-		Last name: "Kinsey"
-		Nationality: "USA"
-		Position: SF
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 4
-		First name: "Nikola" 
-		Last name: "Rebic"
-		Nationality: "SRB"
-		Position: PG
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 6
-		First name: "Nemanja" 
-		Last name: "Dangubic"
-		Nationality: "SRB"
-		Position: F
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 10
-		First name: "Branko" 
-		Last name: "Lazic"
-		Nationality: "SRB"
-		Position: SG
+		Number: 
+		First name: " 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 13
-		First name: "Vasilije" 
-		Last name: "Micic"
-		Nationality: "SRB"
-		Position: PG		
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 		
 		
-		Number: 15
-		First name: "Marko" 
-		Last name: "Tejic"
-		Nationality: "SRB"
-		Position: PF
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 19
-		First name: "Marko" 
-		Last name: "Simonovic"
-		Nationality: "SRB"
-		Position: F
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 23
-		First name: "Marko" 
-		Last name: "Guduric"
-		Nationality: "SRB"
-		Position: SG
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 24
-		First name: "Stefan" 
-		Last name: "Jovic"
-		Nationality: "SRB"
-		Position: G		
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 		
 		
-		Number: 30
-		First name: "Quincy" 
-		Last name: "Miller"
-		Nationality: "USA"
-		Position: PF
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number:	33
-		First name: "Maik" 
-		Last name: "Zirbes"
-		Nationality: "GER"
-		Position: C
+		Number:	
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number:	51
-		First name: "Vladimir" 
-		Last name: "Stimac"
-		Nationality: "SRB"
-		Position: C
+		Number:	
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 	
 	Head coach:
-		First name: "Dejan"
-		Last name: "Radonjic"
-		Nationality: "MNE"
+		First name: 
+		Last name: 
+		Nationality: 
 		
 Away team:
-	Name: "Golden State"
+	Name: 
 	Players:		
-		Number: 4
-		First name: "Brandon" 
-		Last name: "Rush"
-		Nationality: "USA"
-		Position: SG
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 5
-		First name: "Marreese" 
-		Last name: "Speights"
-		Nationality: "USA"
-		Position: PF
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 9
-		First name: "Andre" 
-		Last name: "Igoudala"
-		Nationality: "USA"
-		Position: SF
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 11
-		First name: "Klay" 
-		Last name: "Thompson"
-		Nationality: "USA"
-		Position: SG
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number:	12
-		First name: "Andrew" 
-		Last name: "Bogut"
-		Nationality: "AUS"
-		Position: C
+		Number:	
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 19
-		First name: "Leandro" 
-		Last name: "Barbosa"
-		Nationality: "BRA"
-		Position: SG
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 21
-		First name: "Ian" 
-		Last name: "Clark"
-		Nationality: "USA"
-		Position: G
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 23
-		First name: "Draymond" 
-		Last name: "Green"
-		Nationality: "USA"
-		Position: PF
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 30
-		First name: "Stephen" 
-		Last name: "Curry"
-		Nationality: "USA"
-		Position: PG
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 31
-		First name: "Festus" 
-		Last name: "Ezeli"
-		Nationality: "NGR"
-		Position: C
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 
 		
-		Number: 34
-		First name: "Shaun" 
-		Last name: "Livingston"
-		Nationality: "USA"
-		Position: SG	
+		Number: 
+		First name:  
+		Last name: 
+		Nationality: 
+		Position: 	
 		
-		Number: 40
-		First name: "Harrison" 
-		Last name: "Barnes"
-		Nationality: "USA"
-		Position: SF				
+		Number: 
+		First name: 
+		Last name: 
+		Nationality: 
+		Position: 				
 	
 	Head coach:
-		First name: "Steve"
-		Last name: "Kerr"
-		Nationality: "LIB"
+		First name: 
+		Last name: 
+		Nationality: 
 
 Quarter 1
 	Start
-		FT Home 33 True
-		FT Away 23 False
-		3P Away 11 True
-		PF Away 12 33
-		TFT Away
-		TFT Home
-		2P Home 1 True 		
-		FT Home 1 True
-		BLK Away 31 51
-		BLK Away 31 51
+		
 	End
 
 Quarter 2
 	Start
-		3P Home 30 True
-		FT Home 30 False
-		2P Home 33 True AST 24
-		PF Home 6 21
-		2P Away 12 False
-		OREB Away 31		
+			
 	End
 	
 Quarter 3
 	Start
-		OREB Away 30
-		3P Home 4 True
-		UF Away 12
-		DREB Home 10
-		PF Away 31 1
-		2P Away 19 False
+		
 	End
 
 Quarter 4
 	Start
-		BLK Home 33 12
-		3P Away 30 False
-		2P Away 12 False
-		PF Home 33 30
-		2P Away 40 True
-		TFP Away 40
+		
 	End
 	
 	
 Over Time 1
 	Start
-		TFC Home
-		TO Away 30
-		2P Away 30 True
-		FT Away 30 True
-		STL Home 24
-		DREB Home 6		
+			
 	End
 	
 Over Time 2
 	Start
-		TFC Home
-		TO Away 30
-		2P Away 30 True
-		FT Away 30 True
-		STL Home 24
-		DREB Home 6		
+			
 	End

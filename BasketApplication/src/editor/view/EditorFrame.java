@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -83,6 +85,9 @@ public class EditorFrame extends JFrame{
 	    }
 		
 	public List<String> keywords;
+	
+	public int currentLine=-1;
+	
 	public void initGUI(){
 		this.setTitle("Editor");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,8 +97,6 @@ public class EditorFrame extends JFrame{
 		panel.setBackground(Color.DARK_GRAY);
 		getContentPane().add(panel, "cell 1 4,grow");
 		panel.setLayout(new MigLayout("", "[grow]", "[grow]"));
-		
-		
 		
 		txtpnEditor = new JTextPane();
 		txtpnEditor.setBackground(Color.BLACK);
@@ -115,11 +118,28 @@ public class EditorFrame extends JFrame{
 				  keywords.add(strLine);
 			}
 			
-			FileReader reader = new FileReader("resources/reserved_words.txt");
-            txtpnEditor.read(reader,"filename.txt");
-
+			try {
+				FileReader reader = new FileReader("resources/game.tx");
+				txtpnEditor.read(reader,"game.tx");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			//Close the input stream
 			br.close();
+		
+
+	    
+		/*Autocomplete autoComplete = new Autocomplete(txtpnEditor, keywords);
+		txtpnEditor.getDocument().addDocumentListener(autoComplete);
+
+		txtpnEditor.getInputMap().put(KeyStroke.getKeyStroke("TAB"), COMMIT_ACTION);
+		txtpnEditor.getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());
+		txtpnEditor.addKeyListener(new MyKeyListener(txtpnEditor));
+		
+		((AbstractDocument) txtpnEditor.getDocument()).setDocumentFilter(new CustomDocumentFilter());*/
+				
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,17 +147,6 @@ public class EditorFrame extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-	    
-		Autocomplete autoComplete = new Autocomplete(txtpnEditor, keywords);
-		txtpnEditor.getDocument().addDocumentListener(autoComplete);
-
-		txtpnEditor.getInputMap().put(KeyStroke.getKeyStroke("TAB"), COMMIT_ACTION);
-		txtpnEditor.getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());
-		txtpnEditor.addKeyListener(new MyKeyListener(txtpnEditor));
-		
-		((AbstractDocument) txtpnEditor.getDocument()).setDocumentFilter(new CustomDocumentFilter());
-		
 		JScrollPane scrollPane = new JScrollPane(txtpnEditor);
 		scrollPane.setBackground(Color.DARK_GRAY);
 		TextLineNumber tln = new TextLineNumber(txtpnEditor); 
