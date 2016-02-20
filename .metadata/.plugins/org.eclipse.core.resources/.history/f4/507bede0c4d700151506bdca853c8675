@@ -1,0 +1,57 @@
+package application;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.Properties;
+
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import javax.script.SimpleScriptContext;
+
+import org.python.core.PyObject;
+import org.python.core.PyString;
+import org.python.util.PythonInterpreter;
+
+import editor.view.EditorFrame;
+import view.MainFrame;
+
+public class Application {
+	
+	public static void main(String[] args) throws ScriptException {
+		// TODO Auto-generated method stub
+		/*MainFrame mf=new MainFrame();
+		mf.setVisible(true);
+		EditorFrame mg = new EditorFrame();
+		mg.setVisible(true);*/
+		
+		/*Properties properties = System.getProperties();
+		properties.put("python.path", "C:\\Users\\Pop\\Desktop\\JSD - Jezici specificni za domen\\project workspace\\JSD\\BasketStats");
+		PythonInterpreter.initialize(System.getProperties(), properties, new String[0]);
+		PythonInterpreter interpreter = new PythonInterpreter();
+		interpreter.execfile("C:\\Users\\Pop\\Desktop\\JSD - Jezici specificni za domen\\project workspace\\JSD\\BasketStats\\src\\basket\\basketStats.py");
+		
+		*/
+		
+		// execute a function that takes a string and returns a string
+		/*PyObject someFunc = interpreter.get("funcName");
+		PyObject result = someFunc.__call__(new PyString("Test!"));
+		String realResult = (String) result.__tojava__(String.class);*/
+		
+		try{    
+		    Process p = Runtime.getRuntime().exec("cmd /c start 'C:/Users/Pop/Desktop/JSD%20-%20Jezici%20specificni%20za%20domen/project%20workspace/JSD/BasketStats/src/basket/runner2.bat'");
+		    p.waitFor();
+
+		}catch( IOException ex ){
+		    //Validate the case the file can't be accesed (not enought permissions)
+
+		}catch( InterruptedException ex ){
+		    //Validate the case the process is being stopped by some external situation     
+
+		}
+	}
+
+}

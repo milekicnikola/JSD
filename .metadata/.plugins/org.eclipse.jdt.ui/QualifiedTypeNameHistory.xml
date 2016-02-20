@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
-<fullyQualifiedTypeName name="editor.view.EditorFrame"/>
 <fullyQualifiedTypeName name="editor.utils.SuggestionPanel"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.event.FocusListener"/>
@@ -35,4 +34,10 @@
 <fullyQualifiedTypeName name="editor.utils.MyKeyListener"/>
 <fullyQualifiedTypeName name="editor.view.TextLineNumber"/>
 <fullyQualifiedTypeName name="editor.utils.Autocomplete"/>
+<fullyQualifiedTypeName name="org.python.util.PythonInterpreter"/>
+<fullyQualifiedTypeName name="org.python.core.PyObject"/>
+<fullyQualifiedTypeName name="org.python.core.PyString"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="view.MainFrame"/>
+<fullyQualifiedTypeName name="editor.view.EditorFrame"/>
 </qualifiedTypeNameHistroy>

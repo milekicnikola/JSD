@@ -1,0 +1,2 @@
+python basketStats.py
+pause

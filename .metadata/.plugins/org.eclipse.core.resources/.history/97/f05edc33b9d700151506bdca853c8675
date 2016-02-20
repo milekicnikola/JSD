@@ -1,0 +1,346 @@
+'''
+Created on 04.02.2016.
+
+@author: Nikola Milekic
+'''
+
+from jinja2.environment import Environment
+from jinja2.loaders import PackageLoader
+import pydot
+from textx.export import metamodel_export, model_export
+from textx.metamodel import metamodel_from_file
+
+import sys
+sys.path.append('C:/Users/Pop/Desktop/JSD - Jezici specificni za domen/project workspace/JSD/BasketStats/src/basket/entities/entities')
+import os
+os.getcwd() 
+from basket.entities.entities import GameInfo, Team, Referee, Player, Coach, \
+    Event, Game
+
+
+
+
+class Basket(object):
+
+    game_info = GameInfo()
+    home_team = Team()
+    away_team = Team()
+    events = []
+
+
+    def __init__(self):
+        pass
+
+    def interpret(self, model):
+
+        '''Game Info'''
+
+        self.game_info.city = model.info.city
+        self.game_info.arena = model.info.arena
+        self.game_info.date = model.info.date
+        self.game_info.time = model.info.time
+        self.game_info.attendance = model.info.att
+
+        '''Referees'''
+
+        referees = []
+
+        referees.append(Referee(model.info.Referees.first.firstName, model.info.Referees.first.lastName, model.info.Referees.first.nat, "CrewChief"))
+        referees.append(Referee(model.info.Referees.second.firstName, model.info.Referees.second.lastName, model.info.Referees.second.nat, "Referee"))
+        referees.append(Referee(model.info.Referees.third.firstName, model.info.Referees.third.lastName, model.info.Referees.third.nat, "Umpire"))
+
+        self.game_info.referees = referees
+
+        '''Teams - Home and Away'''
+
+        homePlayers = []
+        awayPlayers = []
+
+        for n in model.info.homeTeam.players:
+            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)
+            homePlayers.append(p)
+
+        self.home_team.name = model.info.homeTeam.name
+        self.home_team.coach = Coach(model.info.homeTeam.coach.firstName, model.info.homeTeam.coach.lastName, model.info.homeTeam.coach.nat)
+        self.home_team.players = homePlayers
+
+        for n in model.info.awayTeam.players:
+            p = Player(n.firstName, n.lastName, n.nat, n.number, n.position)
+            awayPlayers.append(p)
+
+        self.away_team.name = model.info.awayTeam.name
+        self.away_team.coach = Coach(model.info.awayTeam.coach.firstName, model.info.awayTeam.coach.lastName, model.info.awayTeam.coach.nat)
+        self.away_team.players = awayPlayers
+
+        '''Events'''
+
+        for p in model.periods:
+            if p.type == "Quarter" and p.number == 1:
+                self.events.append(Event("Start of the game", 0, 0, "", ""))
+                self.events.append(Event("Start of Quarter 1", 0, 0, "", ""))
+            else:
+                actionStart = p.type + " " + p.number.__str__()
+                actionEnd = p.type + " " + (p.number-1).__str__()
+                self.events.append(Event("End of " + actionEnd, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
+                self.events.append(Event("Start of " + actionStart, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
+
+            for e in p.events:
+                if e.__class__.__name__ == "FreeThrow":
+                    self.freeThrow(e.team, e.player, e.made)
+                elif e.__class__.__name__ == "TwoPoints":
+                    self.twoPoints(e.team, e.player, e.made)
+                    if e.ast != None:
+                        self.assist(e.team, e.ast.player)
+                elif e.__class__.__name__ == "ThreePoints":
+                    self.threePoints(e.team, e.player, e.made)
+                    if e.ast != None:
+                        self.assist(e.team, e.ast.player)
+                elif e.__class__.__name__ == "PersonalFoul":
+                    self.personalFoul(e.foulTeam, e.playerFoul, e.playerFouled)
+                elif e.__class__.__name__ == "Turnover":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "Steal":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "OffensiveRebound":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "DefensiveRebound":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "TehnicalFoulPlayer":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "UnsportsmanlikeFoul":
+                    self.event(e.team, e.player, e.__class__.__name__)
+                elif e.__class__.__name__ == "Block":
+                    self.block(e.team, e.player, e.playerBlocked)
+                elif e.__class__.__name__ == "TehnicalFoulTeam":
+                    self.tehnicalFoul(e.team, "Team")
+                elif e.__class__.__name__ == "TehnicalFoulCoach":
+                    self.tehnicalFoul(e.team, "Coach")
+            if p.type == "Quarter":
+                if p.number == 1:
+                    self.home_team.firstQuarterPoints = self.home_team.getPoints()
+                    self.away_team.firstQuarterPoints = self.away_team.getPoints()
+                if p.number == 2:
+                    self.home_team.secondQuarterPoints = self.home_team.getPoints() - self.home_team.firstQuarterPoints
+                    self.away_team.secondQuarterPoints = self.away_team.getPoints() - self.away_team.firstQuarterPoints
+                if p.number == 3:
+                    self.home_team.thirdQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterSecond()
+                    self.away_team.thirdQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterSecond()
+                if p.number == 4:
+                    self.home_team.fourthQuarterPoints = self.home_team.getPoints() - self.home_team.getPointsAfterThird()
+                    self.away_team.fourthQuarterPoints = self.away_team.getPoints() - self.away_team.getPointsAfterThird()
+            if p.type == "Over Time":
+                self.game_info.overtime = True
+                self.home_team.overtimePoints = self.home_team.getPoints() - self.home_team.getPointsAfterFourth()
+                self.away_team.overtimePoints = self.away_team.getPoints() - self.away_team.getPointsAfterFourth()
+
+        self.events.append(Event("End of " + actionStart, self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
+        self.events.append(Event("End of game ", self.home_team.getPoints(), self.away_team.getPoints(), "", ""))
+
+    def __str__(self):
+        pass
+
+    def freeThrow(self, team, player, made):
+
+        if team == "Home":
+            players = self.home_team.players
+            eventTeam = self.home_team.name
+        else:
+            players = self.away_team.players
+            eventTeam = self.away_team.name
+        for p in players:
+            if p.number == player:
+                eventPlayer = p.getFullName()
+                p.free_throws_attempted += 1
+                action = "Free Throw Missed"
+                if made:
+                    p.free_throws_made += 1
+                    action = "Free Throw Made"
+
+        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
+    def twoPoints(self, team, player, made):
+        if team == "Home":
+            players = self.home_team.players
+            eventTeam = self.home_team.name
+        else:
+            players = self.away_team.players
+            eventTeam = self.away_team.name
+        for p in players:
+            if p.number == player:
+                eventPlayer = p.getFullName()
+                p.two_points_attempted += 1
+                action = "Two Points Missed"
+                if made:
+                    p.two_points_made += 1
+                    action = "Two Points Made"
+
+        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
+    def threePoints(self, team, player, made):
+        if team == "Home":
+            players = self.home_team.players
+            eventTeam = self.home_team.name
+        else:
+            players = self.away_team.players
+            eventTeam = self.away_team.name
+        for p in players:
+            if p.number == player:
+                eventPlayer = p.getFullName()
+                p.three_points_attempted += 1
+                action = "Three Points Missed"
+                if made:
+                    p.three_points_made += 1
+                    action = "Three Points Made"
+
+        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
+    def assist(self, team, player):
+        if team == "Home":
+            players = self.home_team.players
+            eventTeam = self.home_team.name
+        else:
+            players = self.away_team.players
+            eventTeam = self.away_team.name
+        for p in players:
+            if p.number == player:
+                eventPlayer = p.getFullName()
+                p.assists += 1
+
+        self.events.append(Event("Assist", self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
+    def personalFoul(self, team, playerFoul, playerFouled):
+        if team == "Home":
+            foulTeam = self.home_team.name
+            fouledTeam = self.away_team.name
+            for p in self.home_team.players:
+                if p.number == playerFoul:
+                    foulPlayer = p.getFullName()
+                    p.fouls_commited += 1
+            for p in self.away_team.players:
+                if p.number == playerFouled:
+                    fouledPlayer = p.getFullName()
+                    p.fouls_received += 1
+        else:
+            foulTeam = self.away_team.name
+            fouledTeam = self.home_team.name
+            for p in self.away_team.players:
+                if p.number == playerFoul:
+                    foulPlayer = p.getFullName()
+                    p.fouls_commited += 1
+            for p in self.home_team.players:
+                if p.number == playerFouled:
+                    fouledPlayer = p.getFullName()
+                    p.fouls_received += 1
+
+        self.events.append(Event("Personal Foul", self.home_team.getPoints(), self.away_team.getPoints(), foulTeam, foulPlayer))
+        self.events.append(Event("Foul Drawn", self.home_team.getPoints(), self.away_team.getPoints(), fouledTeam, fouledPlayer))
+
+    def event(self, team, player, event):
+        if team == "Home":
+            players = self.home_team.players
+            eventTeam = self.home_team.name
+        else:
+            players = self.away_team.players
+            eventTeam = self.away_team.name
+
+        for p in players:
+            if p.number == player:
+                eventPlayer = p.getFullName()
+                if event == "Turnover":
+                    p.turnovers += 1
+                    action = "Turnover"
+                elif event == "Steal":
+                    p.steals += 1
+                    action = "Steal"
+                elif event == "OffensiveRebound":
+                    p.rebounds_offensive += 1
+                    action = "Offensive Rebound"
+                elif event == "DefensiveRebound":
+                    p.rebounds_deffensive += 1
+                    action = "Defensive Rebound"
+                elif event == "TehnicalFoulPlayer":
+                    p.fouls_commited += 1
+                    action = "Tehnical Foul"
+                elif event == "UnsportsmanlikeFoul":
+                    p.fouls_commited += 1
+                    action = "Unsportsmanlike Foul"
+
+        self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, eventPlayer))
+
+    def block(self, team, player, playerBlocked):
+        if team == "Home":
+            blockTeam = self.home_team.name
+            blockedTeam = self.away_team.name
+            for p in self.home_team.players:
+                if p.number == player:
+                    blockPlayer = p.getFullName()
+                    p.blocks_in_favor += 1
+            for p in self.away_team.players:
+                if p.number == playerBlocked:
+                    blockedPlayer = p.getFullName()
+                    p.blocks_against += 1
+        else:
+            blockTeam = self.away_team.name
+            blockedTeam = self.home_team.name
+            for p in self.away_team.players:
+                if p.number == player:
+                    blockPlayer = p.getFullName()
+                    p.blocks_in_favor += 1
+            for p in self.home_team.players:
+                if p.number == playerBlocked:
+                    blockedPlayer = p.getFullName()
+                    p.blocks_against += 1
+
+        self.events.append(Event("Block", self.home_team.getPoints(), self.away_team.getPoints(), blockTeam, blockPlayer))
+        self.events.append(Event("Shot Rejected", self.home_team.getPoints(), self.away_team.getPoints(), blockedTeam, blockedPlayer))
+
+    def tehnicalFoul(self, team, who):
+        action = "Tehnical Foul"
+        if team == "Home":
+            self.home_team.tehnicals += 1
+            eventTeam = self.home_team.name
+            coach = self.home_team.coach.getFullName()
+        else:
+            self.away_team.tehnicals += 1
+            eventTeam = self.away_team.name
+            coach = self.away_team.coach.getFullName()
+
+        if who == "Team":
+            self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, ""))
+        else :
+            self.events.append(Event(action, self.home_team.getPoints(), self.away_team.getPoints(), eventTeam, coach))
+
+    def getGameObject(self):
+        return Game(game_info=self.game_info, home_team=self.home_team, away_team=self.away_team, events=self.events)
+
+if __name__ == '__main__':
+
+    basket_metamodel = metamodel_from_file('textX/grammar.tx', debug=False)
+    metamodel_export(basket_metamodel, 'output/basketStats_meta.dot')
+    graph = pydot.graph_from_dot_file('output/basketStats_meta.dot')
+    graph.write_png('output/basketStats_meta.png')
+
+    basket_model = basket_metamodel.model_from_file('textX/game.tx')
+    model_export(basket_model, 'output/basketStats_model.dot')
+    graph = pydot.graph_from_dot_file('output/basketStats_model.dot')
+    graph.write_png('output/basketStats_model.png')
+
+    basket = Basket()
+    basket.interpret(basket_model)
+
+    env = Environment(trim_blocks=True, lstrip_blocks=True, loader=PackageLoader("basket", "templates"))
+
+    template = env.get_template("statsTemplate.html")
+    t = template.render(game=basket.getGameObject())
+    print(t)
+    
+      
+   
+    out = open("output/stats.html", "w") 
+    for line in t:
+        out.write(line)
+    out.close()
+
+    
+    
+    

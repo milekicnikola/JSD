@@ -3,14 +3,20 @@ Created on 04.02.2016.
 
 @author: Nikola Milekic
 '''
+
+import sys, os
 from jinja2.environment import Environment
 from jinja2.loaders import PackageLoader
 import pydot
 from textx.export import metamodel_export, model_export
 from textx.metamodel import metamodel_from_file
 
-from basket.entities.entities import GameInfo, Referee, Player, Coach, Team, \
-    Event
+from entities.entities import GameInfo, Team, Referee, Player, Coach, \
+    Event, Game
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 
 
 class Basket(object):
@@ -326,5 +332,14 @@ if __name__ == '__main__':
     template = env.get_template("statsTemplate.html")
     t = template.render(game=basket.getGameObject())
     print(t)
-    with open("output/stats.html", "w") as f:
-        f.write(t)
+    
+      
+   
+    out = open("output/stats.html", "w") 
+    for line in t:
+        out.write(line)
+    out.close()
+
+    
+    
+    
