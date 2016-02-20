@@ -30,6 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -50,6 +51,7 @@ public class EditorFrame extends JFrame{
 	private static EditorFrame instance = null;
 	public static int init = 0;
 	public List<String> pressedCharacter = new ArrayList<String>();
+	public JButton btnRun;
 	
 	public static EditorFrame getInstance() {
 		if (init == 0) {
@@ -86,7 +88,8 @@ public class EditorFrame extends JFrame{
 		
 	public List<String> keywords;
 	
-	public int currentLine=-1;
+	
+	private JFileChooser chooser;
 	
 	public void initGUI(){
 		this.setTitle("Editor");
@@ -142,7 +145,37 @@ public class EditorFrame extends JFrame{
 		
 		scrollPane.setRowHeaderView( tln );
 		panel.add(scrollPane, "flowx,cell 0 0,grow");
-		JButton btnRun = new JButton("Run");
+		
+		JButton btnOpen = new JButton("Open");
+		
+		btnOpen.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+            	 
+            	 JFileChooser chooser = new JFileChooser();
+            	 int returnVal = chooser.showOpenDialog(null); //replace null with your swing container
+            	 String file = null;
+            	 if(returnVal == JFileChooser.APPROVE_OPTION)   {  
+            	   file = chooser.getSelectedFile().getAbsolutePath();    
+            	 }
+
+            	 FileReader text;
+				try {
+					text = new FileReader(file);
+					txtpnEditor.read(text, "game.tx");
+					btnRun.setEnabled(false);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            	 
+            	 
+             }
+         });
+		
+		//Run application
+		btnRun = new JButton("Run");
+		btnRun.setEnabled(false);
 		btnRun.addActionListener(new ActionListener() {
 			 
             public void actionPerformed(ActionEvent e)
@@ -154,14 +187,21 @@ public class EditorFrame extends JFrame{
 	      		}
             }
         });
+		
+		// save text in editor
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e)
             {
+            	btnRun.setEnabled(true);
                 SaveAs();
             }
         }); 
+		
+		
+		
+		getContentPane().add(btnOpen, "cell 1 5,alignx right");
 		getContentPane().add(btnRun, "cell 1 5,alignx right");
 		getContentPane().add(btnSave, "cell 1 5,alignx right");
 		pack();
