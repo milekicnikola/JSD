@@ -1,4 +1,4 @@
-City: "Belgrade"
+City: "Novi sad"
 Arena: "Pionir"
 Date: "02.02.2016."
 Time: "19:30h"
@@ -20,7 +20,7 @@ Umpire:
 	Nationality: "Italy"
 
 Home team:
-	Name: "Crvena Zvezda"
+	Name: "Tim 1"
 	Players:
 	
 		Number: 1
@@ -101,7 +101,7 @@ Home team:
 		Nationality: "MNE"
 		
 Away team:
-	Name: "Golden State"
+	Name: "Tim 2"
 	Players:		
 		Number: 4
 		First name: "Brandon" 

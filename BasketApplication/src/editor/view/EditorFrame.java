@@ -126,19 +126,8 @@ public class EditorFrame extends JFrame{
 				e1.printStackTrace();
 			}
 			
-			//Close the input stream
 			br.close();
-		
 
-	    
-		/*Autocomplete autoComplete = new Autocomplete(txtpnEditor, keywords);
-		txtpnEditor.getDocument().addDocumentListener(autoComplete);
-
-		txtpnEditor.getInputMap().put(KeyStroke.getKeyStroke("TAB"), COMMIT_ACTION);
-		txtpnEditor.getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());
-		txtpnEditor.addKeyListener(new MyKeyListener(txtpnEditor));
-		
-		((AbstractDocument) txtpnEditor.getDocument()).setDocumentFilter(new CustomDocumentFilter());*/
 				
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -191,13 +180,10 @@ public class EditorFrame extends JFrame{
 	         return;
 	      }
 
-	      File fileName = new File(SaveAs.getSelectedFile() + ".txt");
+	      File fileName = new File(SaveAs.getSelectedFile() + ".tx");
 	      BufferedWriter outFile = null;
 	      try {
-	      /*   outFile = new BufferedWriter(new FileWriter(fileName));
-	        
-	         txtpnEditor.write(outFile);   // *** here: ***
-*/
+	
 	    	  StringReader stringReader = new StringReader(txtpnEditor.getText());
               BufferedReader bufferedReader = new BufferedReader(stringReader);
               FileWriter fileWriter = new FileWriter(fileName);
