@@ -122,6 +122,7 @@
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a id='tab-game-info' href="#game-info" aria-controls="game-info" role="tab" data-toggle="tab">Game Info</a></li>
 			<li role="presentation"><a id='tab-player-stats' href="#player-stats" aria-controls="player-stats" role="tab" data-toggle="tab" class='my-tab'>Player Stats</a></li>
+			<li role="presentation"><a id='tab-play-by-play' href="#play-by-play" aria-controls="play-by-play" role="tab" data-toggle="tab" class='my-tab'>Play by play</a></li>
 		</ul>
 
 		<div class='tab-content top-buffer'>
@@ -484,6 +485,34 @@
 				</div>
 			</div>
 			<!-- .tab-panel #player-stats -->
+			
+			<div role='tabpanel' class='container tab-pane fade' id='play-by-play'>
+			<label for="#away-team-table" class="team-name-label">{{game.home_team.name.upper()}} vs. {{game.away_team.name.upper()}}</label>
+				<div class="row top-buffer">
+					<table class="table table-responsive table-hover" id="play-by-play-table-id">
+						<thead>
+							<tr>
+								<th>Action</th>
+								<th>Result</th>
+								<th>Team</th>
+								<th>Player</th>								
+							</tr>
+						</thead>
+						<tbody>
+							{% for p in game.events %}
+							<tr>
+								<td>{{p.action}}</td>
+								<td>{{p.homePoints}} - {{p.awayPoints}}</td>
+								<td>{{p.team}}</td>
+								<td>{{p.player}}</td>								
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					
+				</div>
+				
+			</div>
 		</div>
 		<!-- .tab-content -->
 	</div>
