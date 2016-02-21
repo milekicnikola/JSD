@@ -1,13 +1,11 @@
 package view;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-
 
 import model.Event;
 import model.EventType;
@@ -28,7 +26,7 @@ public class Game extends JDialog {
 	private JComboBox cbFouled;
 	private JComboBox cbBlocked;
 	private JComboBox cbPeriod;
-	
+
 	model.Event event;
 
 	/**
@@ -67,16 +65,16 @@ public class Game extends JDialog {
 		cbEvent.addItem("2 points"); // 1
 		cbEvent.addItem("3 points"); // 2
 		cbEvent.addItem("Personal foul"); // 3
-		cbEvent.addItem("Tournover"); // 4
+		cbEvent.addItem("Turnover"); // 4
 		cbEvent.addItem("Steal"); // 5
-		cbEvent.addItem("Asist"); // 6
+		cbEvent.addItem("Assist"); // 6
 		cbEvent.addItem("Block"); // 7
-		cbEvent.addItem("Offence rebound"); // 8
-		cbEvent.addItem("Deffence rebound"); // 9
+		cbEvent.addItem("Offensive rebound"); // 8
+		cbEvent.addItem("Deffensive rebound"); // 9
 		cbEvent.addItem("Technical foul coach"); // 10
 		cbEvent.addItem("Technical foul team"); // 11
 		cbEvent.addItem("Technical foul player"); // 12
-		cbEvent.addItem("Unsporstman foul"); // 13
+		cbEvent.addItem("Unsporstmanlike foul"); // 13
 		getContentPane().add(cbEvent);
 		cbEvent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -394,7 +392,7 @@ public class Game extends JDialog {
 					break;
 				case 10:
 					event.setKeyword(EventType.TFC);
-					
+
 					break;
 				case 11:
 					event.setKeyword(EventType.TFT);
@@ -431,254 +429,254 @@ public class Game extends JDialog {
 				default:
 					break;
 				}
-				
-				//System.out.println(event);
+
+				// System.out.println(event);
 
 			}
 		});
 		btnOk.setBounds(223, 280, 117, 25);
 		getContentPane().add(btnOk);
-		
+
 		JButton btnFinish = new JButton("Finish");
 		btnFinish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String code;
-				
-				code="City: \""+model.Game.getInstance().getGameInfo().getCity()+"\"\n"+
-						"Arena: \""+model.Game.getInstance().getGameInfo().getArena()+"\"\n"+
-						"Date: \""+model.Game.getInstance().getGameInfo().getDate()+"\"\n"+
-						"Time: \""+model.Game.getInstance().getGameInfo().getTime()+"\"\n"+
-						"Attendance: "+model.Game.getInstance().getGameInfo().getAttendance()+"\n"+
-						"\n"+
-						"Crew Chief:\n"+
-						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getFirstName()+"\"\n"+
-						"\tLast name: \""+model.Game.getInstance().getGameInfo().getCrewChief().getLastName()+"\"\n"+
-						"\tNationality: \""+model.Game.getInstance().getGameInfo().getCrewChief().getNationality()+"\"\n"+
-						"\n"+
-						"Referee:\n"+
-						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getReferee().getFirstName()+"\"\n"+
-						"\tLast name: \""+model.Game.getInstance().getGameInfo().getReferee().getLastName()+"\"\n"+
-						"\tNationality: \""+model.Game.getInstance().getGameInfo().getReferee().getNationality()+"\"\n"+
-						"\n"+
-						"Umpire:\n"+
-						"\tFirst name: \""+model.Game.getInstance().getGameInfo().getUmpire().getFirstName()+"\"\n"+
-						"\tLast name: \""+model.Game.getInstance().getGameInfo().getUmpire().getLastName()+"\"\n"+
-						"\tNationality: \""+model.Game.getInstance().getGameInfo().getUmpire().getNationality()+"\"\n"+
-						"\n"+
-						"Home team:\n"+
-						"\tName: \""+model.Game.getInstance().getHome().getName()+"\"\n"+
-						"\tPlayers:"+"\n";
-						
-						for (int i=0;i<12;i++){
-							 	code+="\n\t\tNumber: "+model.Game.getInstance().getHome().getPlayers()[i].getNumber()+"\n"+
-									"\t\tFirst name: \""+model.Game.getInstance().getHome().getPlayers()[i].getFirstName()+"\"\n"+
-									"\t\tLast name: \""+model.Game.getInstance().getHome().getPlayers()[i].getLastName()+"\"\n"+
-									"\t\tNationality: \""+model.Game.getInstance().getHome().getPlayers()[i].getNationality()+"\"\n"+
-									"\t\tPosition: "+model.Game.getInstance().getHome().getPlayers()[i].getPosition()+"\n";
+
+				code = "City: \"" + model.Game.getInstance().getGameInfo().getCity() + "\"\n" + "Arena: \""
+						+ model.Game.getInstance().getGameInfo().getArena() + "\"\n" + "Date: \""
+						+ model.Game.getInstance().getGameInfo().getDate() + "\"\n" + "Time: \""
+						+ model.Game.getInstance().getGameInfo().getTime() + "\"\n" + "Attendance: "
+						+ model.Game.getInstance().getGameInfo().getAttendance() + "\n" + "\n" + "Crew Chief:\n"
+						+ "\tFirst name: \"" + model.Game.getInstance().getGameInfo().getCrewChief().getFirstName()
+						+ "\"\n" + "\tLast name: \""
+						+ model.Game.getInstance().getGameInfo().getCrewChief().getLastName() + "\"\n"
+						+ "\tNationality: \"" + model.Game.getInstance().getGameInfo().getCrewChief().getNationality()
+						+ "\"\n" + "\n" + "Referee:\n" + "\tFirst name: \""
+						+ model.Game.getInstance().getGameInfo().getReferee().getFirstName() + "\"\n"
+						+ "\tLast name: \"" + model.Game.getInstance().getGameInfo().getReferee().getLastName() + "\"\n"
+						+ "\tNationality: \"" + model.Game.getInstance().getGameInfo().getReferee().getNationality()
+						+ "\"\n" + "\n" + "Umpire:\n" + "\tFirst name: \""
+						+ model.Game.getInstance().getGameInfo().getUmpire().getFirstName() + "\"\n" + "\tLast name: \""
+						+ model.Game.getInstance().getGameInfo().getUmpire().getLastName() + "\"\n"
+						+ "\tNationality: \"" + model.Game.getInstance().getGameInfo().getUmpire().getNationality()
+						+ "\"\n" + "\n" + "Home team:\n" + "\tName: \"" + model.Game.getInstance().getHome().getName()
+						+ "\"\n" + "\tPlayers:" + "\n";
+
+				for (int i = 0; i < 12; i++) {
+					code += "\n\t\tNumber: " + model.Game.getInstance().getHome().getPlayers()[i].getNumber() + "\n"
+							+ "\t\tFirst name: \"" + model.Game.getInstance().getHome().getPlayers()[i].getFirstName()
+							+ "\"\n" + "\t\tLast name: \""
+							+ model.Game.getInstance().getHome().getPlayers()[i].getLastName() + "\"\n"
+							+ "\t\tNationality: \""
+							+ model.Game.getInstance().getHome().getPlayers()[i].getNationality() + "\"\n"
+							+ "\t\tPosition: " + model.Game.getInstance().getHome().getPlayers()[i].getPosition()
+							+ "\n";
+				}
+
+				code += "\n\tHead coach:\n" + "\t\tFirst name: \""
+						+ model.Game.getInstance().getHome().getCoach().getFirstName() + "\"\n" + "\t\tLast name: \""
+						+ model.Game.getInstance().getHome().getCoach().getLastName() + "\"\n" + "\t\tNationality: \""
+						+ model.Game.getInstance().getHome().getCoach().getNationality() + "\"\n";
+
+				code += "\nAway team:\n" + "\tName: \"" + model.Game.getInstance().getAway().getName() + "\"\n"
+						+ "\tPlayers:" + "\n";
+				for (int i = 0; i < 12; i++) {
+
+					code += "\n\t\tNumber: " + model.Game.getInstance().getAway().getPlayers()[i].getNumber() + "\n"
+							+ "\t\tFirst name: \"" + model.Game.getInstance().getAway().getPlayers()[i].getFirstName()
+							+ "\"\n" + "\t\tLast name: \""
+							+ model.Game.getInstance().getAway().getPlayers()[i].getLastName() + "\"\n"
+							+ "\t\tNationality: \""
+							+ model.Game.getInstance().getAway().getPlayers()[i].getNationality() + "\"\n"
+							+ "\t\tPosition: " + model.Game.getInstance().getAway().getPlayers()[i].getPosition()
+							+ "\n";
+				}
+
+				code += "\n\tHead coach:\n" + "\t\tFirst name: \""
+						+ model.Game.getInstance().getAway().getCoach().getFirstName() + "\"\n" + "\t\tLast name: \""
+						+ model.Game.getInstance().getAway().getCoach().getLastName() + "\"\n" + "\t\tNationality: \""
+						+ model.Game.getInstance().getAway().getCoach().getNationality() + "\"\n";
+
+				code += "\nQuarter 1\n" + "\tStart\n";
+
+				for (Event event : model.Game.getInstance().getPeriod1().getEvents()) {
+					if (event.getKeyword() == EventType.FT) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.isMade() + "\n";
+					} else if (event.getKeyword() == EventType.P2 || event.getKeyword() == EventType.P3) {
+						String keyword = "";
+						if (event.getKeyword() == EventType.P2) {
+							keyword = "2P";
+						} else {
+							keyword = "3P";
 						}
-						
-						
-						code+="\n\tHead coach:\n"+
-								"\t\tFirst name: \""+model.Game.getInstance().getHome().getCoach().getFirstName()+"\"\n"+
-								"\t\tLast name: \""+model.Game.getInstance().getHome().getCoach().getLastName()+"\"\n"+
-								"\t\tNationality: \""+model.Game.getInstance().getHome().getCoach().getNationality()+"\"\n";
-						
-						
-						code+="\nAway team:\n"+
-								"\tName: \""+model.Game.getInstance().getAway().getName()+"\"\n"+
-								"\tPlayers:"+"\n";
-						for (int i=0;i<12;i++){
-						 	
-							code+="\n\t\tNumber: "+model.Game.getInstance().getAway().getPlayers()[i].getNumber()+"\n"+
-								"\t\tFirst name: \""+model.Game.getInstance().getAway().getPlayers()[i].getFirstName()+"\"\n"+
-								"\t\tLast name: \""+model.Game.getInstance().getAway().getPlayers()[i].getLastName()+"\"\n"+
-								"\t\tNationality: \""+model.Game.getInstance().getAway().getPlayers()[i].getNationality()+"\"\n"+
-								"\t\tPosition: "+model.Game.getInstance().getAway().getPlayers()[i].getPosition()+"\n";
+
+						code += "\t\t" + keyword + " " + event.getTeam().toString() + " " + event.getPlayer() + " "
+								+ event.isMade();
+						if (event.isMade() && event.getAsist() != 0) {
+							code += " AST " + event.getAsist();
 						}
-						
-						code+="\n\tHead coach:\n"+
-								"\t\tFirst name: \""+model.Game.getInstance().getAway().getCoach().getFirstName()+"\"\n"+
-								"\t\tLast name: \""+model.Game.getInstance().getAway().getCoach().getLastName()+"\"\n"+
-								"\t\tNationality: \""+model.Game.getInstance().getAway().getCoach().getNationality()+"\"\n";
-						
-						code+="\nQuarter 1\n"+
-								"\tStart\n";
-						
-						for (Event event : model.Game.getInstance().getPeriod1().getEvents()) {
-							if (event.getKeyword()==EventType.FT){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
-										" "+event.isMade()+"\n";
-							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
-								String keyword="";
-								if (event.getKeyword()==EventType.P2){
-									keyword="2P";
-								}else{
-									keyword="3P";
-								}
-								
-								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
-								if (event.isMade() && event.getAsist()!=0){
-									code+=" AST "+event.getAsist();
-								}
-								code+="\n";
-							}else if (event.getKeyword()==EventType.PF){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getFouled()+"\n";
-							}else if (event.getKeyword()==EventType.BLK){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getBlocked()+"\n";
-							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
-							}else{
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+						code += "\n";
+					} else if (event.getKeyword() == EventType.PF) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getFouled() + "\n";
+					} else if (event.getKeyword() == EventType.BLK) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getBlocked() + "\n";
+					} else if (event.getKeyword() == EventType.TFT || event.getKeyword() == EventType.TFC) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + "\n";
+					} else {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + "\n";
+					}
+				}
+				code += "\tEnd";
+
+				code += "\nQuarter 2\n" + "\tStart\n";
+
+				for (Event event : model.Game.getInstance().getPeriod2().getEvents()) {
+					if (event.getKeyword() == EventType.FT) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.isMade() + "\n";
+					} else if (event.getKeyword() == EventType.P2 || event.getKeyword() == EventType.P3) {
+						String keyword = "";
+						if (event.getKeyword() == EventType.P2) {
+							keyword = "2P";
+						} else {
+							keyword = "3P";
+						}
+
+						code += "\t\t" + keyword + " " + event.getTeam().toString() + " " + event.getPlayer() + " "
+								+ event.isMade();
+						if (event.isMade() && event.getAsist() != 0) {
+							code += " AST " + event.getAsist();
+						}
+						code += "\n";
+					} else if (event.getKeyword() == EventType.PF) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getFouled() + "\n";
+					} else if (event.getKeyword() == EventType.BLK) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getBlocked() + "\n";
+					} else if (event.getKeyword() == EventType.TFT || event.getKeyword() == EventType.TFC) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + "\n";
+					} else {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + "\n";
+					}
+				}
+				code += "\tEnd";
+
+				code += "\nQuarter 3\n" + "\tStart\n";
+
+				for (Event event : model.Game.getInstance().getPeriod3().getEvents()) {
+					if (event.getKeyword() == EventType.FT) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.isMade() + "\n";
+					} else if (event.getKeyword() == EventType.P2 || event.getKeyword() == EventType.P3) {
+						String keyword = "";
+						if (event.getKeyword() == EventType.P2) {
+							keyword = "2P";
+						} else {
+							keyword = "3P";
+						}
+
+						code += "\t\t" + keyword + " " + event.getTeam().toString() + " " + event.getPlayer() + " "
+								+ event.isMade();
+						if (event.isMade() && event.getAsist() != 0) {
+							code += " AST " + event.getAsist();
+						}
+						code += "\n";
+					} else if (event.getKeyword() == EventType.PF) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getFouled() + "\n";
+					} else if (event.getKeyword() == EventType.BLK) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getBlocked() + "\n";
+					} else if (event.getKeyword() == EventType.TFT || event.getKeyword() == EventType.TFC) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + "\n";
+					} else {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + "\n";
+					}
+				}
+				code += "\tEnd";
+
+				code += "\nQuarter 4\n" + "\tStart\n";
+
+				for (Event event : model.Game.getInstance().getPeriod4().getEvents()) {
+					if (event.getKeyword() == EventType.FT) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.isMade() + "\n";
+					} else if (event.getKeyword() == EventType.P2 || event.getKeyword() == EventType.P3) {
+						String keyword = "";
+						if (event.getKeyword() == EventType.P2) {
+							keyword = "2P";
+						} else {
+							keyword = "3P";
+						}
+
+						code += "\t\t" + keyword + " " + event.getTeam().toString() + " " + event.getPlayer() + " "
+								+ event.isMade();
+						if (event.isMade() && event.getAsist() != 0) {
+							code += " AST " + event.getAsist();
+						}
+						code += "\n";
+					} else if (event.getKeyword() == EventType.PF) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getFouled() + "\n";
+					} else if (event.getKeyword() == EventType.BLK) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + " " + event.getBlocked() + "\n";
+					} else if (event.getKeyword() == EventType.TFT || event.getKeyword() == EventType.TFC) {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + "\n";
+					} else {
+						code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+								+ event.getPlayer() + "\n";
+					}
+				}
+				code += "\tEnd";
+
+				if (!model.Game.getInstance().getOverTime().getEvents().isEmpty()) {
+					code += "\nOver Time 1\n" + "\tStart\n";
+					for (Event event : model.Game.getInstance().getOverTime().getEvents()) {
+						if (event.getKeyword() == EventType.FT) {
+							code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+									+ event.getPlayer() + " " + event.isMade() + "\n";
+						} else if (event.getKeyword() == EventType.P2 || event.getKeyword() == EventType.P3) {
+							String keyword = "";
+							if (event.getKeyword() == EventType.P2) {
+								keyword = "2P";
+							} else {
+								keyword = "3P";
 							}
-						}
-						code+="\tEnd";
-						
-						code+="\nQuarter 2\n"+
-								"\tStart\n";
-						
-						for (Event event : model.Game.getInstance().getPeriod2().getEvents()) {
-							if (event.getKeyword()==EventType.FT){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
-										" "+event.isMade()+"\n";
-							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
-								String keyword="";
-								if (event.getKeyword()==EventType.P2){
-									keyword="2P";
-								}else{
-									keyword="3P";
-								}
-								
-								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
-								if (event.isMade() && event.getAsist()!=0){
-									code+=" AST "+event.getAsist();
-								}
-								code+="\n";
-							}else if (event.getKeyword()==EventType.PF){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getFouled()+"\n";
-							}else if (event.getKeyword()==EventType.BLK){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getBlocked()+"\n";
-							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
-							}else{
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
+
+							code += "\t\t" + keyword + " " + event.getTeam().toString() + " " + event.getPlayer() + " "
+									+ event.isMade();
+							if (event.isMade() && event.getAsist() != 0) {
+								code += " AST " + event.getAsist();
 							}
+							code += "\n";
+						} else if (event.getKeyword() == EventType.PF) {
+							code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+									+ event.getPlayer() + " " + event.getFouled() + "\n";
+						} else if (event.getKeyword() == EventType.BLK) {
+							code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+									+ event.getPlayer() + " " + event.getBlocked() + "\n";
+						} else if (event.getKeyword() == EventType.TFT || event.getKeyword() == EventType.TFC) {
+							code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + "\n";
+						} else {
+							code += "\t\t" + event.getKeyword().toString() + " " + event.getTeam().toString() + " "
+									+ event.getPlayer() + "\n";
 						}
-						code+="\tEnd";
-						
-						code+="\nQuarter 3\n"+
-								"\tStart\n";
-						
-						for (Event event : model.Game.getInstance().getPeriod3().getEvents()) {
-							if (event.getKeyword()==EventType.FT){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
-										" "+event.isMade()+"\n";
-							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
-								String keyword="";
-								if (event.getKeyword()==EventType.P2){
-									keyword="2P";
-								}else{
-									keyword="3P";
-								}
-								
-								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
-								if (event.isMade() && event.getAsist()!=0){
-									code+=" AST "+event.getAsist();
-								}
-								code+="\n";
-							}else if (event.getKeyword()==EventType.PF){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getFouled()+"\n";
-							}else if (event.getKeyword()==EventType.BLK){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getBlocked()+"\n";
-							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
-							}else{
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
-							}
-						}
-						code+="\tEnd";
-						
-						code+="\nQuarter 4\n"+
-								"\tStart\n";
-						
-						for (Event event : model.Game.getInstance().getPeriod4().getEvents()) {
-							if (event.getKeyword()==EventType.FT){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
-										" "+event.isMade()+"\n";
-							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
-								String keyword="";
-								if (event.getKeyword()==EventType.P2){
-									keyword="2P";
-								}else{
-									keyword="3P";
-								}
-								
-								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
-								if (event.isMade() && event.getAsist()!=0){
-									code+=" AST "+event.getAsist();
-								}
-								code+="\n";
-							}else if (event.getKeyword()==EventType.PF){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getFouled()+"\n";
-							}else if (event.getKeyword()==EventType.BLK){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getBlocked()+"\n";
-							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
-							}else{
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
-							}
-						}
-						code+="\tEnd";
-						
-						code+="\nOver time 1\n"+
-								"\tStart\n";
-						
-						for (Event event : model.Game.getInstance().getOverTime().getEvents()) {
-							if (event.getKeyword()==EventType.FT){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+
-										" "+event.isMade()+"\n";
-							}else if (event.getKeyword()==EventType.P2 || event.getKeyword()==EventType.P3){
-								String keyword="";
-								if (event.getKeyword()==EventType.P2){
-									keyword="2P";
-								}else{
-									keyword="3P";
-								}
-								
-								code+="\t\t"+keyword+" "+event.getTeam().toString()+" "+event.getPlayer()+ " "+event.isMade();
-								if (event.isMade() && event.getAsist()!=0){
-									code+=" AST "+event.getAsist();
-								}
-								code+="\n";
-							}else if (event.getKeyword()==EventType.PF){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getFouled()+"\n";
-							}else if (event.getKeyword()==EventType.BLK){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+
-										event.getPlayer()+" "+event.getBlocked()+"\n";
-							}else if (event.getKeyword()==EventType.TFT || event.getKeyword()==EventType.TFC){
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+"\n";
-							}else{
-								code+="\t\t"+event.getKeyword().toString()+" "+event.getTeam().toString()+" "+event.getPlayer()+"\n";
-							}
-						}
-						code+="\tEnd";
-						
-						
-				
+					}
+					code += "\tEnd";
+				}
+
 				System.out.println(code);
-				
-				
+
 				Code dialog = new Code(code);
-				
-						
+
 			}
 		});
 		btnFinish.setBounds(223, 317, 117, 25);
