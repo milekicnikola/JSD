@@ -26,6 +26,7 @@ public class Code extends JDialog {
 		setVisible(true);
 		setBounds(100, 100, 450, 600);
 		getContentPane().setLayout(null);
+		setResizable(false);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 12, 426, 484);

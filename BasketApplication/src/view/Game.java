@@ -38,6 +38,7 @@ public class Game extends JDialog {
 		setTitle("Game");
 		setBounds(100, 100, 450, 450);
 		getContentPane().setLayout(null);
+		setResizable(false);
 
 		cbPeriod = new JComboBox();
 		cbPeriod.setBounds(140, 12, 200, 24);
@@ -636,7 +637,7 @@ public class Game extends JDialog {
 						}
 						code+="\tEnd";
 						
-						code+="\nOver time\n"+
+						code+="\nOver time 1\n"+
 								"\tStart\n";
 						
 						for (Event event : model.Game.getInstance().getOverTime().getEvents()) {

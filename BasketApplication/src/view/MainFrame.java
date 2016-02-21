@@ -21,6 +21,7 @@ import javax.swing.DefaultListModel;
 
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 
 public class MainFrame extends JFrame {
 
@@ -67,6 +68,9 @@ public class MainFrame extends JFrame {
 	private JTextField tfCoachAwayLastName;
 	private JTextField tfCoachAwayNationality;
 
+	private JButton btnAddPlayer;
+	private JButton btnAddPlayerAway;
+
 	/**
 	 * Create the frame.
 	 */
@@ -78,6 +82,7 @@ public class MainFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(12, 50, 865, 450);
@@ -256,17 +261,30 @@ public class MainFrame extends JFrame {
 		lblPlayersHome.setBounds(12, 40, 70, 15);
 		panelHome.add(lblPlayersHome);
 
-		JButton btnAddPlayer = new JButton("<< Add");
+		btnAddPlayer = new JButton("<< Add");
 		btnAddPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Player p = new Player();
-				p.setFirstName(tfFirstNamePlayer.getText());
-				p.setLastName(tfLastNamePlayer.getText());
-				p.setNationality(tfNationalityPlayer.getText());
-				p.setNumber((Integer) cbNumberPlayer.getSelectedItem());
-				p.setPosition(cbPositionPlayer.getSelectedItem().toString());
+				
 
-				homeListModel.addElement(p);
+				if (!tfFirstNamePlayer.getText().equals("") && !tfLastNamePlayer.getText().equals("")
+						&& !tfNationalityPlayer.getText().equals("") && cbNumberPlayer.getSelectedIndex() != -1
+						&& cbPositionPlayer.getSelectedIndex() != -1) {
+					
+					
+					Player p = new Player();
+					p.setFirstName(tfFirstNamePlayer.getText());
+					p.setLastName(tfLastNamePlayer.getText());
+					p.setNationality(tfNationalityPlayer.getText());
+					p.setNumber((Integer) cbNumberPlayer.getSelectedItem());
+					p.setPosition(cbPositionPlayer.getSelectedItem().toString());
+					
+					homeListModel.addElement(p);
+					cbNumberPlayer.removeItem(cbNumberPlayer.getSelectedItem());
+				}
+
+				if (homeListModel.size() == 12) {
+					btnAddPlayer.setEnabled(false);
+				}
 			}
 		});
 		btnAddPlayer.setBounds(436, 126, 85, 25);
@@ -382,17 +400,28 @@ public class MainFrame extends JFrame {
 		lblPlayersAway.setBounds(12, 40, 70, 15);
 		panelAway.add(lblPlayersAway);
 
-		JButton btnAddPlayerAway = new JButton("<< Add");
+		btnAddPlayerAway = new JButton("<< Add");
 		btnAddPlayerAway.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Player p = new Player();
-				p.setFirstName(tfFirstNamePlayerAway.getText());
-				p.setLastName(tfLastNamePlayerAway.getText());
-				p.setNationality(tfNationalityPlayerAway.getText());
-				p.setNumber((Integer) cbNumberPlayerAway.getSelectedItem());
-				p.setPosition(cbPositionPlayerAway.getSelectedItem().toString());
+				if (!tfFirstNamePlayerAway.getText().equals("") && !tfLastNamePlayerAway.getText().equals("")
+						&& !tfNationalityPlayerAway.getText().equals("") && cbNumberPlayerAway.getSelectedIndex() != -1
+						&& cbPositionPlayerAway.getSelectedIndex() != -1) {
+					
+					
+					Player p = new Player();
+					p.setFirstName(tfFirstNamePlayerAway.getText());
+					p.setLastName(tfLastNamePlayerAway.getText());
+					p.setNationality(tfNationalityPlayerAway.getText());
+					p.setNumber((Integer) cbNumberPlayerAway.getSelectedItem());
+					p.setPosition(cbPositionPlayerAway.getSelectedItem().toString());
+					
+					awayListModel.addElement(p);
+					cbNumberPlayerAway.removeItem(cbNumberPlayerAway.getSelectedItem());
+				}
 
-				awayListModel.addElement(p);
+				if (awayListModel.size() == 12) {
+					btnAddPlayerAway.setEnabled(false);
+				}
 			}
 		});
 		btnAddPlayerAway.setBounds(436, 126, 85, 25);
@@ -490,51 +519,83 @@ public class MainFrame extends JFrame {
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				GameInfo gameInfo = new GameInfo();
-				gameInfo.setArena(tfArena.getText());
-				gameInfo.setAttendance(Integer.parseInt(tfAttendance.getText()));
-				gameInfo.setCity(tfCity.getText());
-				gameInfo.setDate(tfDate.getText());
-				gameInfo.setTime(tfTime.getText());
-				gameInfo.setCrewChief(new Person(tfFirstNameCrewChief.getText(), tfLastNameCrewChief.getText(),
-						tfCountryCrewChief.getText()));
-				gameInfo.setReferee(new Person(tfFirstNameReferee.getText(), tfLastNameReferee.getText(),
-						tfCountryReferee.getText()));
-				gameInfo.setUmpire(
-						new Person(tfFirstNameUmpire.getText(), tfLastNameUmpire.getText(), tfCountryUmpire.getText()));
+				if (isGameInfoCorrect() && isTeamsInfoCorrect()) {
 
-				Team home = new Team();
-				home.setName(tfHomeName.getText());
-				home.setCoach(new Person(tfCoachHomeFirstName.getText(), tfCoachHomeLastName.getText(),
-						tfCoachHomeNationality.getText()));
+					GameInfo gameInfo = new GameInfo();
+					gameInfo.setArena(tfArena.getText());
+					gameInfo.setAttendance(Integer.parseInt(tfAttendance.getText()));
+					gameInfo.setCity(tfCity.getText());
+					gameInfo.setDate(tfDate.getText());
+					gameInfo.setTime(tfTime.getText());
+					gameInfo.setCrewChief(new Person(tfFirstNameCrewChief.getText(), tfLastNameCrewChief.getText(),
+							tfCountryCrewChief.getText()));
+					gameInfo.setReferee(new Person(tfFirstNameReferee.getText(), tfLastNameReferee.getText(),
+							tfCountryReferee.getText()));
+					gameInfo.setUmpire(new Person(tfFirstNameUmpire.getText(), tfLastNameUmpire.getText(),
+							tfCountryUmpire.getText()));
 
-				for (int i = 0; i < homeListModel.size(); i++) {
-					home.addPlayer(i, (Player) homeListModel.getElementAt(i));
+					Team home = new Team();
+					home.setName(tfHomeName.getText());
+					home.setCoach(new Person(tfCoachHomeFirstName.getText(), tfCoachHomeLastName.getText(),
+							tfCoachHomeNationality.getText()));
+
+					for (int i = 0; i < homeListModel.size(); i++) {
+						home.addPlayer(i, (Player) homeListModel.getElementAt(i));
+					}
+
+					Team away = new Team();
+					away.setName(tfAwayName.getText());
+					away.setCoach(new Person(tfCoachAwayFirstName.getText(), tfCoachAwayLastName.getText(),
+							tfCoachAwayNationality.getText()));
+
+					for (int i = 0; i < awayListModel.size(); i++) {
+						away.addPlayer(i, (Player) awayListModel.getElementAt(i));
+					}
+
+					model.Game.getInstance().setGameInfo(gameInfo);
+					model.Game.getInstance().setHome(home);
+					model.Game.getInstance().setAway(away);
+
+					// System.out.println(model.Game.getInstance());
+
+					view.Game dialog = new view.Game();
+					dialog.setVisible(true);
+				} else {
+					System.out.println("Game cannot start, datas are not valid.");
+					Warning dialog=new Warning();
+					dialog.setVisible(true);
 				}
-
-				Team away = new Team();
-				away.setName(tfAwayName.getText());
-				away.setCoach(new Person(tfCoachAwayFirstName.getText(), tfCoachAwayLastName.getText(),
-						tfCoachAwayNationality.getText()));
-
-				for (int i = 0; i < awayListModel.size(); i++) {
-					away.addPlayer(i, (Player) awayListModel.getElementAt(i));
-				}
-				
-				
-				
-				model.Game.getInstance().setGameInfo(gameInfo);
-				model.Game.getInstance().setHome(home);
-				model.Game.getInstance().setAway(away);
-				
-				//System.out.println(model.Game.getInstance());
-				
-				view.Game dialog=new view.Game();
-				dialog.setVisible(true);
 			}
 		});
 		btnStartGame.setBounds(448, 512, 117, 25);
 		contentPane.add(btnStartGame);
 
+	}
+
+	public boolean isGameInfoCorrect() {
+		try {
+			Integer.parseInt(tfAttendance.getText());
+		} catch (Exception e) {
+			return false;
+		}
+
+		if (!tfCity.getText().equals("") && !tfArena.getText().equals("") && !tfAttendance.getText().equals("")
+				&& !tfFirstNameReferee.equals("") && !tfLastNameReferee.equals("") && !tfCountryReferee.equals("")
+				&& !tfFirstNameCrewChief.equals("") && !tfLastNameCrewChief.equals("") && !tfCountryCrewChief.equals("")
+				&& !tfFirstNameUmpire.equals("") && !tfLastNameUmpire.equals("") && !tfCountryUmpire.equals("")) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isTeamsInfoCorrect() {
+		if (!tfHomeName.getText().equals("") && !tfCoachHomeFirstName.getText().equals("")
+				&& !tfCoachHomeLastName.getText().equals("") && !tfCoachHomeNationality.getText().equals("")
+				&& homeListModel.getSize() == 12 && !tfAwayName.getText().equals("")
+				&& !tfCoachAwayFirstName.getText().equals("") && !tfCoachAwayLastName.getText().equals("")
+				&& !tfCoachAwayNationality.getText().equals("") && awayListModel.size() == 12) {
+			return true;
+		}
+		return false;
 	}
 }
