@@ -37,6 +37,7 @@ public class Game extends JDialog {
 		setBounds(100, 100, 450, 450);
 		getContentPane().setLayout(null);
 		setResizable(false);
+		setModal(true);
 
 		cbPeriod = new JComboBox();
 		cbPeriod.setBounds(140, 12, 200, 24);
@@ -675,6 +676,7 @@ public class Game extends JDialog {
 
 				System.out.println(code);
 
+				dispose();
 				Code dialog = new Code(code);
 
 			}

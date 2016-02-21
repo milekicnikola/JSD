@@ -94,6 +94,54 @@ public class MainFrame extends JFrame {
 		panelTools.setLayout(null);
 
 		JButton btnNewGame = new JButton("New game");
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tfCity.setText("");
+				tfArena.setText("");
+				tfAttendance.setText("");
+				tfTime.setText("");
+				tfDate.setText("");
+				tfFirstNameCrewChief.setText("");
+				tfLastNameCrewChief.setText("");
+				tfCountryCrewChief.setText("");
+				tfFirstNameUmpire.setText("");
+				tfLastNameUmpire.setText("");
+				tfCountryUmpire.setText("");
+				tfFirstNameReferee.setText("");
+				tfLastNameReferee.setText("");
+				tfCountryReferee.setText("");
+				tfHomeName.setText("");
+				tfAwayName.setText("");
+				tfCoachAwayFirstName.setText("");
+				tfCoachAwayLastName.setText("");
+				tfCoachAwayNationality.setText("");
+				tfCoachHomeFirstName.setText("");
+				tfCoachHomeLastName.setText("");
+				tfCoachHomeNationality.setText("");
+				homeListModel.clear();
+				awayListModel.clear();
+				tfFirstNamePlayer.setText("");
+				tfLastNamePlayer.setText("");
+				tfNationalityPlayer.setText("");
+				tfFirstNamePlayerAway.setText("");
+				tfLastNamePlayerAway.setText("");
+				tfNationalityPlayerAway.setText("");
+				cbPositionPlayer.setSelectedIndex(-1);
+				cbPositionPlayerAway.setSelectedIndex(-1);
+				btnAddPlayer.setEnabled(true);
+				btnAddPlayerAway.setEnabled(true);
+				
+				cbNumberPlayer.removeAllItems();
+				cbNumberPlayerAway.removeAllItems();
+				for (int i = 1; i<100; i++){
+					cbNumberPlayer.addItem(i);
+					cbNumberPlayerAway.addItem(i);
+					cbNumberPlayer.setSelectedIndex(-1);
+					cbNumberPlayerAway.setSelectedIndex(-1);
+				}
+				
+			}
+		});
 		btnNewGame.setBounds(0, 12, 117, 25);
 		panelTools.add(btnNewGame);
 

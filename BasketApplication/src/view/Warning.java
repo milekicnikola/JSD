@@ -22,6 +22,7 @@ public class Warning extends JDialog {
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		setResizable(false);
+		setModal(true);
 		
 		JLabel lblCannotStartGame = new JLabel("Cannot start game, please insert valid informations in all fields.");
 		panel.add(lblCannotStartGame);
