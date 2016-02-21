@@ -1,10 +1,10 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\.metadata\.plugins\org.eclipse.core.resources\.projects\BasketStats\com.python.pydev.analysis\v2_indexcache
-basket.webPageTester|1455964089914294000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\webPageTester.py
+basket.webPageTester|1455964172982046000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\webPageTester.py
 basket.basketStats|1455966859310260000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\basketStats.py
 basket.entities.__init__|1455962892348798000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\entities\__init__.py
-basket.__init__|1455966830290155000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\__init__.py
+basket.__init__|1455969685845123000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\__init__.py
 basket.entities.entities|1455965847089488000|C:\Users\Pop\Desktop\JSD - Jezici specificni za domen\project workspace\JSD\BasketStats\src\basket\entities\entities.py
 -- END DISKCACHE
 -- START DICTIONARY
@@ -75,9 +75,9 @@ fir|5|firstQuarterPoints!18&27@first_name!16&27@first_name!19&27@first_name!20&2
 fou|3|fouls_received!16&27@fouls_commited!16&27@fourthQuarterPoints!18&27@
 fre|3|freeThrow!13&18@free_throws_attempted!16&27@free_throws_made!16&27@
 gam|2|game_info!13&19@game_info!17&27@
-get|52|getAssists!6&26@getTwoPointsPercentage!6&26@getTwoPointsPercentage!7&26@getPointsAfterSecond!6&26@getTwoPointsMA!6&26@getTwoPointsMA!7&26@getPointsAfterThird!6&26@getMissedThreePoints!7&26@getDefensiveRebounds!6&26@getTotalRebounds!6&26@getTotalRebounds!7&26@getPointsAfterFourth!6&26@getPlayersPerformanceIndexRating!6&26@getPerformanceIndexRating!7&26@getPlayerSignature!7&26@getPoints!6&26@getPoints!7&26@getOffensiveRebounds!6&26@getFieldGoalsMA!6&26@getFieldGoalsAttempted!6&26@getFieldGoalsMA!7&26@getFieldGoalsAttempted!7&26@getFieldGoalsPercentage!6&26@getFieldGoalsPercentage!7&26@getMissedFreeThrows!7&26@getTurnovers!6&26@getThreePointsMA!6&26@getThreePointsMA!7&26@getThreePointsMade!6&26@getFieldGoalsMade!6&26@getFieldGoalsMade!7&26@getFullName!12&26@getFullNameFormatted!12&26@getFouls!6&26@getPlayerSignatureWithPosition!7&26@getThreePointsPercentage!6&26@getThreePointsPercentage!7&26@getFreeThrowsPercentage!6&26@getFreeThrowsPercentage!7&26@getThreePointsAttempted!6&26@getTwoPointsAttempted!6&26@getBlocks!6&26@getFullNameWithNationality!12&26@getFreeThrowsAttempted!6&26@getGameObject!13&18@getSteals!6&26@getFreeThrowsMade!6&26@getTwoPointsMade!6&26@getMissedTwoPoints!7&26@getFreeThrowsMA!6&26@getMissedFieldGoals!7&26@getFreeThrowsMA!7&26@
+get|52|getAssists!6&26@getTwoPointsPercentage!6&26@getTwoPointsPercentage!7&26@getPointsAfterSecond!6&26@getTwoPointsMA!7&26@getTwoPointsMA!6&26@getPointsAfterThird!6&26@getMissedThreePoints!7&26@getDefensiveRebounds!6&26@getTotalRebounds!7&26@getTotalRebounds!6&26@getPointsAfterFourth!6&26@getPlayersPerformanceIndexRating!6&26@getPerformanceIndexRating!7&26@getPlayerSignature!7&26@getPoints!7&26@getPoints!6&26@getOffensiveRebounds!6&26@getFieldGoalsAttempted!7&26@getFieldGoalsMA!7&26@getFieldGoalsAttempted!6&26@getFieldGoalsMA!6&26@getFieldGoalsPercentage!6&26@getFieldGoalsPercentage!7&26@getMissedFreeThrows!7&26@getTurnovers!6&26@getThreePointsMA!7&26@getThreePointsMA!6&26@getThreePointsMade!6&26@getFieldGoalsMade!7&26@getFieldGoalsMade!6&26@getFullName!12&26@getFullNameFormatted!12&26@getPlayerSignatureWithPosition!7&26@getFouls!6&26@getThreePointsPercentage!6&26@getThreePointsPercentage!7&26@getFreeThrowsPercentage!6&26@getFreeThrowsPercentage!7&26@getThreePointsAttempted!6&26@getTwoPointsAttempted!6&26@getBlocks!6&26@getFullNameWithNationality!12&26@getFreeThrowsAttempted!6&26@getGameObject!13&18@getSteals!6&26@getFreeThrowsMade!6&26@getTwoPointsMade!6&26@getMissedTwoPoints!7&26@getMissedFieldGoals!7&26@getFreeThrowsMA!7&26@getFreeThrowsMA!6&26@
 gra|1|graph!13&19@
-hom|3|home_team!13&19@homePoints!14&27@home_team!17&27@
+hom|3|homePoints!14&27@home_team!13&19@home_team!17&27@
 int|1|interpret!13&18@
 kin|1|kind!20&27@
 las|4|last_name!16&27@last_name!19&27@last_name!20&27@last_name!21&27@
