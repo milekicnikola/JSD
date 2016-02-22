@@ -134,19 +134,19 @@ class Player(Person):
             return 0
 
     def getTwoPointsPercentage(self):
-        if self.getTwoPointsAttempted() != 0:
-            return round(self.getTwoPointsMade() / self.getTwoPointsAttempted() * 100, 1)
+        if self.two_points_attempted != 0:
+            return round(self.two_points_made / self.two_points_attempted * 100, 1)
         else:
             return 0
 
     def getThreePointsPercentage(self):
-        if self.getThreePointsAttempted() != 0:
-            return round(self.getThreePointsMade() / self.getThreePointsAttempted() * 100, 1)
+        if self.three_points_attempted != 0:
+            return round(self.three_points_made / self.three_points_attempted * 100, 1)
         return 0
 
     def getFreeThrowsPercentage(self):
-        if self.getFreeThrowsAttempted() != 0:
-            return round(self.getFreeThrowsMade() / self.getFreeThrowsAttempted() * 100, 1)
+        if self.free_throws_attempted != 0:
+            return round(self.free_throws_made / self.free_throws_attempted * 100, 1)
         return 0
 
     '''(Points + Rebounds + Assists + Steals + Blocks + Fouls Drawn)

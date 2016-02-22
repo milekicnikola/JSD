@@ -4,7 +4,7 @@ import sys
 
 from jinja2 import Environment, FileSystemLoader
 
-from basket.entities import entities
+from entities import entities
 
 
 print(sys.version)

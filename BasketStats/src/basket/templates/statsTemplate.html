@@ -112,6 +112,10 @@
 			});
 
 		});
+
+		function showPopup(id){
+			$('#id_'+id).click();
+		}
 	</script>
 </head>
 
@@ -338,33 +342,6 @@
 			<!-- .tab-panel #game-info -->
 
 			<div role='tabpanel' class='container tab-pane fade' id='player-stats'>
-
-
- <!-- Trigger the modal with a button -->
- <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-  <!-- <!-- Modal
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      Modal content
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> --> 
-
-
 				<div class="row top-buffer">
 					<label for="#home-team-table" class="team-name-label">{{game.home_team.name.upper()}}</label>
 					<table class="table table-responsive table-hover" id="away-team-table">
@@ -426,12 +403,12 @@
 								<td>{{p.fouls_commited}}</td>
 								<td>{{p.fouls_received}}</td>
 								<td>{{p.getPerformanceIndexRating()}}</td>
-								<td>								
+								<td>
 									<button id="id_{{p.number}}_{{p.last_name}}_{{p.first_name}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_{{p.number}}_{{p.last_name}}_{{p.first_name}}">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_{{p.number}}_{{p.last_name}}_{{p.first_name}}" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -439,16 +416,32 @@
 								          <h4 class="modal-title">{{game.home_team.name.upper()}}</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: {{p.last_name}} {{p.first_name}}</p>
-								          <p>Nationality: {{p.nationality}}</p>
-								          <p>Signature: {{p.getPlayerSignature()}}</p>
+											<p>#{{p.number}}</p>
+			  								<p>Full Name: {{p.getFullNameFormatted()}}</p>
+											<p>Nationality: {{p.nationality}}</p>
+			  								<p>Points: {{p.getPoints()}}</p>
+											<p>Field Goals: {{p.getFieldGoalsPercentage()}}% ({{p.getFieldGoalsMA()}})</p>
+			  								<p>2-Points: {{p.getTwoPointsPercentage()}}% ({{p.getTwoPointsMA()}})</p>
+			  								<p>3-Points: {{p.getThreePointsPercentage()}}% ({{p.getThreePointsMA()}})</p>
+			  								<p>Free Throws: {{p.getFreeThrowsPercentage()}}% ({{p.getFreeThrowsMA()}})</p>
+			  								<p>Rebounds Offensive: {{p.rebounds_offensive}}</p>
+			  								<p>Rebounds Defensive: {{p.rebounds_deffensive}}</p>
+			  								<p>Total Rebounds: {{p.getTotalRebounds()}}</p>
+			  								<p>Assits: {{p.assists}}</p>
+			  								<p>Steals: {{p.steals}}</p>
+			  								<p>Turnovers: {{p.turnovers}}</p>
+			  								<p>Blocks in Favor: {{p.blocks_in_favor}}</p>
+			  								<p>Blocks Against:{{p.blocks_against}}</p>
+			  								<p>Fouls Commited: {{p.fouls_commited}}</p>
+			  								<p>Fouls Received: {{p.fouls_received}}</p>
+			  								<p>Performance Index Rating: {{p.getPerformanceIndexRating()}}</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							{% endfor %}
@@ -520,12 +513,12 @@
 								<td>{{p.fouls_commited}}</td>
 								<td>{{p.fouls_received}}</td>
 								<td>{{p.getPerformanceIndexRating()}}</td>
-								<td>								
+								<td>
 									<button id="id_{{p.number}}_{{p.last_name}}_{{p.first_name}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_{{p.number}}_{{p.last_name}}_{{p.first_name}}">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_{{p.number}}_{{p.last_name}}_{{p.first_name}}" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -540,9 +533,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							{% endfor %}
@@ -563,7 +556,7 @@
 				</div>
 			</div>
 			<!-- .tab-panel #player-stats -->
-			
+
 			<div role='tabpanel' class='container tab-pane fade' id='play-by-play'>
 			<label for="#away-team-table" class="team-name-label">{{game.home_team.name.upper()}} vs. {{game.away_team.name.upper()}}</label>
 				<div class="row top-buffer">
@@ -573,7 +566,7 @@
 								<th>Action</th>
 								<th>Result</th>
 								<th>Team</th>
-								<th>Player</th>								
+								<th>Player</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -582,29 +575,17 @@
 								<td>{{p.action}}</td>
 								<td>{{p.homePoints}} - {{p.awayPoints}}</td>
 								<td>{{p.team}}</td>
-								<td>{{p.player}}</td>								
+								<td>{{p.player}}</td>
 							</tr>
 							{% endfor %}
 						</tbody>
 					</table>
-					
+
 				</div>
-				
+
 			</div>
 		</div>
 		<!-- .tab-content -->
 	</div>
-	
-	<script>
-	
-	function showPopup(id){
-		$('#id_'+id).click();
-	}
-	
-	</script>
-
 </body>
-
-
-
 </html>

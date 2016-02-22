@@ -112,6 +112,10 @@
 			});
 
 		});
+
+		function showPopup(id){
+			$('#id_'+id).click();
+		}
 	</script>
 </head>
 
@@ -122,6 +126,7 @@
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a id='tab-game-info' href="#game-info" aria-controls="game-info" role="tab" data-toggle="tab">Game Info</a></li>
 			<li role="presentation"><a id='tab-player-stats' href="#player-stats" aria-controls="player-stats" role="tab" data-toggle="tab" class='my-tab'>Player Stats</a></li>
+			<li role="presentation"><a id='tab-play-by-play' href="#play-by-play" aria-controls="play-by-play" role="tab" data-toggle="tab" class='my-tab'>Play by play</a></li>
 		</ul>
 
 		<div class='tab-content top-buffer'>
@@ -325,9 +330,8 @@
 			<!-- .tab-panel #game-info -->
 
 			<div role='tabpanel' class='container tab-pane fade' id='player-stats'>
-
 				<div class="row top-buffer">
-					<label for="#away-team-table" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE</label>
+					<label for="#home-team-table" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE</label>
 					<table class="table table-responsive table-hover" id="away-team-table">
 						<thead>
 							<tr class="sub-header">
@@ -343,6 +347,7 @@
 								<th></th>
 								<th colspan="2">Blocks</th>
 								<th colspan="2">Fouls</th>
+								<th></th>
 								<th></th>
 							</tr>
 							<tr>
@@ -363,6 +368,7 @@
 								<th>Cm</th>
 								<th>Rv</th>
 								<th>PIR</th>
+								<td></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -385,6 +391,46 @@
 								<td>0</td>
 								<td>0</td>
 								<td>28</td>
+								<td>
+									<button id="id_1_TARENCE_KINSEY" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_1_TARENCE_KINSEY">Details</button>
+									<!-- Modal -->
+								  	<div class="modal fade" id="myModal_1_TARENCE_KINSEY" role="dialog">
+								    <div class="modal-dialog">
+
+								      <!-- Modal content-->
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal">&times;</button>
+								          <h4 class="modal-title">CRVENA ZVEZDA TELEKOM BELGRADE</h4>
+								        </div>
+								        <div class="modal-body">
+											<p>#1</p>
+			  								<p>Full Name: TARENCE, KINSEY</p>
+											<p>Nationality: USA</p>
+			  								<p>Points: 27</p>
+											<p>Field Goals: 60.0% (12/20)</p>
+			  								<p>2-Points: 58.8% (10/17)</p>
+			  								<p>3-Points: 66.7% (2/3)</p>
+			  								<p>Free Throws: 33.3% (1/3)</p>
+			  								<p>Rebounds Offensive: 1</p>
+			  								<p>Rebounds Defensive: 3</p>
+			  								<p>Total Rebounds: 4</p>
+			  								<p>Assits: 3</p>
+			  								<p>Steals: 3</p>
+			  								<p>Turnovers: 1</p>
+			  								<p>Blocks in Favor: 2</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 28</p>
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								</td>
 							</tr>
 							
 							<tr>
@@ -405,6 +451,46 @@
 								<td>0</td>
 								<td>0</td>
 								<td>30</td>
+								<td>
+									<button id="id_4_NIKOLA_REBIC" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_4_NIKOLA_REBIC">Details</button>
+									<!-- Modal -->
+								  	<div class="modal fade" id="myModal_4_NIKOLA_REBIC" role="dialog">
+								    <div class="modal-dialog">
+
+								      <!-- Modal content-->
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal">&times;</button>
+								          <h4 class="modal-title">CRVENA ZVEZDA TELEKOM BELGRADE</h4>
+								        </div>
+								        <div class="modal-body">
+											<p>#4</p>
+			  								<p>Full Name: NIKOLA, REBIC</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 13</p>
+											<p>Field Goals: 40.0% (4/10)</p>
+			  								<p>2-Points: 60.0% (3/5)</p>
+			  								<p>3-Points: 20.0% (1/5)</p>
+			  								<p>Free Throws: 100.0% (4/4)</p>
+			  								<p>Rebounds Offensive: 4</p>
+			  								<p>Rebounds Defensive: 11</p>
+			  								<p>Total Rebounds: 15</p>
+			  								<p>Assits: 1</p>
+			  								<p>Steals: 5</p>
+			  								<p>Turnovers: 3</p>
+			  								<p>Blocks in Favor: 5</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 30</p>
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								</td>
 							</tr>
 							
 						</tbody>
@@ -432,6 +518,7 @@
 								<th colspan="2">Blocks</th>
 								<th colspan="2">Fouls</th>
 								<th></th>
+								<th></th>
 							</tr>
 							<tr>
 								<th>#</th>
@@ -451,6 +538,7 @@
 								<th>Cm</th>
 								<th>Rv</th>
 								<th>PIR</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -473,6 +561,30 @@
 								<td>0</td>
 								<td>0</td>
 								<td>28</td>
+								<td>
+									<button id="id_1_TARENCE_KINSEY" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_1_TARENCE_KINSEY">Details</button>
+									<!-- Modal -->
+								  	<div class="modal fade" id="myModal_1_TARENCE_KINSEY" role="dialog">
+								    <div class="modal-dialog">
+
+								      <!-- Modal content-->
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal">&times;</button>
+								          <h4 class="modal-title">CRVENA ZVEZDA TELEKOM BELGRADE</h4>
+								        </div>
+								        <div class="modal-body">
+								          <p>Player: TARENCE KINSEY</p>
+								          <p>Nationality: USA</p>
+								          <p>Signature: #1 TARENCE</p>
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								</td>
 							</tr>
 							
 							<tr>
@@ -493,6 +605,30 @@
 								<td>0</td>
 								<td>0</td>
 								<td>30</td>
+								<td>
+									<button id="id_4_NIKOLA_REBIC" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_4_NIKOLA_REBIC">Details</button>
+									<!-- Modal -->
+								  	<div class="modal fade" id="myModal_4_NIKOLA_REBIC" role="dialog">
+								    <div class="modal-dialog">
+
+								      <!-- Modal content-->
+								      <div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal">&times;</button>
+								          <h4 class="modal-title">CRVENA ZVEZDA TELEKOM BELGRADE</h4>
+								        </div>
+								        <div class="modal-body">
+								          <p>Player: NIKOLA REBIC</p>
+								          <p>Nationality: SRB</p>
+								          <p>Signature: #4 NIKOLA</p>
+								        </div>
+								        <div class="modal-footer">
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div>
+								    </div>
+								  </div>
+								</td>
 							</tr>
 							
 						</tbody>
@@ -512,12 +648,29 @@
 				</div>
 			</div>
 			<!-- .tab-panel #player-stats -->
+
+			<div role='tabpanel' class='container tab-pane fade' id='play-by-play'>
+			<label for="#away-team-table" class="team-name-label">CRVENA ZVEZDA TELEKOM BELGRADE vs. LOKOMOTIV KUBAN KRASNODAR</label>
+				<div class="row top-buffer">
+					<table class="table table-responsive table-hover" id="play-by-play-table-id">
+						<thead>
+							<tr>
+								<th>Action</th>
+								<th>Result</th>
+								<th>Team</th>
+								<th>Player</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
 		</div>
 		<!-- .tab-content -->
 	</div>
-
 </body>
-
-
-
 </html>
