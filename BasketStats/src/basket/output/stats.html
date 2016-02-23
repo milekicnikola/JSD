@@ -112,6 +112,10 @@
 			});
 
 		});
+
+		function showPopup(id){
+			$('#id_'+id).click();
+		}
 	</script>
 </head>
 
@@ -326,33 +330,6 @@
 			<!-- .tab-panel #game-info -->
 
 			<div role='tabpanel' class='container tab-pane fade' id='player-stats'>
-
-
- <!-- Trigger the modal with a button -->
- <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-  <!-- <!-- Modal
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      Modal content
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> --> 
-
-
 				<div class="row top-buffer">
 					<label for="#home-team-table" class="team-name-label">CRVENA ZVEZDA</label>
 					<table class="table table-responsive table-hover" id="away-team-table">
@@ -413,12 +390,12 @@
 								<td>0</td>
 								<td>1</td>
 								<td>4</td>
-								<td>								
+								<td>
 									<button id="id_1_Kinsey_Tarence" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_1_Kinsey_Tarence">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_1_Kinsey_Tarence" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -426,16 +403,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Kinsey Tarence</p>
-								          <p>Nationality: USA</p>
-								          <p>Signature: #1 Kinsey</p>
+											<p>#1</p>
+			  								<p>Full Name: Kinsey, Tarence</p>
+											<p>Nationality: USA</p>
+			  								<p>Points: 3</p>
+											<p>Field Goals: 100.0% (1/1)</p>
+			  								<p>2-Points: 100.0% (1/1)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 100.0% (1/1)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 1</p>
+			  								<p>Performance Index Rating: 4</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -456,12 +449,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>3</td>
-								<td>								
+								<td>
 									<button id="id_4_Rebic_Nikola" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_4_Rebic_Nikola">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_4_Rebic_Nikola" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -469,16 +462,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Rebic Nikola</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #4 Rebic</p>
+											<p>#4</p>
+			  								<p>Full Name: Rebic, Nikola</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 3</p>
+											<p>Field Goals: 100.0% (1/1)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 100.0% (1/1)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 3</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -499,12 +508,12 @@
 								<td>1</td>
 								<td>0</td>
 								<td>1</td>
-								<td>								
+								<td>
 									<button id="id_6_Dangubic_Nemanja" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_6_Dangubic_Nemanja">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_6_Dangubic_Nemanja" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -512,16 +521,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Dangubic Nemanja</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #6 Dangubic</p>
+											<p>#6</p>
+			  								<p>Full Name: Dangubic, Nemanja</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 2</p>
+			  								<p>Total Rebounds: 2</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 1</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 1</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -542,12 +567,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>1</td>
-								<td>								
+								<td>
 									<button id="id_10_Lazic_Branko" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_10_Lazic_Branko">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_10_Lazic_Branko" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -555,16 +580,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Lazic Branko</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #10 Lazic</p>
+											<p>#10</p>
+			  								<p>Full Name: Lazic, Branko</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 1</p>
+			  								<p>Total Rebounds: 1</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 1</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -585,12 +626,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_13_Micic_Vasilije" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_13_Micic_Vasilije">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_13_Micic_Vasilije" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -598,16 +639,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Micic Vasilije</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #13 Micic</p>
+											<p>#13</p>
+			  								<p>Full Name: Micic, Vasilije</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 0</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -628,12 +685,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_15_Tejic_Marko" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_15_Tejic_Marko">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_15_Tejic_Marko" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -641,16 +698,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Tejic Marko</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #15 Tejic</p>
+											<p>#15</p>
+			  								<p>Full Name: Tejic, Marko</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 0</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -671,12 +744,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_19_Simonovic_Marko" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_19_Simonovic_Marko">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_19_Simonovic_Marko" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -684,16 +757,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Simonovic Marko</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #19 Simonovic</p>
+											<p>#19</p>
+			  								<p>Full Name: Simonovic, Marko</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 0</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -714,12 +803,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_23_Guduric_Marko" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_23_Guduric_Marko">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_23_Guduric_Marko" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -727,16 +816,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Guduric Marko</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #23 Guduric</p>
+											<p>#23</p>
+			  								<p>Full Name: Guduric, Marko</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 0</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -757,12 +862,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>3</td>
-								<td>								
+								<td>
 									<button id="id_24_Jovic_Stefan" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_24_Jovic_Stefan">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_24_Jovic_Stefan" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -770,16 +875,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Jovic Stefan</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #24 Jovic</p>
+											<p>#24</p>
+			  								<p>Full Name: Jovic, Stefan</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 1</p>
+			  								<p>Steals: 2</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 3</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -800,12 +921,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>2</td>
-								<td>								
+								<td>
 									<button id="id_30_Miller_Quincy" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_30_Miller_Quincy">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_30_Miller_Quincy" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -813,16 +934,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Miller Quincy</p>
-								          <p>Nationality: USA</p>
-								          <p>Signature: #30 Miller</p>
+											<p>#30</p>
+			  								<p>Full Name: Miller, Quincy</p>
+											<p>Nationality: USA</p>
+			  								<p>Points: 3</p>
+											<p>Field Goals: 100.0% (1/1)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 100.0% (1/1)</p>
+			  								<p>Free Throws: 0.0% (0/1)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: 2</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -843,12 +980,12 @@
 								<td>1</td>
 								<td>1</td>
 								<td>4</td>
-								<td>								
+								<td>
 									<button id="id_33_Zirbes_Maik" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_33_Zirbes_Maik">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_33_Zirbes_Maik" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -856,16 +993,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Zirbes Maik</p>
-								          <p>Nationality: GER</p>
-								          <p>Signature: #33 Zirbes</p>
+											<p>#33</p>
+			  								<p>Full Name: Zirbes, Maik</p>
+											<p>Nationality: GER</p>
+			  								<p>Points: 3</p>
+											<p>Field Goals: 100.0% (1/1)</p>
+			  								<p>2-Points: 100.0% (1/1)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 100.0% (1/1)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 1</p>
+			  								<p>Blocks Against:0</p>
+			  								<p>Fouls Commited: 1</p>
+			  								<p>Fouls Received: 1</p>
+			  								<p>Performance Index Rating: 4</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -886,12 +1039,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>-2</td>
-								<td>								
+								<td>
 									<button id="id_51_Stimac_Vladimir" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_51_Stimac_Vladimir">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_51_Stimac_Vladimir" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -899,16 +1052,32 @@
 								          <h4 class="modal-title">CRVENA ZVEZDA</h4>
 								        </div>
 								        <div class="modal-body">
-								          <p>Player: Stimac Vladimir</p>
-								          <p>Nationality: SRB</p>
-								          <p>Signature: #51 Stimac</p>
+											<p>#51</p>
+			  								<p>Full Name: Stimac, Vladimir</p>
+											<p>Nationality: SRB</p>
+			  								<p>Points: 0</p>
+											<p>Field Goals: 0% (0/0)</p>
+			  								<p>2-Points: 0% (0/0)</p>
+			  								<p>3-Points: 0% (0/0)</p>
+			  								<p>Free Throws: 0% (0/0)</p>
+			  								<p>Rebounds Offensive: 0</p>
+			  								<p>Rebounds Defensive: 0</p>
+			  								<p>Total Rebounds: 0</p>
+			  								<p>Assits: 0</p>
+			  								<p>Steals: 0</p>
+			  								<p>Turnovers: 0</p>
+			  								<p>Blocks in Favor: 0</p>
+			  								<p>Blocks Against:2</p>
+			  								<p>Fouls Commited: 0</p>
+			  								<p>Fouls Received: 0</p>
+			  								<p>Performance Index Rating: -2</p>
 								        </div>
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 						</tbody>
@@ -978,12 +1147,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_4_Rush_Brandon" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_4_Rush_Brandon">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_4_Rush_Brandon" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -998,9 +1167,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1021,12 +1190,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_5_Speights_Marreese" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_5_Speights_Marreese">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_5_Speights_Marreese" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1041,9 +1210,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1064,12 +1233,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_9_Igoudala_Andre" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_9_Igoudala_Andre">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_9_Igoudala_Andre" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1084,9 +1253,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1107,12 +1276,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>3</td>
-								<td>								
+								<td>
 									<button id="id_11_Thompson_Klay" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_11_Thompson_Klay">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_11_Thompson_Klay" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1127,9 +1296,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1150,12 +1319,12 @@
 								<td>2</td>
 								<td>0</td>
 								<td>-5</td>
-								<td>								
+								<td>
 									<button id="id_12_Bogut_Andrew" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_12_Bogut_Andrew">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_12_Bogut_Andrew" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1170,9 +1339,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1193,12 +1362,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>-1</td>
-								<td>								
+								<td>
 									<button id="id_19_Barbosa_Leandro" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_19_Barbosa_Leandro">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_19_Barbosa_Leandro" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1213,9 +1382,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1236,12 +1405,12 @@
 								<td>0</td>
 								<td>1</td>
 								<td>1</td>
-								<td>								
+								<td>
 									<button id="id_21_Clark_Ian" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_21_Clark_Ian">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_21_Clark_Ian" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1256,9 +1425,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1279,12 +1448,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>-1</td>
-								<td>								
+								<td>
 									<button id="id_23_Green_Draymond" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_23_Green_Draymond">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_23_Green_Draymond" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1299,9 +1468,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1322,12 +1491,12 @@
 								<td>0</td>
 								<td>1</td>
 								<td>5</td>
-								<td>								
+								<td>
 									<button id="id_30_Curry_Stephen" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_30_Curry_Stephen">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_30_Curry_Stephen" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1342,9 +1511,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1365,12 +1534,12 @@
 								<td>1</td>
 								<td>0</td>
 								<td>2</td>
-								<td>								
+								<td>
 									<button id="id_31_Ezeli_Festus" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_31_Ezeli_Festus">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_31_Ezeli_Festus" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1385,9 +1554,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1408,12 +1577,12 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>								
+								<td>
 									<button id="id_34_Livingston_Shaun" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_34_Livingston_Shaun">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_34_Livingston_Shaun" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1428,9 +1597,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 							<tr>
@@ -1451,12 +1620,12 @@
 								<td>1</td>
 								<td>0</td>
 								<td>1</td>
-								<td>								
+								<td>
 									<button id="id_40_Barnes_Harrison" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal_40_Barnes_Harrison">Details</button>
 									<!-- Modal -->
 								  	<div class="modal fade" id="myModal_40_Barnes_Harrison" role="dialog">
 								    <div class="modal-dialog">
-								    
+
 								      <!-- Modal content-->
 								      <div class="modal-content">
 								        <div class="modal-header">
@@ -1471,9 +1640,9 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div>								      
+								      </div>
 								    </div>
-								  </div>								
+								  </div>
 								</td>
 							</tr>
 						</tbody>
@@ -1493,7 +1662,7 @@
 				</div>
 			</div>
 			<!-- .tab-panel #player-stats -->
-			
+
 			<div role='tabpanel' class='container tab-pane fade' id='play-by-play'>
 			<label for="#away-team-table" class="team-name-label">CRVENA ZVEZDA vs. GOLDEN STATE</label>
 				<div class="row top-buffer">
@@ -1503,7 +1672,7 @@
 								<th>Action</th>
 								<th>Result</th>
 								<th>Team</th>
-								<th>Player</th>								
+								<th>Player</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -1511,394 +1680,382 @@
 								<td>Start of the game</td>
 								<td>0 - 0</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Quarter 1</td>
 								<td>0 - 0</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Free Throw Made</td>
 								<td>1 - 0</td>
 								<td>Crvena Zvezda</td>
-								<td>Maik Zirbes</td>								
+								<td>Maik Zirbes</td>
 							</tr>
 							<tr>
 								<td>Free Throw Missed</td>
 								<td>1 - 0</td>
 								<td>Golden State</td>
-								<td>Draymond Green</td>								
+								<td>Draymond Green</td>
 							</tr>
 							<tr>
 								<td>Three Points Made</td>
 								<td>1 - 3</td>
 								<td>Golden State</td>
-								<td>Klay Thompson</td>								
+								<td>Klay Thompson</td>
 							</tr>
 							<tr>
 								<td>Personal Foul</td>
 								<td>1 - 3</td>
 								<td>Golden State</td>
-								<td>Andrew Bogut</td>								
+								<td>Andrew Bogut</td>
 							</tr>
 							<tr>
 								<td>Foul Drawn</td>
 								<td>1 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Maik Zirbes</td>								
+								<td>Maik Zirbes</td>
 							</tr>
 							<tr>
 								<td>Tehnical Foul</td>
 								<td>1 - 3</td>
 								<td>Golden State</td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Tehnical Foul</td>
 								<td>1 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Two Points Made</td>
 								<td>3 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Tarence Kinsey</td>								
+								<td>Tarence Kinsey</td>
 							</tr>
 							<tr>
 								<td>Free Throw Made</td>
 								<td>4 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Tarence Kinsey</td>								
+								<td>Tarence Kinsey</td>
 							</tr>
 							<tr>
 								<td>Block</td>
 								<td>4 - 3</td>
 								<td>Golden State</td>
-								<td>Festus Ezeli</td>								
+								<td>Festus Ezeli</td>
 							</tr>
 							<tr>
 								<td>Shot Rejected</td>
 								<td>4 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Vladimir Stimac</td>								
+								<td>Vladimir Stimac</td>
 							</tr>
 							<tr>
 								<td>Block</td>
 								<td>4 - 3</td>
 								<td>Golden State</td>
-								<td>Festus Ezeli</td>								
+								<td>Festus Ezeli</td>
 							</tr>
 							<tr>
 								<td>Shot Rejected</td>
 								<td>4 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Vladimir Stimac</td>								
+								<td>Vladimir Stimac</td>
 							</tr>
 							<tr>
 								<td>End of Quarter 1</td>
 								<td>4 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Quarter 2</td>
 								<td>4 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Three Points Made</td>
 								<td>7 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Quincy Miller</td>								
+								<td>Quincy Miller</td>
 							</tr>
 							<tr>
 								<td>Free Throw Missed</td>
 								<td>7 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Quincy Miller</td>								
+								<td>Quincy Miller</td>
 							</tr>
 							<tr>
 								<td>Two Points Made</td>
 								<td>9 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Maik Zirbes</td>								
+								<td>Maik Zirbes</td>
 							</tr>
 							<tr>
 								<td>Assist</td>
 								<td>9 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Stefan Jovic</td>								
+								<td>Stefan Jovic</td>
 							</tr>
 							<tr>
 								<td>Personal Foul</td>
 								<td>9 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Nemanja Dangubic</td>								
+								<td>Nemanja Dangubic</td>
 							</tr>
 							<tr>
 								<td>Foul Drawn</td>
 								<td>9 - 3</td>
 								<td>Golden State</td>
-								<td>Ian Clark</td>								
+								<td>Ian Clark</td>
 							</tr>
 							<tr>
 								<td>Two Points Missed</td>
 								<td>9 - 3</td>
 								<td>Golden State</td>
-								<td>Andrew Bogut</td>								
+								<td>Andrew Bogut</td>
 							</tr>
 							<tr>
 								<td>Offensive Rebound</td>
 								<td>9 - 3</td>
 								<td>Golden State</td>
-								<td>Festus Ezeli</td>								
+								<td>Festus Ezeli</td>
 							</tr>
 							<tr>
 								<td>End of Quarter 2</td>
 								<td>9 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Quarter 3</td>
 								<td>9 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Offensive Rebound</td>
 								<td>9 - 3</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Three Points Made</td>
 								<td>12 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Nikola Rebic</td>								
+								<td>Nikola Rebic</td>
 							</tr>
 							<tr>
 								<td>Unsportsmanlike Foul</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Andrew Bogut</td>								
+								<td>Andrew Bogut</td>
 							</tr>
 							<tr>
 								<td>Defensive Rebound</td>
 								<td>12 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Branko Lazic</td>								
+								<td>Branko Lazic</td>
 							</tr>
 							<tr>
 								<td>Personal Foul</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Festus Ezeli</td>								
+								<td>Festus Ezeli</td>
 							</tr>
 							<tr>
 								<td>Foul Drawn</td>
 								<td>12 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Tarence Kinsey</td>								
+								<td>Tarence Kinsey</td>
 							</tr>
 							<tr>
 								<td>Two Points Missed</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Leandro Barbosa</td>								
+								<td>Leandro Barbosa</td>
 							</tr>
 							<tr>
 								<td>End of Quarter 3</td>
 								<td>12 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Quarter 4</td>
 								<td>12 - 3</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Block</td>
 								<td>12 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Maik Zirbes</td>								
+								<td>Maik Zirbes</td>
 							</tr>
 							<tr>
 								<td>Shot Rejected</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Andrew Bogut</td>								
+								<td>Andrew Bogut</td>
 							</tr>
 							<tr>
 								<td>Three Points Missed</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Two Points Missed</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Andrew Bogut</td>								
+								<td>Andrew Bogut</td>
 							</tr>
 							<tr>
 								<td>Personal Foul</td>
 								<td>12 - 3</td>
 								<td>Crvena Zvezda</td>
-								<td>Maik Zirbes</td>								
+								<td>Maik Zirbes</td>
 							</tr>
 							<tr>
 								<td>Foul Drawn</td>
 								<td>12 - 3</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Two Points Made</td>
 								<td>12 - 5</td>
 								<td>Golden State</td>
-								<td>Harrison Barnes</td>								
+								<td>Harrison Barnes</td>
 							</tr>
 							<tr>
 								<td>Tehnical Foul</td>
 								<td>12 - 5</td>
 								<td>Golden State</td>
-								<td>Harrison Barnes</td>								
+								<td>Harrison Barnes</td>
 							</tr>
 							<tr>
 								<td>End of Over Time 0</td>
 								<td>12 - 5</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Over Time 1</td>
 								<td>12 - 5</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Tehnical Foul</td>
 								<td>12 - 5</td>
 								<td>Crvena Zvezda</td>
-								<td>Dejan Radonjic</td>								
+								<td>Dejan Radonjic</td>
 							</tr>
 							<tr>
 								<td>Turnover</td>
 								<td>12 - 5</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Two Points Made</td>
 								<td>12 - 7</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Free Throw Made</td>
 								<td>12 - 8</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Steal</td>
 								<td>12 - 8</td>
 								<td>Crvena Zvezda</td>
-								<td>Stefan Jovic</td>								
+								<td>Stefan Jovic</td>
 							</tr>
 							<tr>
 								<td>Defensive Rebound</td>
 								<td>12 - 8</td>
 								<td>Crvena Zvezda</td>
-								<td>Nemanja Dangubic</td>								
+								<td>Nemanja Dangubic</td>
 							</tr>
 							<tr>
 								<td>End of Over Time 1</td>
 								<td>12 - 8</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Start of Over Time 2</td>
 								<td>12 - 8</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>Tehnical Foul</td>
 								<td>12 - 8</td>
 								<td>Crvena Zvezda</td>
-								<td>Dejan Radonjic</td>								
+								<td>Dejan Radonjic</td>
 							</tr>
 							<tr>
 								<td>Turnover</td>
 								<td>12 - 8</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Two Points Made</td>
 								<td>12 - 10</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Free Throw Made</td>
 								<td>12 - 11</td>
 								<td>Golden State</td>
-								<td>Stephen Curry</td>								
+								<td>Stephen Curry</td>
 							</tr>
 							<tr>
 								<td>Steal</td>
 								<td>12 - 11</td>
 								<td>Crvena Zvezda</td>
-								<td>Stefan Jovic</td>								
+								<td>Stefan Jovic</td>
 							</tr>
 							<tr>
 								<td>Defensive Rebound</td>
 								<td>12 - 11</td>
 								<td>Crvena Zvezda</td>
-								<td>Nemanja Dangubic</td>								
+								<td>Nemanja Dangubic</td>
 							</tr>
 							<tr>
 								<td>End of Over Time 2</td>
 								<td>12 - 11</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 							<tr>
 								<td>End of game </td>
 								<td>12 - 11</td>
 								<td></td>
-								<td></td>								
+								<td></td>
 							</tr>
 						</tbody>
 					</table>
-					
+
 				</div>
-				
+
 			</div>
 		</div>
 		<!-- .tab-content -->
 	</div>
-	
-	<script>
-	
-	function showPopup(id){
-		$('#id_'+id).click();
-	}
-	
-	</script>
-
 </body>
-
-
-
 </html>
